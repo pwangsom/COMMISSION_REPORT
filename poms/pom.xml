@@ -10,6 +10,16 @@
   <url>http://www.talend.org/</url>
   <modules>
     <module>code/routines</module>
+    <module>jobs/process/Commission/loadmasterdatafrompmtooracle_0.1</module>
+    <module>jobs/process/Commission/loadcommissionformula_0.1</module>
+    <module>jobs/process/Commission/loadcommissionformuladetails_0.1</module>
+    <module>jobs/process/Commission/loadcommissionreport_0.1</module>
+    <module>jobs/process/Commission/loadcommissionreportmonth_0.1</module>
+    <module>jobs/process/Commission/loadcontractmast_0.1</module>
+    <module>jobs/process/Commission/loadpartnerservicerelationship_0.1</module>
+    <module>jobs/process/Commission/loadsaaonoracle_0.1</module>
+    <module>jobs/process/Commission/loadcontractsaasapcode_0.1</module>
+    <module>jobs/process/Commission/loadcontractsaaservice_0.1</module>
   </modules>
   <properties>
     <talend.project.name>COMMISSION_REPORT</talend.project.name>
