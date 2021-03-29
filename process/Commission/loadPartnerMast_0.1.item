@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+  <context confirmationNeeded="false" name="Default"/>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="OVERRIDE_ENCODING_FLAG" value="false" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="OVERRIDE_ENCODING_IN_EXTRA" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="OVERRIDE_ENCODING_IN_EXTRA:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:CURC0bw0JvQ91VZI0lzb9i7BMzhZWPY0VCX9vAPJ" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;D:/opt/TOS_DI-Win32-20200219_1130-V7.3.1/workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tJDBCOutput" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_12" show="false"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:fHo/v0N7iaW3h8bLq9mvYtD2AxsDDcfgcXiYGZFE" show="false"/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_QoLxcJBgEeufK6KJRdxkDw" name="DataOperation"/>
+    <routinesParameter id="_QozcgJBgEeufK6KJRdxkDw" name="Mathematical"/>
+    <routinesParameter id="_QpA34JBgEeufK6KJRdxkDw" name="Numeric"/>
+    <routinesParameter id="_QpLP8JBgEeufK6KJRdxkDw" name="Relational"/>
+    <routinesParameter id="_QpW2IJBgEeufK6KJRdxkDw" name="StringHandling"/>
+    <routinesParameter id="_QpjqcJBgEeufK6KJRdxkDw" name="TalendDataGenerator"/>
+    <routinesParameter id="_Qpxs4JBgEeufK6KJRdxkDw" name="TalendDate"/>
+    <routinesParameter id="_QqAWYJBgEeufK6KJRdxkDw" name="TalendString"/>
+    <routinesParameter id="_QqNxwJBgEeufK6KJRdxkDw" name="TalendStringUtil"/>
+  </parameters>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;10.44.49.9&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;CAT_PM&quot;"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;pms_app&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Pz7vL+0+WivAX730dzOyAKHt8UMycvujsYTPMGFo6Mj5MRNmBzrlvBHzY8M="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw - PARTNER_MAST" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;PARTNER_MAST&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `PARTNER_MAST`.`PARTNER_ID`, &#xA;  `PARTNER_MAST`.`PARTNER_DATE`, &#xA;  `PARTNER_MAST`.`REF_APPL_ID`, &#xA;  `PARTNER_MAST`.`PARTNER_TYPE`, &#xA;  `PARTNER_MAST`.`PREFIX_CODE`, &#xA;  `PARTNER_MAST`.`PARTNER_NAME`, &#xA;  `PARTNER_MAST`.`SUFFIX_NAME`, &#xA;  `PARTNER_MAST`.`PARTNER_FULL_NAME`, &#xA;  `PARTNER_MAST`.`PARTNER_ABBV`, &#xA;  `PARTNER_MAST`.`ID_TYPE`, &#xA;  `PARTNER_MAST`.`ID_CARD`, &#xA;  `PARTNER_MAST`.`ID_BRANCH`, &#xA;  `PARTNER_MAST`.`BRANCH_NAME`, &#xA;  `PARTNER_MAST`.`DATE_OF_BIRTH`, &#xA;  `PARTNER_MAST`.`ISSUED_BY`, &#xA;  `PARTNER_MAST`.`ISSUED_DATE`, &#xA;  `PARTNER_MAST`.`EXPIRED_DATE`, &#xA;  `PARTNER_MAST`.`GENDER`, &#xA;  `PARTNER_MAST`.`NATION_CODE`, &#xA;  `PARTNER_MAST`.`PRIORITY_CODE`, &#xA;  `PARTNER_MAST`.`VAT_CODE`, &#xA;  `PARTNER_MAST`.`CAP_INCOME`, &#xA;  `PARTNER_MAST`.`SALARY_RANGE`, &#xA;  `PARTNER_MAST`.`TOTAL_EMP`, &#xA;  `PARTNER_MAST`.`ADDR_SEQ_BILL`, &#xA;  `PARTNER_MAST`.`CONTACT_PERSON_SEQ`, &#xA;  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_MOBILE`, &#xA;  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_EMAIL`, &#xA;  `PARTNER_MAST`.`DOC_ATTCH_SEQ`, &#xA;  `PARTNER_MAST`.`REF_SERVICE_CATE`, &#xA;  `PARTNER_MAST`.`REF_SAA_REGION`, &#xA;  `PARTNER_MAST`.`REF_SAA_PROVINCE`, &#xA;  `PARTNER_MAST`.`REF_SAA_SALES_TEAM`, &#xA;  `PARTNER_MAST`.`REF_SAA_SALES_REP`, &#xA;  `PARTNER_MAST`.`ASSIGN_BY_REG`, &#xA;  `PARTNER_MAST`.`ASSIGN_TO_TEAM_MGR`, &#xA;  `PARTNER_MAST`.`ASSIGN_DATE_1`, &#xA;  `PARTNER_MAST`.`ASSIGN_DATE_2`, &#xA;  `PARTNER_MAST`.`APPV_BY`, &#xA;  `PARTNER_MAST`.`APPV_DATE`, &#xA;  `PARTNER_MAST`.`STATUS`, &#xA;  `PARTNER_MAST`.`REASON_CODE`, &#xA;  `PARTNER_MAST`.`REASON_NOTE`, &#xA;  `PARTNER_MAST`.`BLACKLIST_FLAG`, &#xA;  `PARTNER_MAST`.`BLACKLIST_LEVEL`, &#xA;  `PARTNER_MAST`.`REF_CR_NO`, &#xA;  `PARTNER_MAST`.`REF_CA_ID`, &#xA;  `PARTNER_MAST`.`REF_PA_ID`, &#xA;  `PARTNER_MAST`.`CREDIT_LIMIT`, &#xA;  `PARTNER_MAST`.`CREDIT_AVAILABLE`, &#xA;  `PARTNER_MAST`.`CREDIT_TERMS`, &#xA;  `PARTNER_MAST`.`CONTR_RUNNING`, &#xA;  `PARTNER_MAST`.`CREATE_BY`, &#xA;  `PARTNER_MAST`.`CREATE_DATE`, &#xA;  `PARTNER_MAST`.`LAST_UPDATE_BY`, &#xA;  `PARTNER_MAST`.`LAST_UPDATE_DATE`, &#xA;  `PARTNER_MAST`.`REMARK`, &#xA;  `PARTNER_MAST`.`REF_SAA_CODE`, &#xA;  `PARTNER_MAST`.`VENDOR_CODE`, &#xA;  `PARTNER_MAST`.`USSD_SELLER_CODE_SEQ`&#xA;FROM `PARTNER_MAST`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_APPL_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_TYPE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PREFIX_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SUFFIX_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_FULL_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_ABBV"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_TYPE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_CARD"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_BRANCH"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BRANCH_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DATE_OF_BIRTH"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ISSUED_BY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ISSUED_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EXPIRED_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="GENDER"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NATION_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRIORITY_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VAT_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CAP_INCOME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SALARY_RANGE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TOTAL_EMP"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ADDR_SEQ_BILL"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_PERSON_SEQ"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_CHANNEL_SEQ_MOBILE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_CHANNEL_SEQ_EMAIL"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DOC_ATTCH_SEQ"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SERVICE_CATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_REGION"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_PROVINCE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_SALES_TEAM"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_SALES_REP"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_BY_REG"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_TO_TEAM_MGR"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_DATE_1"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_DATE_2"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="APPV_BY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="APPV_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="STATUS"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REASON_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REASON_NOTE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BLACKLIST_FLAG"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BLACKLIST_LEVEL"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_CR_NO"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_CA_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_PA_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_LIMIT"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_AVAILABLE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_TERMS"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTR_RUNNING"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_BY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_BY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REMARK"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VENDOR_CODE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="USSD_SELLER_CODE_SEQ"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="PARTNER_MAST" name="tDBInput_1">
+      <column comment="รหัสตัวแทนขาย -> Running No." key="true" length="19" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="BIGINT" type="id_Long" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสตัวแทนขาย -> Running No."/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="PARTNER_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="อ้างอิงใบสมัครตัวแทนขาย" key="false" length="20" name="REF_APPL_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบสมัครตัวแทนขาย"/>
+      </column>
+      <column comment="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)" defaultValue="'2'" key="false" length="2" name="PARTNER_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)"/>
+      </column>
+      <column comment="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)" key="false" length="5" name="PREFIX_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)"/>
+      </column>
+      <column comment="ชื่อบุคคล/ชื่อบริษัท" key="false" length="100" name="PARTNER_NAME" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อบุคคล/ชื่อบริษัท"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล" key="false" length="100" name="SUFFIX_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล"/>
+      </column>
+      <column comment="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล" key="false" length="300" name="PARTNER_FULL_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล"/>
+      </column>
+      <column comment="ชื่อย่อขององค์กร" key="false" length="20" name="PARTNER_ABBV" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อย่อขององค์กร"/>
+      </column>
+      <column comment="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)" defaultValue="'1'" key="false" length="2" name="ID_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)"/>
+      </column>
+      <column comment="หมายเลขบัตร/เอกสารที่สมัคร" defaultValue="'0'" key="false" length="20" name="ID_CARD" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมายเลขบัตร/เอกสารที่สมัคร"/>
+      </column>
+      <column comment="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา" key="false" length="5" name="ID_BRANCH" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา"/>
+      </column>
+      <column comment="ชื่อสาขา" key="false" length="200" name="BRANCH_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อสาขา"/>
+      </column>
+      <column comment="" key="false" length="10" name="DATE_OF_BIRTH" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="สนง.ที่ออกบัตร" key="false" length="200" name="ISSUED_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สนง.ที่ออกบัตร"/>
+      </column>
+      <column comment="วันที่ออกบัตร / วันที่จดทะเบียน" key="false" length="10" name="ISSUED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ออกบัตร / วันที่จดทะเบียน"/>
+      </column>
+      <column comment="" key="false" length="10" name="EXPIRED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เพศ Ref. LK_GRNDER.CODE" key="false" length="1" name="GENDER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เพศ Ref. LK_GRNDER.CODE"/>
+      </column>
+      <column comment="สัญชาติ LK_NATION.CODE" key="false" length="3" name="NATION_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สัญชาติ LK_NATION.CODE"/>
+      </column>
+      <column comment="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP" key="false" length="1" name="PRIORITY_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP"/>
+      </column>
+      <column comment="VAT Ref. LK_VAT (In/Exclude VAT, etc.)" key="false" length="1" name="VAT_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="VAT Ref. LK_VAT (In/Exclude VAT, etc.)"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้" key="false" length="15" name="CAP_INCOME" nullable="true" pattern="" precision="0" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้"/>
+      </column>
+      <column comment="" key="false" length="3" name="SALARY_RANGE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="????????????" key="false" length="3" name="TOTAL_EMP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="????????????"/>
+      </column>
+      <column comment="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)" key="false" length="10" name="ADDR_SEQ_BILL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)"/>
+      </column>
+      <column comment="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')" key="false" length="10" name="CONTACT_PERSON_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_MOBILE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_EMAIL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="DOC_ATTCH_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)" key="false" length="3" name="REF_SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)"/>
+      </column>
+      <column comment="รหัสเขต (Ref. -> LK_REGION.CODE)" key="false" length="20" name="REF_SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเขต (Ref. -> LK_REGION.CODE)"/>
+      </column>
+      <column comment="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)" key="false" length="100" name="REF_SAA_PROVINCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)"/>
+      </column>
+      <column comment="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)" key="false" length="20" name="REF_SAA_SALES_TEAM" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_SAA_SALES_REP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="ผู้มอบหมายงานจาก สข. " key="false" length="20" name="ASSIGN_BY_REG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้มอบหมายงานจาก สข. "/>
+      </column>
+      <column comment="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)" key="false" length="10" name="ASSIGN_TO_TEAM_MGR" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)"/>
+      </column>
+      <column comment="วันที่รับมอบหมายจาก สข." key="false" length="10" name="ASSIGN_DATE_1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่รับมอบหมายจาก สข."/>
+      </column>
+      <column comment="วันที่พนักงาน CAT ได้รับมอบหมาย" key="false" length="10" name="ASSIGN_DATE_2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่พนักงาน CAT ได้รับมอบหมาย"/>
+      </column>
+      <column comment="ผู้อนุมัติ (พนักงานขาย)" key="false" length="20" name="APPV_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้อนุมัติ (พนักงานขาย)"/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="APPV_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)" key="false" length="2" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)"/>
+      </column>
+      <column comment="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)" key="false" length="5" name="REASON_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)"/>
+      </column>
+      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำอธิบายการพิจารณาเพิ่มเติม"/>
+      </column>
+      <column comment="สถานะอยู่ในบัญชีดำ Y/N" defaultValue="'N'" key="false" length="1" name="BLACKLIST_FLAG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะอยู่ในบัญชีดำ Y/N"/>
+      </column>
+      <column comment="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)" key="false" length="5" name="BLACKLIST_LEVEL" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)"/>
+      </column>
+      <column comment="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด" key="false" length="10" name="REF_CR_NO" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="อ้างอิงรหัส Customer Account จากระบบของ CAT" key="false" length="20" name="REF_CA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงรหัส Customer Account จากระบบของ CAT"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_PA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_LIMIT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_AVAILABLE" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0" key="false" length="5" name="CREDIT_TERMS" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Short" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)" key="false" length="10" name="CONTR_RUNNING" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)"/>
+      </column>
+      <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้สร้างรายการ"/>
+      </column>
+      <column comment="วันที่สร้างรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่สร้างรายการ"/>
+      </column>
+      <column comment="ผู้ปรับปรุงข้อมูล" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้ปรับปรุงข้อมูล"/>
+      </column>
+      <column comment="วันที่ปรับปรุงข้อมูลล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="" key="false" length="65535" name="REMARK" nullable="true" pattern="" precision="0" sourceType="TEXT" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REF_SAA_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="45" name="VENDOR_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลข running  ussd seller code ของตัวแทนขาย" key="false" length="10" name="USSD_SELLER_CODE_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลข running  ussd seller code ของตัวแทนขาย"/>
+      </column>
+      <additionalProperties key="Comment" value="แฟ้มข้อมูลตัวแทนจำหน่าย"/>
+    </metadata>
+  </node>
+  <node componentName="tOracleOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBOutput_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_vkU1UJBnEeufK6KJRdxkDw" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="CONNECTION_TYPE" value="ORACLE_SERVICE_NAME"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_18"/>
+    <elementParameter field="TEXT" name="RAC_URL" value="&quot;10.44.66.245&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;10.44.66.245&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;1521&quot;"/>
+    <elementParameter field="TEXT" name="TYPE" value="ORACLE_SERVICE_NAME" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;frontend&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;frontend&quot;" show="false"/>
+    <elementParameter field="TEXT" name="TABLESCHEMA" value="&quot;A_PMS_COM&quot;"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;a_pms_com&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:v2C5b/zf9Y6iPSfbHoISxeoRy5yn1oW7c3NfV6CAB8hgfiM8A7Y="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;PARTNER_MAST&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CREATE_IF_NOT_EXISTS"/>
+    <elementParameter field="LABEL" name="NOTE" value="Warning : this component configuration will automatically generate a commit before data insert/update/delete" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT_OR_UPDATE"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="oracle_id" show="false"/>
+    <elementParameter field="TEXT" name="JDBC_URL" value="&quot;jdbc:oracle:oci:/@talend&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="*Note: Example for Additional JDBC Parameters: &quot;parameterName1=value1&amp;&amp;parameterName2=value2&quot;"/>
+    <elementParameter field="CHECK" name="USE_ALTERNATE_SCHEMA" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ALTERNATE_SCHEMA" value="&quot;&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_APPL_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_TYPE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PREFIX_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_NAME"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SUFFIX_NAME"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_FULL_NAME"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_ABBV"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_TYPE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_CARD"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_BRANCH"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BRANCH_NAME"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DATE_OF_BIRTH"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ISSUED_BY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ISSUED_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="EXPIRED_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="GENDER"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="NATION_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRIORITY_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VAT_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CAP_INCOME"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SALARY_RANGE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="TOTAL_EMP"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ADDR_SEQ_BILL"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_PERSON_SEQ"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_CHANNEL_SEQ_MOBILE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTACT_CHANNEL_SEQ_EMAIL"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DOC_ATTCH_SEQ"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SERVICE_CATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_REGION"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_PROVINCE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_SALES_TEAM"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_SALES_REP"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_BY_REG"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_TO_TEAM_MGR"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_DATE_1"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ASSIGN_DATE_2"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="APPV_BY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="APPV_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="STATUS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REASON_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REASON_NOTE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BLACKLIST_FLAG"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="BLACKLIST_LEVEL"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_CR_NO"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_CA_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_PA_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_LIMIT"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_AVAILABLE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREDIT_TERMS"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CONTR_RUNNING"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_BY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_BY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REMARK"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REF_SAA_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="VENDOR_CODE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="USSD_SELLER_CODE_SEQ"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
+    <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
+    <elementParameter field="CHECK" name="CONVERT_COLUMN_TABLE_TO_UPPERCASE" value="false"/>
+    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter field="CHECK" name="USE_BATCH_SIZE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="USE_BATCH_AND_USE_CONN" value="false" show="false"/>
+    <elementParameter field="TEXT" name="BATCH_SIZE" value="10000" show="false"/>
+    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
+    <elementParameter field="CHECK" name="USE_TIMESTAMP_FOR_DATE_TYPE" value="true"/>
+    <elementParameter field="CHECK" name="TRIM_CHAR" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="PARTNER_MAST" name="tDBOutput_1">
+      <column comment="รหัสตัวแทนขาย -> Running No." key="true" length="19" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="NUMBER" type="id_Long" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสตัวแทนขาย -> Running No."/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="PARTNER_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="อ้างอิงใบสมัครตัวแทนขาย" key="false" length="20" name="REF_APPL_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบสมัครตัวแทนขาย"/>
+      </column>
+      <column comment="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)" defaultValue="'2'" key="false" length="2" name="PARTNER_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)"/>
+      </column>
+      <column comment="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)" key="false" length="5" name="PREFIX_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)"/>
+      </column>
+      <column comment="ชื่อบุคคล/ชื่อบริษัท" key="false" length="300" name="PARTNER_NAME" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อบุคคล/ชื่อบริษัท"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล" key="false" length="100" name="SUFFIX_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล"/>
+      </column>
+      <column comment="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล" key="false" length="300" name="PARTNER_FULL_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล"/>
+      </column>
+      <column comment="ชื่อย่อขององค์กร" key="false" length="20" name="PARTNER_ABBV" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อย่อขององค์กร"/>
+      </column>
+      <column comment="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)" defaultValue="'1'" key="false" length="2" name="ID_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)"/>
+      </column>
+      <column comment="หมายเลขบัตร/เอกสารที่สมัคร" defaultValue="'0'" key="false" length="20" name="ID_CARD" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมายเลขบัตร/เอกสารที่สมัคร"/>
+      </column>
+      <column comment="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา" key="false" length="5" name="ID_BRANCH" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา"/>
+      </column>
+      <column comment="ชื่อสาขา" key="false" length="200" name="BRANCH_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อสาขา"/>
+      </column>
+      <column comment="" key="false" length="10" name="DATE_OF_BIRTH" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="สนง.ที่ออกบัตร" key="false" length="300" name="ISSUED_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สนง.ที่ออกบัตร"/>
+      </column>
+      <column comment="วันที่ออกบัตร / วันที่จดทะเบียน" key="false" length="10" name="ISSUED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ออกบัตร / วันที่จดทะเบียน"/>
+      </column>
+      <column comment="" key="false" length="10" name="EXPIRED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เพศ Ref. LK_GRNDER.CODE" key="false" length="1" name="GENDER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เพศ Ref. LK_GRNDER.CODE"/>
+      </column>
+      <column comment="สัญชาติ LK_NATION.CODE" key="false" length="3" name="NATION_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สัญชาติ LK_NATION.CODE"/>
+      </column>
+      <column comment="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP" key="false" length="1" name="PRIORITY_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP"/>
+      </column>
+      <column comment="VAT Ref. LK_VAT (In/Exclude VAT, etc.)" key="false" length="1" name="VAT_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="VAT Ref. LK_VAT (In/Exclude VAT, etc.)"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้" key="false" length="15" name="CAP_INCOME" nullable="true" pattern="" precision="0" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้"/>
+      </column>
+      <column comment="" key="false" length="3" name="SALARY_RANGE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="????????????" key="false" length="3" name="TOTAL_EMP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="????????????"/>
+      </column>
+      <column comment="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)" key="false" length="10" name="ADDR_SEQ_BILL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)"/>
+      </column>
+      <column comment="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')" key="false" length="10" name="CONTACT_PERSON_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_MOBILE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_EMAIL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="DOC_ATTCH_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)" key="false" length="3" name="REF_SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)"/>
+      </column>
+      <column comment="รหัสเขต (Ref. -> LK_REGION.CODE)" key="false" length="20" name="REF_SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเขต (Ref. -> LK_REGION.CODE)"/>
+      </column>
+      <column comment="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)" key="false" length="100" name="REF_SAA_PROVINCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)"/>
+      </column>
+      <column comment="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)" key="false" length="20" name="REF_SAA_SALES_TEAM" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_SAA_SALES_REP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="ผู้มอบหมายงานจาก สข. " key="false" length="20" name="ASSIGN_BY_REG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้มอบหมายงานจาก สข. "/>
+      </column>
+      <column comment="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)" key="false" length="10" name="ASSIGN_TO_TEAM_MGR" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)"/>
+      </column>
+      <column comment="วันที่รับมอบหมายจาก สข." key="false" length="10" name="ASSIGN_DATE_1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่รับมอบหมายจาก สข."/>
+      </column>
+      <column comment="วันที่พนักงาน CAT ได้รับมอบหมาย" key="false" length="10" name="ASSIGN_DATE_2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่พนักงาน CAT ได้รับมอบหมาย"/>
+      </column>
+      <column comment="ผู้อนุมัติ (พนักงานขาย)" key="false" length="20" name="APPV_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้อนุมัติ (พนักงานขาย)"/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="APPV_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)" key="false" length="2" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)"/>
+      </column>
+      <column comment="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)" key="false" length="5" name="REASON_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)"/>
+      </column>
+      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำอธิบายการพิจารณาเพิ่มเติม"/>
+      </column>
+      <column comment="สถานะอยู่ในบัญชีดำ Y/N" defaultValue="'N'" key="false" length="1" name="BLACKLIST_FLAG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะอยู่ในบัญชีดำ Y/N"/>
+      </column>
+      <column comment="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)" key="false" length="5" name="BLACKLIST_LEVEL" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)"/>
+      </column>
+      <column comment="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด" key="false" length="10" name="REF_CR_NO" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="อ้างอิงรหัส Customer Account จากระบบของ CAT" key="false" length="20" name="REF_CA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงรหัส Customer Account จากระบบของ CAT"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_PA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_LIMIT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_AVAILABLE" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0" key="false" length="5" name="CREDIT_TERMS" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Short" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)" key="false" length="10" name="CONTR_RUNNING" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)"/>
+      </column>
+      <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้สร้างรายการ"/>
+      </column>
+      <column comment="วันที่สร้างรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่สร้างรายการ"/>
+      </column>
+      <column comment="ผู้ปรับปรุงข้อมูล" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้ปรับปรุงข้อมูล"/>
+      </column>
+      <column comment="วันที่ปรับปรุงข้อมูลล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="" key="false" length="65535" name="REMARK" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REF_SAA_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="45" name="VENDOR_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลข running  ussd seller code ของตัวแทนขาย" key="false" length="10" name="USSD_SELLER_CODE_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลข running  ussd seller code ของตัวแทนขาย"/>
+      </column>
+      <additionalProperties key="Comment" value="แฟ้มข้อมูลตัวแทนจำหน่าย"/>
+    </metadata>
+    <metadata connector="REJECT" label="PARTNER_MAST" name="REJECT">
+      <column comment="รหัสตัวแทนขาย -> Running No." key="true" length="19" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="NUMBER" type="id_Long" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสตัวแทนขาย -> Running No."/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="PARTNER_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="อ้างอิงใบสมัครตัวแทนขาย" key="false" length="20" name="REF_APPL_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบสมัครตัวแทนขาย"/>
+      </column>
+      <column comment="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)" defaultValue="'2'" key="false" length="2" name="PARTNER_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทผู้สมัคร (REF. -> LK_PARTNER_TYPE.CODE)"/>
+      </column>
+      <column comment="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)" key="false" length="5" name="PREFIX_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำนำหน้าชื่อ (REF. -> PERSONAL=LK_TITLE.CODE, CORPORATE=LK_BIZ_TYPE.CODE)"/>
+      </column>
+      <column comment="ชื่อบุคคล/ชื่อบริษัท" key="false" length="300" name="PARTNER_NAME" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อบุคคล/ชื่อบริษัท"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล" key="false" length="100" name="SUFFIX_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ นามสกุล"/>
+      </column>
+      <column comment="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล" key="false" length="300" name="PARTNER_FULL_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="จะเป็นการรวม คำนำหน้าชื่อ + ชื่อ + นามสกุล เพื่อความรวดเร็วในการออกรายงานและการแสดงผล"/>
+      </column>
+      <column comment="ชื่อย่อขององค์กร" key="false" length="20" name="PARTNER_ABBV" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อย่อขององค์กร"/>
+      </column>
+      <column comment="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)" defaultValue="'1'" key="false" length="2" name="ID_TYPE" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทบัตร/เอกสารที่สมัคร (REF. -> LK_ID_TYPE.CODE)"/>
+      </column>
+      <column comment="หมายเลขบัตร/เอกสารที่สมัคร" defaultValue="'0'" key="false" length="20" name="ID_CARD" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมายเลขบัตร/เอกสารที่สมัคร"/>
+      </column>
+      <column comment="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา" key="false" length="5" name="ID_BRANCH" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ใช้ในกรณีที่เป็น 2-นิติบุคคล เท่านั้น จะหมายถึง PARTNER ที่เป็นสาขา"/>
+      </column>
+      <column comment="ชื่อสาขา" key="false" length="200" name="BRANCH_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ชื่อสาขา"/>
+      </column>
+      <column comment="" key="false" length="10" name="DATE_OF_BIRTH" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="สนง.ที่ออกบัตร" key="false" length="300" name="ISSUED_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สนง.ที่ออกบัตร"/>
+      </column>
+      <column comment="วันที่ออกบัตร / วันที่จดทะเบียน" key="false" length="10" name="ISSUED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ออกบัตร / วันที่จดทะเบียน"/>
+      </column>
+      <column comment="" key="false" length="10" name="EXPIRED_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เพศ Ref. LK_GRNDER.CODE" key="false" length="1" name="GENDER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เพศ Ref. LK_GRNDER.CODE"/>
+      </column>
+      <column comment="สัญชาติ LK_NATION.CODE" key="false" length="3" name="NATION_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สัญชาติ LK_NATION.CODE"/>
+      </column>
+      <column comment="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP" key="false" length="1" name="PRIORITY_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="เกรด LK_PRIOITY.CODE:-VIP/Non-VIP"/>
+      </column>
+      <column comment="VAT Ref. LK_VAT (In/Exclude VAT, etc.)" key="false" length="1" name="VAT_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="VAT Ref. LK_VAT (In/Exclude VAT, etc.)"/>
+      </column>
+      <column comment="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้" key="false" length="15" name="CAP_INCOME" nullable="true" pattern="" precision="0" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value="ถ้าเป็น1-บุคคลธรรมดา จะคือ รายได้"/>
+      </column>
+      <column comment="" key="false" length="3" name="SALARY_RANGE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="????????????" key="false" length="3" name="TOTAL_EMP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="????????????"/>
+      </column>
+      <column comment="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)" key="false" length="10" name="ADDR_SEQ_BILL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสสถานที่วางบิล (REF. -> PARTNER_ADDRESS_TRAN.SEQ)"/>
+      </column>
+      <column comment="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')" key="false" length="10" name="CONTACT_PERSON_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสผู้ติดต่อ, REF. -> LK_CONTACT_TYPE.CODE ('PROFILE_DISPLAY_FLAG='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_MOBILE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="CONTACT_CHANNEL_SEQ_EMAIL" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสช่องทางติดต่อ  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')" key="false" length="10" name="DOC_ATTCH_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="ประเภทเอกสาร  (REF. -> PARTNER_DOC_ATTCH.SEQ -PROFILE_DISPLAY='Y')"/>
+      </column>
+      <column comment="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)" key="false" length="3" name="REF_SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="หมวดสินค้าที่สมัครเป็นตัวแทนขาย (REF. -> LK_SERVICE_CATE.CODE)"/>
+      </column>
+      <column comment="รหัสเขต (Ref. -> LK_REGION.CODE)" key="false" length="20" name="REF_SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเขต (Ref. -> LK_REGION.CODE)"/>
+      </column>
+      <column comment="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)" key="false" length="100" name="REF_SAA_PROVINCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสจังหวัด (Ref. -> LK_PROVINCE.CODE)"/>
+      </column>
+      <column comment="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)" key="false" length="20" name="REF_SAA_SALES_TEAM" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัส ส่วน/สค. (Ref. -> LK_SAA_SALES_TEAM.CODE)"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_SAA_SALES_REP" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="ผู้มอบหมายงานจาก สข. " key="false" length="20" name="ASSIGN_BY_REG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้มอบหมายงานจาก สข. "/>
+      </column>
+      <column comment="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)" key="false" length="10" name="ASSIGN_TO_TEAM_MGR" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้บริหาร สค. ที่ได้รับรับมอบหมายงาน (REF. EMPLOYEE.EMP_ID)"/>
+      </column>
+      <column comment="วันที่รับมอบหมายจาก สข." key="false" length="10" name="ASSIGN_DATE_1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่รับมอบหมายจาก สข."/>
+      </column>
+      <column comment="วันที่พนักงาน CAT ได้รับมอบหมาย" key="false" length="10" name="ASSIGN_DATE_2" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่พนักงาน CAT ได้รับมอบหมาย"/>
+      </column>
+      <column comment="ผู้อนุมัติ (พนักงานขาย)" key="false" length="20" name="APPV_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้อนุมัติ (พนักงานขาย)"/>
+      </column>
+      <column comment="วันที่อนุมัติ" key="false" length="10" name="APPV_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่อนุมัติ"/>
+      </column>
+      <column comment="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)" key="false" length="2" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะของตัวแทน (REF. LK_PARTNER_STATUS.CODE)"/>
+      </column>
+      <column comment="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)" key="false" length="5" name="REASON_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="รหัสเหตุผล (Ref. -> LK_REJECT_REASON.CODE)"/>
+      </column>
+      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="คำอธิบายการพิจารณาเพิ่มเติม"/>
+      </column>
+      <column comment="สถานะอยู่ในบัญชีดำ Y/N" defaultValue="'N'" key="false" length="1" name="BLACKLIST_FLAG" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="สถานะอยู่ในบัญชีดำ Y/N"/>
+      </column>
+      <column comment="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)" key="false" length="5" name="BLACKLIST_LEVEL" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ระดับการติด B/L ( REF. -> LK_BLACKLIST_LEVEL.CODE)"/>
+      </column>
+      <column comment="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด" key="false" length="10" name="REF_CR_NO" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงใบขอปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="อ้างอิงรหัส Customer Account จากระบบของ CAT" key="false" length="20" name="REF_CA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="อ้างอิงรหัส Customer Account จากระบบของ CAT"/>
+      </column>
+      <column comment="" key="false" length="20" name="REF_PA_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_LIMIT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0.00" key="false" length="14" name="CREDIT_AVAILABLE" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" defaultValue="0" key="false" length="5" name="CREDIT_TERMS" nullable="true" pattern="" precision="0" sourceType="SMALLINT" type="id_Short" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)" key="false" length="10" name="CONTR_RUNNING" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลขที่ Running สัญญาตามรหัสตัวแทน (Def. = 1)"/>
+      </column>
+      <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้สร้างรายการ"/>
+      </column>
+      <column comment="วันที่สร้างรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่สร้างรายการ"/>
+      </column>
+      <column comment="ผู้ปรับปรุงข้อมูล" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value="ผู้ปรับปรุงข้อมูล"/>
+      </column>
+      <column comment="วันที่ปรับปรุงข้อมูลล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงข้อมูลล่าสุด"/>
+      </column>
+      <column comment="" key="false" length="65535" name="REMARK" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REF_SAA_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="45" name="VENDOR_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="เลข running  ussd seller code ของตัวแทนขาย" key="false" length="10" name="USSD_SELLER_CODE_SEQ" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value="เลข running  ussd seller code ของตัวแทนขาย"/>
+      </column>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR2" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR2" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <additionalProperties key="Comment" value="แฟ้มข้อมูลตัวแทนจำหน่าย"/>
+    </metadata>
+  </node>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tDBOutput_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+</talendfile:ProcessType>

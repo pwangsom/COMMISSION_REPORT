@@ -270,16 +270,6 @@ public class loadContractMast implements TalendJob {
 		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tMap_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap)
-			throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
-	}
-
 	public void tDBOutput_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
@@ -298,7 +288,7 @@ public class loadContractMast implements TalendJob {
 
 	}
 
-	public static class toOracleStruct implements routines.system.IPersistableRow<toOracleStruct> {
+	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
 		final static byte[] commonByteArrayLock_COMMISSION_REPORT_loadContractMast = new byte[0];
 		static byte[] commonByteArray_COMMISSION_REPORT_loadContractMast = new byte[0];
 		protected static final int DEFAULT_HASHCODE = 1;
@@ -446,22 +436,10 @@ public class loadContractMast implements TalendJob {
 			return this.CREATE_BY;
 		}
 
-		public java.util.Date CREATE_DATE;
-
-		public java.util.Date getCREATE_DATE() {
-			return this.CREATE_DATE;
-		}
-
 		public String LAST_UPDATE_BY;
 
 		public String getLAST_UPDATE_BY() {
 			return this.LAST_UPDATE_BY;
-		}
-
-		public java.util.Date LAST_UPDATE_DATE;
-
-		public java.util.Date getLAST_UPDATE_DATE() {
-			return this.LAST_UPDATE_DATE;
 		}
 
 		public String IS_SKIPPED_BY_FINANCE;
@@ -504,7 +482,7 @@ public class loadContractMast implements TalendJob {
 				return false;
 			if (getClass() != obj.getClass())
 				return false;
-			final toOracleStruct other = (toOracleStruct) obj;
+			final row1Struct other = (row1Struct) obj;
 
 			if (this.CONTRACT_ID == null) {
 				if (other.CONTRACT_ID != null)
@@ -517,7 +495,7 @@ public class loadContractMast implements TalendJob {
 			return true;
 		}
 
-		public void copyDataTo(toOracleStruct other) {
+		public void copyDataTo(row1Struct other) {
 
 			other.CONTRACT_ID = this.CONTRACT_ID;
 			other.CONTRACT_DATE = this.CONTRACT_DATE;
@@ -542,16 +520,14 @@ public class loadContractMast implements TalendJob {
 			other.REASON_CODE = this.REASON_CODE;
 			other.REASON_NOTE = this.REASON_NOTE;
 			other.CREATE_BY = this.CREATE_BY;
-			other.CREATE_DATE = this.CREATE_DATE;
 			other.LAST_UPDATE_BY = this.LAST_UPDATE_BY;
-			other.LAST_UPDATE_DATE = this.LAST_UPDATE_DATE;
 			other.IS_SKIPPED_BY_FINANCE = this.IS_SKIPPED_BY_FINANCE;
 			other.MY_COMMISSION_ID = this.MY_COMMISSION_ID;
 			other.IS_PROTOTYPE = this.IS_PROTOTYPE;
 
 		}
 
-		public void copyKeysDataTo(toOracleStruct other) {
+		public void copyKeysDataTo(row1Struct other) {
 
 			other.CONTRACT_ID = this.CONTRACT_ID;
 
@@ -672,11 +648,7 @@ public class loadContractMast implements TalendJob {
 
 					this.CREATE_BY = readString(dis);
 
-					this.CREATE_DATE = readDate(dis);
-
 					this.LAST_UPDATE_BY = readString(dis);
-
-					this.LAST_UPDATE_DATE = readDate(dis);
 
 					this.IS_SKIPPED_BY_FINANCE = readString(dis);
 
@@ -803,17 +775,9 @@ public class loadContractMast implements TalendJob {
 
 				writeString(this.CREATE_BY, dos);
 
-				// java.util.Date
-
-				writeDate(this.CREATE_DATE, dos);
-
 				// String
 
 				writeString(this.LAST_UPDATE_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.LAST_UPDATE_DATE, dos);
 
 				// String
 
@@ -866,545 +830,7 @@ public class loadContractMast implements TalendJob {
 			sb.append(",REASON_CODE=" + REASON_CODE);
 			sb.append(",REASON_NOTE=" + REASON_NOTE);
 			sb.append(",CREATE_BY=" + CREATE_BY);
-			sb.append(",CREATE_DATE=" + String.valueOf(CREATE_DATE));
 			sb.append(",LAST_UPDATE_BY=" + LAST_UPDATE_BY);
-			sb.append(",LAST_UPDATE_DATE=" + String.valueOf(LAST_UPDATE_DATE));
-			sb.append(",IS_SKIPPED_BY_FINANCE=" + IS_SKIPPED_BY_FINANCE);
-			sb.append(",MY_COMMISSION_ID=" + MY_COMMISSION_ID);
-			sb.append(",IS_PROTOTYPE=" + String.valueOf(IS_PROTOTYPE));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(toOracleStruct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.CONTRACT_ID, other.CONTRACT_ID);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
-		final static byte[] commonByteArrayLock_COMMISSION_REPORT_loadContractMast = new byte[0];
-		static byte[] commonByteArray_COMMISSION_REPORT_loadContractMast = new byte[0];
-
-		public String CONTRACT_ID;
-
-		public String getCONTRACT_ID() {
-			return this.CONTRACT_ID;
-		}
-
-		public java.util.Date CONTRACT_DATE;
-
-		public java.util.Date getCONTRACT_DATE() {
-			return this.CONTRACT_DATE;
-		}
-
-		public String PARTNER_ID;
-
-		public String getPARTNER_ID() {
-			return this.PARTNER_ID;
-		}
-
-		public String REF_CONTRACT;
-
-		public String getREF_CONTRACT() {
-			return this.REF_CONTRACT;
-		}
-
-		public String PROJECT_NAME;
-
-		public String getPROJECT_NAME() {
-			return this.PROJECT_NAME;
-		}
-
-		public String SERVICE_CATE;
-
-		public String getSERVICE_CATE() {
-			return this.SERVICE_CATE;
-		}
-
-		public String SAA_REGION;
-
-		public String getSAA_REGION() {
-			return this.SAA_REGION;
-		}
-
-		public String SAA_PROVINCE;
-
-		public String getSAA_PROVINCE() {
-			return this.SAA_PROVINCE;
-		}
-
-		public String SAA_SALES_TEAM;
-
-		public String getSAA_SALES_TEAM() {
-			return this.SAA_SALES_TEAM;
-		}
-
-		public String SAA_SALES_REP;
-
-		public String getSAA_SALES_REP() {
-			return this.SAA_SALES_REP;
-		}
-
-		public String REF_SAA;
-
-		public String getREF_SAA() {
-			return this.REF_SAA;
-		}
-
-		public String REF_DOC;
-
-		public String getREF_DOC() {
-			return this.REF_DOC;
-		}
-
-		public java.util.Date EFF_DATE;
-
-		public java.util.Date getEFF_DATE() {
-			return this.EFF_DATE;
-		}
-
-		public java.util.Date EXPR_DATE;
-
-		public java.util.Date getEXPR_DATE() {
-			return this.EXPR_DATE;
-		}
-
-		public String COMMISSION_ID;
-
-		public String getCOMMISSION_ID() {
-			return this.COMMISSION_ID;
-		}
-
-		public Short ADDR_SEQ;
-
-		public Short getADDR_SEQ() {
-			return this.ADDR_SEQ;
-		}
-
-		public Short CONTACT_SEQ;
-
-		public Short getCONTACT_SEQ() {
-			return this.CONTACT_SEQ;
-		}
-
-		public String AUTH_BY;
-
-		public String getAUTH_BY() {
-			return this.AUTH_BY;
-		}
-
-		public java.util.Date AUTH_DATE;
-
-		public java.util.Date getAUTH_DATE() {
-			return this.AUTH_DATE;
-		}
-
-		public String STATUS;
-
-		public String getSTATUS() {
-			return this.STATUS;
-		}
-
-		public String REASON_CODE;
-
-		public String getREASON_CODE() {
-			return this.REASON_CODE;
-		}
-
-		public String REASON_NOTE;
-
-		public String getREASON_NOTE() {
-			return this.REASON_NOTE;
-		}
-
-		public String CREATE_BY;
-
-		public String getCREATE_BY() {
-			return this.CREATE_BY;
-		}
-
-		public java.util.Date CREATE_DATE;
-
-		public java.util.Date getCREATE_DATE() {
-			return this.CREATE_DATE;
-		}
-
-		public String LAST_UPDATE_BY;
-
-		public String getLAST_UPDATE_BY() {
-			return this.LAST_UPDATE_BY;
-		}
-
-		public java.util.Date LAST_UPDATE_DATE;
-
-		public java.util.Date getLAST_UPDATE_DATE() {
-			return this.LAST_UPDATE_DATE;
-		}
-
-		public String IS_SKIPPED_BY_FINANCE;
-
-		public String getIS_SKIPPED_BY_FINANCE() {
-			return this.IS_SKIPPED_BY_FINANCE;
-		}
-
-		public String MY_COMMISSION_ID;
-
-		public String getMY_COMMISSION_ID() {
-			return this.MY_COMMISSION_ID;
-		}
-
-		public Byte IS_PROTOTYPE;
-
-		public Byte getIS_PROTOTYPE() {
-			return this.IS_PROTOTYPE;
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_COMMISSION_REPORT_loadContractMast.length) {
-					if (length < 1024 && commonByteArray_COMMISSION_REPORT_loadContractMast.length == 0) {
-						commonByteArray_COMMISSION_REPORT_loadContractMast = new byte[1024];
-					} else {
-						commonByteArray_COMMISSION_REPORT_loadContractMast = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_COMMISSION_REPORT_loadContractMast, 0, length);
-				strReturn = new String(commonByteArray_COMMISSION_REPORT_loadContractMast, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_COMMISSION_REPORT_loadContractMast) {
-
-				try {
-
-					int length = 0;
-
-					this.CONTRACT_ID = readString(dis);
-
-					this.CONTRACT_DATE = readDate(dis);
-
-					this.PARTNER_ID = readString(dis);
-
-					this.REF_CONTRACT = readString(dis);
-
-					this.PROJECT_NAME = readString(dis);
-
-					this.SERVICE_CATE = readString(dis);
-
-					this.SAA_REGION = readString(dis);
-
-					this.SAA_PROVINCE = readString(dis);
-
-					this.SAA_SALES_TEAM = readString(dis);
-
-					this.SAA_SALES_REP = readString(dis);
-
-					this.REF_SAA = readString(dis);
-
-					this.REF_DOC = readString(dis);
-
-					this.EFF_DATE = readDate(dis);
-
-					this.EXPR_DATE = readDate(dis);
-
-					this.COMMISSION_ID = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.ADDR_SEQ = null;
-					} else {
-						this.ADDR_SEQ = dis.readShort();
-					}
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.CONTACT_SEQ = null;
-					} else {
-						this.CONTACT_SEQ = dis.readShort();
-					}
-
-					this.AUTH_BY = readString(dis);
-
-					this.AUTH_DATE = readDate(dis);
-
-					this.STATUS = readString(dis);
-
-					this.REASON_CODE = readString(dis);
-
-					this.REASON_NOTE = readString(dis);
-
-					this.CREATE_BY = readString(dis);
-
-					this.CREATE_DATE = readDate(dis);
-
-					this.LAST_UPDATE_BY = readString(dis);
-
-					this.LAST_UPDATE_DATE = readDate(dis);
-
-					this.IS_SKIPPED_BY_FINANCE = readString(dis);
-
-					this.MY_COMMISSION_ID = readString(dis);
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.IS_PROTOTYPE = null;
-					} else {
-						this.IS_PROTOTYPE = dis.readByte();
-					}
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// String
-
-				writeString(this.CONTRACT_ID, dos);
-
-				// java.util.Date
-
-				writeDate(this.CONTRACT_DATE, dos);
-
-				// String
-
-				writeString(this.PARTNER_ID, dos);
-
-				// String
-
-				writeString(this.REF_CONTRACT, dos);
-
-				// String
-
-				writeString(this.PROJECT_NAME, dos);
-
-				// String
-
-				writeString(this.SERVICE_CATE, dos);
-
-				// String
-
-				writeString(this.SAA_REGION, dos);
-
-				// String
-
-				writeString(this.SAA_PROVINCE, dos);
-
-				// String
-
-				writeString(this.SAA_SALES_TEAM, dos);
-
-				// String
-
-				writeString(this.SAA_SALES_REP, dos);
-
-				// String
-
-				writeString(this.REF_SAA, dos);
-
-				// String
-
-				writeString(this.REF_DOC, dos);
-
-				// java.util.Date
-
-				writeDate(this.EFF_DATE, dos);
-
-				// java.util.Date
-
-				writeDate(this.EXPR_DATE, dos);
-
-				// String
-
-				writeString(this.COMMISSION_ID, dos);
-
-				// Short
-
-				if (this.ADDR_SEQ == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeShort(this.ADDR_SEQ);
-				}
-
-				// Short
-
-				if (this.CONTACT_SEQ == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeShort(this.CONTACT_SEQ);
-				}
-
-				// String
-
-				writeString(this.AUTH_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.AUTH_DATE, dos);
-
-				// String
-
-				writeString(this.STATUS, dos);
-
-				// String
-
-				writeString(this.REASON_CODE, dos);
-
-				// String
-
-				writeString(this.REASON_NOTE, dos);
-
-				// String
-
-				writeString(this.CREATE_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.CREATE_DATE, dos);
-
-				// String
-
-				writeString(this.LAST_UPDATE_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.LAST_UPDATE_DATE, dos);
-
-				// String
-
-				writeString(this.IS_SKIPPED_BY_FINANCE, dos);
-
-				// String
-
-				writeString(this.MY_COMMISSION_ID, dos);
-
-				// Byte
-
-				if (this.IS_PROTOTYPE == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeByte(this.IS_PROTOTYPE);
-				}
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("CONTRACT_ID=" + CONTRACT_ID);
-			sb.append(",CONTRACT_DATE=" + String.valueOf(CONTRACT_DATE));
-			sb.append(",PARTNER_ID=" + PARTNER_ID);
-			sb.append(",REF_CONTRACT=" + REF_CONTRACT);
-			sb.append(",PROJECT_NAME=" + PROJECT_NAME);
-			sb.append(",SERVICE_CATE=" + SERVICE_CATE);
-			sb.append(",SAA_REGION=" + SAA_REGION);
-			sb.append(",SAA_PROVINCE=" + SAA_PROVINCE);
-			sb.append(",SAA_SALES_TEAM=" + SAA_SALES_TEAM);
-			sb.append(",SAA_SALES_REP=" + SAA_SALES_REP);
-			sb.append(",REF_SAA=" + REF_SAA);
-			sb.append(",REF_DOC=" + REF_DOC);
-			sb.append(",EFF_DATE=" + String.valueOf(EFF_DATE));
-			sb.append(",EXPR_DATE=" + String.valueOf(EXPR_DATE));
-			sb.append(",COMMISSION_ID=" + COMMISSION_ID);
-			sb.append(",ADDR_SEQ=" + String.valueOf(ADDR_SEQ));
-			sb.append(",CONTACT_SEQ=" + String.valueOf(CONTACT_SEQ));
-			sb.append(",AUTH_BY=" + AUTH_BY);
-			sb.append(",AUTH_DATE=" + String.valueOf(AUTH_DATE));
-			sb.append(",STATUS=" + STATUS);
-			sb.append(",REASON_CODE=" + REASON_CODE);
-			sb.append(",REASON_NOTE=" + REASON_NOTE);
-			sb.append(",CREATE_BY=" + CREATE_BY);
-			sb.append(",CREATE_DATE=" + String.valueOf(CREATE_DATE));
-			sb.append(",LAST_UPDATE_BY=" + LAST_UPDATE_BY);
-			sb.append(",LAST_UPDATE_DATE=" + String.valueOf(LAST_UPDATE_DATE));
 			sb.append(",IS_SKIPPED_BY_FINANCE=" + IS_SKIPPED_BY_FINANCE);
 			sb.append(",MY_COMMISSION_ID=" + MY_COMMISSION_ID);
 			sb.append(",IS_PROTOTYPE=" + String.valueOf(IS_PROTOTYPE));
@@ -1419,6 +845,11 @@ public class loadContractMast implements TalendJob {
 		public int compareTo(row1Struct other) {
 
 			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.CONTRACT_ID, other.CONTRACT_ID);
+			if (returnValue != 0) {
+				return returnValue;
+			}
 
 			return returnValue;
 		}
@@ -1467,7 +898,6 @@ public class loadContractMast implements TalendJob {
 				globalResumeTicket = true;
 
 				row1Struct row1 = new row1Struct();
-				toOracleStruct toOracle = new toOracleStruct();
 
 				/**
 				 * [tDBOutput_1 begin ] start
@@ -1479,7 +909,7 @@ public class loadContractMast implements TalendJob {
 				currentComponent = "tDBOutput_1";
 
 				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "toOracle");
+					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
 				}
 
 				int tos_count_tDBOutput_1 = 0;
@@ -1517,7 +947,7 @@ public class loadContractMast implements TalendJob {
 				String dbUser_tDBOutput_1 = "a_pms_com";
 
 				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:+uiG1eWfe+DHxtIjSixEwC/6FWItJQ9rp+H5WWBvbx4QpODk");
+						"enc:routine.encryption.key.v1:FShC9EhG1SO1uDxnGtPtJd8Dk1x3dUKiHGhDzRfuyc0ug7YE");
 
 				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
 				dbschema_tDBOutput_1 = "A_PMS_COM";
@@ -1560,60 +990,25 @@ public class loadContractMast implements TalendJob {
 				if (!whetherExist_tDBOutput_1) {
 					try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
 						stmtCreate_tDBOutput_1.execute("CREATE TABLE " + tableName_tDBOutput_1
-								+ "(CONTRACT_ID VARCHAR(20)   not null ,CONTRACT_DATE DATE default '2019-10-30'  not null ,PARTNER_ID VARCHAR(10)   not null ,REF_CONTRACT VARCHAR(20)  ,PROJECT_NAME VARCHAR(200)  ,SERVICE_CATE VARCHAR(3)  ,SAA_REGION VARCHAR(20)  ,SAA_PROVINCE VARCHAR(100)  ,SAA_SALES_TEAM VARCHAR(20)  ,SAA_SALES_REP VARCHAR(20)  ,REF_SAA VARCHAR(50)  ,REF_DOC VARCHAR(20)  ,EFF_DATE DATE ,EXPR_DATE DATE ,COMMISSION_ID VARCHAR(45)  ,ADDR_SEQ SMALLINT ,CONTACT_SEQ SMALLINT ,AUTH_BY VARCHAR(20)  ,AUTH_DATE DATE ,STATUS VARCHAR(2)  ,REASON_CODE VARCHAR(3)  ,REASON_NOTE CLOB ,CREATE_BY VARCHAR(20)  ,CREATE_DATE DATE ,LAST_UPDATE_BY VARCHAR(20)  ,LAST_UPDATE_DATE DATE ,IS_SKIPPED_BY_FINANCE VARCHAR(10)  default 'NO' ,MY_COMMISSION_ID VARCHAR(45)  ,IS_PROTOTYPE VARCHAR2(3)  default '0' ,primary key(CONTRACT_ID))");
+								+ "(CONTRACT_ID VARCHAR(20)   not null ,CONTRACT_DATE DATE default '2019-10-30'  not null ,PARTNER_ID VARCHAR(10)   not null ,REF_CONTRACT VARCHAR(20)  ,PROJECT_NAME VARCHAR(200)  ,SERVICE_CATE VARCHAR(3)  ,SAA_REGION VARCHAR(20)  ,SAA_PROVINCE VARCHAR(100)  ,SAA_SALES_TEAM VARCHAR(20)  ,SAA_SALES_REP VARCHAR(20)  ,REF_SAA VARCHAR(50)  ,REF_DOC VARCHAR(20)  ,EFF_DATE DATE ,EXPR_DATE DATE ,COMMISSION_ID VARCHAR(45)  ,ADDR_SEQ SMALLINT ,CONTACT_SEQ SMALLINT ,AUTH_BY VARCHAR(20)  ,AUTH_DATE DATE ,STATUS VARCHAR(2)  ,REASON_CODE VARCHAR(3)  ,REASON_NOTE CLOB ,CREATE_BY VARCHAR(20)  ,LAST_UPDATE_BY VARCHAR(20)  ,IS_SKIPPED_BY_FINANCE VARCHAR(10)  default 'NO' ,MY_COMMISSION_ID VARCHAR(45)  ,IS_PROTOTYPE NUMBER(3,0)  default '0' ,primary key(CONTRACT_ID))");
 					}
 				}
 				java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1
 						.prepareStatement("SELECT COUNT(1) FROM " + tableName_tDBOutput_1 + " WHERE CONTRACT_ID = ?");
 				resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
 				String insert_tDBOutput_1 = "INSERT INTO " + tableName_tDBOutput_1
-						+ " (CONTRACT_ID,CONTRACT_DATE,PARTNER_ID,REF_CONTRACT,PROJECT_NAME,SERVICE_CATE,SAA_REGION,SAA_PROVINCE,SAA_SALES_TEAM,SAA_SALES_REP,REF_SAA,REF_DOC,EFF_DATE,EXPR_DATE,COMMISSION_ID,ADDR_SEQ,CONTACT_SEQ,AUTH_BY,AUTH_DATE,STATUS,REASON_CODE,REASON_NOTE,CREATE_BY,CREATE_DATE,LAST_UPDATE_BY,LAST_UPDATE_DATE,IS_SKIPPED_BY_FINANCE,MY_COMMISSION_ID,IS_PROTOTYPE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+						+ " (CONTRACT_ID,CONTRACT_DATE,PARTNER_ID,REF_CONTRACT,PROJECT_NAME,SERVICE_CATE,SAA_REGION,SAA_PROVINCE,SAA_SALES_TEAM,SAA_SALES_REP,REF_SAA,REF_DOC,EFF_DATE,EXPR_DATE,COMMISSION_ID,ADDR_SEQ,CONTACT_SEQ,AUTH_BY,AUTH_DATE,STATUS,REASON_CODE,REASON_NOTE,CREATE_BY,LAST_UPDATE_BY,IS_SKIPPED_BY_FINANCE,MY_COMMISSION_ID,IS_PROTOTYPE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1
 						.prepareStatement(insert_tDBOutput_1);
 				resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
 				String update_tDBOutput_1 = "UPDATE " + tableName_tDBOutput_1
-						+ " SET CONTRACT_DATE = ?,PARTNER_ID = ?,REF_CONTRACT = ?,PROJECT_NAME = ?,SERVICE_CATE = ?,SAA_REGION = ?,SAA_PROVINCE = ?,SAA_SALES_TEAM = ?,SAA_SALES_REP = ?,REF_SAA = ?,REF_DOC = ?,EFF_DATE = ?,EXPR_DATE = ?,COMMISSION_ID = ?,ADDR_SEQ = ?,CONTACT_SEQ = ?,AUTH_BY = ?,AUTH_DATE = ?,STATUS = ?,REASON_CODE = ?,REASON_NOTE = ?,CREATE_BY = ?,CREATE_DATE = ?,LAST_UPDATE_BY = ?,LAST_UPDATE_DATE = ?,IS_SKIPPED_BY_FINANCE = ?,MY_COMMISSION_ID = ?,IS_PROTOTYPE = ? WHERE CONTRACT_ID = ?";
+						+ " SET CONTRACT_DATE = ?,PARTNER_ID = ?,REF_CONTRACT = ?,PROJECT_NAME = ?,SERVICE_CATE = ?,SAA_REGION = ?,SAA_PROVINCE = ?,SAA_SALES_TEAM = ?,SAA_SALES_REP = ?,REF_SAA = ?,REF_DOC = ?,EFF_DATE = ?,EXPR_DATE = ?,COMMISSION_ID = ?,ADDR_SEQ = ?,CONTACT_SEQ = ?,AUTH_BY = ?,AUTH_DATE = ?,STATUS = ?,REASON_CODE = ?,REASON_NOTE = ?,CREATE_BY = ?,LAST_UPDATE_BY = ?,IS_SKIPPED_BY_FINANCE = ?,MY_COMMISSION_ID = ?,IS_PROTOTYPE = ? WHERE CONTRACT_ID = ?";
 				java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1
 						.prepareStatement(update_tDBOutput_1);
 				resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
 
 				/**
 				 * [tDBOutput_1 begin ] stop
-				 */
-
-				/**
-				 * [tMap_1 begin ] start
-				 */
-
-				ok_Hash.put("tMap_1", false);
-				start_Hash.put("tMap_1", System.currentTimeMillis());
-
-				currentComponent = "tMap_1";
-
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
-				}
-
-				int tos_count_tMap_1 = 0;
-
-// ###############################
-// # Lookup's keys initialization
-// ###############################        
-
-// ###############################
-// # Vars initialization
-				class Var__tMap_1__Struct {
-				}
-				Var__tMap_1__Struct Var__tMap_1 = new Var__tMap_1__Struct();
-// ###############################
-
-// ###############################
-// # Outputs initialization
-				toOracleStruct toOracle_tmp = new toOracleStruct();
-// ###############################
-
-				/**
-				 * [tMap_1 begin ] stop
 				 */
 
 				/**
@@ -1637,7 +1032,7 @@ public class loadContractMast implements TalendJob {
 				String dbUser_tDBInput_1 = "pms_app";
 
 				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:RgSgV6kR554XpMeJwxPkN7d8sSDul1OM4K5hK7UPYydQykzNGLjiQ1SG");
+						"enc:routine.encryption.key.v1:Y5ERgSHXpwr9ODlsGliEOMV0DVzaLvmet7y7YoOUCIOZO/Vg85QweBH6");
 
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 
@@ -1655,9 +1050,8 @@ public class loadContractMast implements TalendJob {
 						+ "`CONTRACT_MAST`.`REF_SAA`, \n  `CONTRACT_MAST`.`REF_DOC`, \n  `CONTRACT_MAST`.`EFF_DATE`, \n  `CONTRACT_MAST`.`EXPR_DATE`, "
 						+ "\n  `CONTRACT_MAST`.`COMMISSION_ID`, \n  `CONTRACT_MAST`.`ADDR_SEQ`, \n  `CONTRACT_MAST`.`CONTACT_SEQ`, \n  `CONTRACT_MAST`."
 						+ "`AUTH_BY`, \n  `CONTRACT_MAST`.`AUTH_DATE`, \n  `CONTRACT_MAST`.`STATUS`, \n  `CONTRACT_MAST`.`REASON_CODE`, \n  `CONTRACT_M"
-						+ "AST`.`REASON_NOTE`, \n  `CONTRACT_MAST`.`CREATE_BY`, \n  `CONTRACT_MAST`.`CREATE_DATE`, \n  `CONTRACT_MAST`.`LAST_UPDATE_BY"
-						+ "`, \n  `CONTRACT_MAST`.`LAST_UPDATE_DATE`, \n  `CONTRACT_MAST`.`IS_SKIPPED_BY_FINANCE`, \n  `CONTRACT_MAST`.`MY_COMMISSION_"
-						+ "ID`, \n  `CONTRACT_MAST`.`IS_PROTOTYPE`\nFROM `CONTRACT_MAST`";
+						+ "AST`.`REASON_NOTE`, \n  `CONTRACT_MAST`.`CREATE_BY`, \n  `CONTRACT_MAST`.`LAST_UPDATE_BY`, \n  `CONTRACT_MAST`.`IS_SKIPPED_"
+						+ "BY_FINANCE`, \n  `CONTRACT_MAST`.`MY_COMMISSION_ID`, \n  `CONTRACT_MAST`.`IS_PROTOTYPE`\nFROM `CONTRACT_MAST`";
 
 				globalMap.put("tDBInput_1_QUERY", dbquery_tDBInput_1);
 				java.sql.ResultSet rs_tDBInput_1 = null;
@@ -1857,60 +1251,28 @@ public class loadContractMast implements TalendJob {
 							row1.CREATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 23, false);
 						}
 						if (colQtyInRs_tDBInput_1 < 24) {
-							row1.CREATE_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(24) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(24);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.CREATE_DATE = rs_tDBInput_1.getTimestamp(24);
-								} else {
-									row1.CREATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
-							} else {
-								row1.CREATE_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 25) {
 							row1.LAST_UPDATE_BY = null;
 						} else {
 
-							row1.LAST_UPDATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 25, false);
+							row1.LAST_UPDATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 24, false);
 						}
-						if (colQtyInRs_tDBInput_1 < 26) {
-							row1.LAST_UPDATE_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(26) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(26);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.LAST_UPDATE_DATE = rs_tDBInput_1.getTimestamp(26);
-								} else {
-									row1.LAST_UPDATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
-							} else {
-								row1.LAST_UPDATE_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 27) {
+						if (colQtyInRs_tDBInput_1 < 25) {
 							row1.IS_SKIPPED_BY_FINANCE = null;
 						} else {
 
-							row1.IS_SKIPPED_BY_FINANCE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 27, false);
+							row1.IS_SKIPPED_BY_FINANCE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 25, false);
 						}
-						if (colQtyInRs_tDBInput_1 < 28) {
+						if (colQtyInRs_tDBInput_1 < 26) {
 							row1.MY_COMMISSION_ID = null;
 						} else {
 
-							row1.MY_COMMISSION_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 28, false);
+							row1.MY_COMMISSION_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 26, false);
 						}
-						if (colQtyInRs_tDBInput_1 < 29) {
+						if (colQtyInRs_tDBInput_1 < 27) {
 							row1.IS_PROTOTYPE = null;
 						} else {
 
-							row1.IS_PROTOTYPE = rs_tDBInput_1.getByte(29);
+							row1.IS_PROTOTYPE = rs_tDBInput_1.getByte(27);
 							if (rs_tDBInput_1.wasNull()) {
 								row1.IS_PROTOTYPE = null;
 							}
@@ -1943,546 +1305,414 @@ public class loadContractMast implements TalendJob {
 						 */
 
 						/**
-						 * [tMap_1 main ] start
+						 * [tDBOutput_1 main ] start
 						 */
 
-						currentComponent = "tMap_1";
+						currentComponent = "tDBOutput_1";
 
 						if (execStat) {
 							runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
 						}
 
-						boolean hasCasePrimitiveKeyWithNull_tMap_1 = false;
+						whetherReject_tDBOutput_1 = false;
+						if (row1.CONTRACT_ID == null) {
+							pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+						} else {
+							pstmt_tDBOutput_1.setString(1, row1.CONTRACT_ID);
+						}
 
-						// ###############################
-						// # Input tables (lookups)
-						boolean rejectedInnerJoin_tMap_1 = false;
-						boolean mainRowRejected_tMap_1 = false;
-
-						// ###############################
-						{ // start of Var scope
-
-							// ###############################
-							// # Vars tables
-
-							Var__tMap_1__Struct Var = Var__tMap_1;// ###############################
-							// ###############################
-							// # Output tables
-
-							toOracle = null;
-
-// # Output table : 'toOracle'
-							toOracle_tmp.CONTRACT_ID = row1.CONTRACT_ID;
-							toOracle_tmp.CONTRACT_DATE = row1.CONTRACT_DATE;
-							toOracle_tmp.PARTNER_ID = row1.PARTNER_ID;
-							toOracle_tmp.REF_CONTRACT = row1.REF_CONTRACT;
-							toOracle_tmp.PROJECT_NAME = row1.PROJECT_NAME;
-							toOracle_tmp.SERVICE_CATE = row1.SERVICE_CATE;
-							toOracle_tmp.SAA_REGION = row1.SAA_REGION;
-							toOracle_tmp.SAA_PROVINCE = row1.SAA_PROVINCE;
-							toOracle_tmp.SAA_SALES_TEAM = row1.SAA_SALES_TEAM;
-							toOracle_tmp.SAA_SALES_REP = row1.SAA_SALES_REP;
-							toOracle_tmp.REF_SAA = row1.REF_SAA;
-							toOracle_tmp.REF_DOC = row1.REF_DOC;
-							toOracle_tmp.EFF_DATE = row1.EFF_DATE;
-							toOracle_tmp.EXPR_DATE = row1.EXPR_DATE;
-							toOracle_tmp.COMMISSION_ID = row1.COMMISSION_ID;
-							toOracle_tmp.ADDR_SEQ = row1.ADDR_SEQ;
-							toOracle_tmp.CONTACT_SEQ = row1.CONTACT_SEQ;
-							toOracle_tmp.AUTH_BY = row1.AUTH_BY;
-							toOracle_tmp.AUTH_DATE = row1.AUTH_DATE;
-							toOracle_tmp.STATUS = row1.STATUS;
-							toOracle_tmp.REASON_CODE = row1.REASON_CODE;
-							toOracle_tmp.REASON_NOTE = row1.REASON_NOTE;
-							toOracle_tmp.CREATE_BY = row1.CREATE_BY;
-							toOracle_tmp.CREATE_DATE = row1.CREATE_DATE;
-							toOracle_tmp.LAST_UPDATE_BY = row1.LAST_UPDATE_BY;
-							toOracle_tmp.LAST_UPDATE_DATE = row1.LAST_UPDATE_DATE;
-							toOracle_tmp.IS_SKIPPED_BY_FINANCE = row1.IS_SKIPPED_BY_FINANCE;
-							toOracle_tmp.MY_COMMISSION_ID = row1.MY_COMMISSION_ID;
-							toOracle_tmp.IS_PROTOTYPE = row1.IS_PROTOTYPE;
-							toOracle = toOracle_tmp;
-// ###############################
-
-						} // end of Var scope
-
-						rejectedInnerJoin_tMap_1 = false;
-
-						tos_count_tMap_1++;
-
-						/**
-						 * [tMap_1 main ] stop
-						 */
-
-						/**
-						 * [tMap_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tMap_1";
-
-						/**
-						 * [tMap_1 process_data_begin ] stop
-						 */
-// Start of branch "toOracle"
-						if (toOracle != null) {
-
-							/**
-							 * [tDBOutput_1 main ] start
-							 */
-
-							currentComponent = "tDBOutput_1";
-
-							if (execStat) {
-								runStat.updateStatOnConnection(iterateId, 1, 1, "toOracle");
+						int checkCount_tDBOutput_1 = -1;
+						try (java.sql.ResultSet rs_tDBOutput_1 = pstmt_tDBOutput_1.executeQuery()) {
+							while (rs_tDBOutput_1.next()) {
+								checkCount_tDBOutput_1 = rs_tDBOutput_1.getInt(1);
 							}
-
-							whetherReject_tDBOutput_1 = false;
-							if (toOracle.CONTRACT_ID == null) {
-								pstmt_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+						}
+						if (checkCount_tDBOutput_1 > 0) {
+							if (row1.CONTRACT_DATE != null) {
+								pstmtUpdate_tDBOutput_1.setObject(1,
+										new java.sql.Timestamp(row1.CONTRACT_DATE.getTime()), java.sql.Types.DATE);
 							} else {
-								pstmt_tDBOutput_1.setString(1, toOracle.CONTRACT_ID);
+								pstmtUpdate_tDBOutput_1.setNull(1, java.sql.Types.DATE);
 							}
 
-							int checkCount_tDBOutput_1 = -1;
-							try (java.sql.ResultSet rs_tDBOutput_1 = pstmt_tDBOutput_1.executeQuery()) {
-								while (rs_tDBOutput_1.next()) {
-									checkCount_tDBOutput_1 = rs_tDBOutput_1.getInt(1);
-								}
-							}
-							if (checkCount_tDBOutput_1 > 0) {
-								if (toOracle.CONTRACT_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(1,
-											new java.sql.Timestamp(toOracle.CONTRACT_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(1, java.sql.Types.DATE);
-								}
-
-								if (toOracle.PARTNER_ID == null) {
-									pstmtUpdate_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(2, toOracle.PARTNER_ID);
-								}
-
-								if (toOracle.REF_CONTRACT == null) {
-									pstmtUpdate_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(3, toOracle.REF_CONTRACT);
-								}
-
-								if (toOracle.PROJECT_NAME == null) {
-									pstmtUpdate_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(4, toOracle.PROJECT_NAME);
-								}
-
-								if (toOracle.SERVICE_CATE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(5, toOracle.SERVICE_CATE);
-								}
-
-								if (toOracle.SAA_REGION == null) {
-									pstmtUpdate_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(6, toOracle.SAA_REGION);
-								}
-
-								if (toOracle.SAA_PROVINCE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(7, toOracle.SAA_PROVINCE);
-								}
-
-								if (toOracle.SAA_SALES_TEAM == null) {
-									pstmtUpdate_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(8, toOracle.SAA_SALES_TEAM);
-								}
-
-								if (toOracle.SAA_SALES_REP == null) {
-									pstmtUpdate_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(9, toOracle.SAA_SALES_REP);
-								}
-
-								if (toOracle.REF_SAA == null) {
-									pstmtUpdate_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(10, toOracle.REF_SAA);
-								}
-
-								if (toOracle.REF_DOC == null) {
-									pstmtUpdate_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(11, toOracle.REF_DOC);
-								}
-
-								if (toOracle.EFF_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(12,
-											new java.sql.Timestamp(toOracle.EFF_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(12, java.sql.Types.DATE);
-								}
-
-								if (toOracle.EXPR_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(13,
-											new java.sql.Timestamp(toOracle.EXPR_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(13, java.sql.Types.DATE);
-								}
-
-								if (toOracle.COMMISSION_ID == null) {
-									pstmtUpdate_tDBOutput_1.setNull(14, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(14, toOracle.COMMISSION_ID);
-								}
-
-								if (toOracle.ADDR_SEQ == null) {
-									pstmtUpdate_tDBOutput_1.setNull(15, java.sql.Types.INTEGER);
-								} else {
-									pstmtUpdate_tDBOutput_1.setShort(15, toOracle.ADDR_SEQ);
-								}
-
-								if (toOracle.CONTACT_SEQ == null) {
-									pstmtUpdate_tDBOutput_1.setNull(16, java.sql.Types.INTEGER);
-								} else {
-									pstmtUpdate_tDBOutput_1.setShort(16, toOracle.CONTACT_SEQ);
-								}
-
-								if (toOracle.AUTH_BY == null) {
-									pstmtUpdate_tDBOutput_1.setNull(17, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(17, toOracle.AUTH_BY);
-								}
-
-								if (toOracle.AUTH_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(18,
-											new java.sql.Timestamp(toOracle.AUTH_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(18, java.sql.Types.DATE);
-								}
-
-								if (toOracle.STATUS == null) {
-									pstmtUpdate_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(19, toOracle.STATUS);
-								}
-
-								if (toOracle.REASON_CODE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(20, toOracle.REASON_CODE);
-								}
-
-								if (toOracle.REASON_NOTE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(21, java.sql.Types.CLOB);
-								} else {
-									pstmtUpdate_tDBOutput_1.setCharacterStream(21,
-											new java.io.StringReader(toOracle.REASON_NOTE),
-											toOracle.REASON_NOTE.length());
-								}
-
-								if (toOracle.CREATE_BY == null) {
-									pstmtUpdate_tDBOutput_1.setNull(22, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(22, toOracle.CREATE_BY);
-								}
-
-								if (toOracle.CREATE_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(23,
-											new java.sql.Timestamp(toOracle.CREATE_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(23, java.sql.Types.DATE);
-								}
-
-								if (toOracle.LAST_UPDATE_BY == null) {
-									pstmtUpdate_tDBOutput_1.setNull(24, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(24, toOracle.LAST_UPDATE_BY);
-								}
-
-								if (toOracle.LAST_UPDATE_DATE != null) {
-									pstmtUpdate_tDBOutput_1.setObject(25,
-											new java.sql.Timestamp(toOracle.LAST_UPDATE_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtUpdate_tDBOutput_1.setNull(25, java.sql.Types.DATE);
-								}
-
-								if (toOracle.IS_SKIPPED_BY_FINANCE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(26, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(26, toOracle.IS_SKIPPED_BY_FINANCE);
-								}
-
-								if (toOracle.MY_COMMISSION_ID == null) {
-									pstmtUpdate_tDBOutput_1.setNull(27, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(27, toOracle.MY_COMMISSION_ID);
-								}
-
-								if (toOracle.IS_PROTOTYPE == null) {
-									pstmtUpdate_tDBOutput_1.setNull(28, java.sql.Types.INTEGER);
-								} else {
-									pstmtUpdate_tDBOutput_1.setByte(28, toOracle.IS_PROTOTYPE);
-								}
-
-								if (toOracle.CONTRACT_ID == null) {
-									pstmtUpdate_tDBOutput_1.setNull(29 + count_tDBOutput_1, java.sql.Types.VARCHAR);
-								} else {
-									pstmtUpdate_tDBOutput_1.setString(29 + count_tDBOutput_1, toOracle.CONTRACT_ID);
-								}
-
-								try {
-									updatedCount_tDBOutput_1 = updatedCount_tDBOutput_1
-											+ pstmtUpdate_tDBOutput_1.executeUpdate();
-									nb_line_tDBOutput_1++;
-								} catch (java.lang.Exception e_tDBOutput_1) {
-									whetherReject_tDBOutput_1 = true;
-									nb_line_tDBOutput_1++;
-									System.err.print(e_tDBOutput_1.getMessage());
-								}
+							if (row1.PARTNER_ID == null) {
+								pstmtUpdate_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
 							} else {
-								if (toOracle.CONTRACT_ID == null) {
-									pstmtInsert_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(1, toOracle.CONTRACT_ID);
-								}
-
-								if (toOracle.CONTRACT_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(2,
-											new java.sql.Timestamp(toOracle.CONTRACT_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(2, java.sql.Types.DATE);
-								}
-
-								if (toOracle.PARTNER_ID == null) {
-									pstmtInsert_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(3, toOracle.PARTNER_ID);
-								}
-
-								if (toOracle.REF_CONTRACT == null) {
-									pstmtInsert_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(4, toOracle.REF_CONTRACT);
-								}
-
-								if (toOracle.PROJECT_NAME == null) {
-									pstmtInsert_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(5, toOracle.PROJECT_NAME);
-								}
-
-								if (toOracle.SERVICE_CATE == null) {
-									pstmtInsert_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(6, toOracle.SERVICE_CATE);
-								}
-
-								if (toOracle.SAA_REGION == null) {
-									pstmtInsert_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(7, toOracle.SAA_REGION);
-								}
-
-								if (toOracle.SAA_PROVINCE == null) {
-									pstmtInsert_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(8, toOracle.SAA_PROVINCE);
-								}
-
-								if (toOracle.SAA_SALES_TEAM == null) {
-									pstmtInsert_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(9, toOracle.SAA_SALES_TEAM);
-								}
-
-								if (toOracle.SAA_SALES_REP == null) {
-									pstmtInsert_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(10, toOracle.SAA_SALES_REP);
-								}
-
-								if (toOracle.REF_SAA == null) {
-									pstmtInsert_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(11, toOracle.REF_SAA);
-								}
-
-								if (toOracle.REF_DOC == null) {
-									pstmtInsert_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(12, toOracle.REF_DOC);
-								}
-
-								if (toOracle.EFF_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(13,
-											new java.sql.Timestamp(toOracle.EFF_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(13, java.sql.Types.DATE);
-								}
-
-								if (toOracle.EXPR_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(14,
-											new java.sql.Timestamp(toOracle.EXPR_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(14, java.sql.Types.DATE);
-								}
-
-								if (toOracle.COMMISSION_ID == null) {
-									pstmtInsert_tDBOutput_1.setNull(15, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(15, toOracle.COMMISSION_ID);
-								}
-
-								if (toOracle.ADDR_SEQ == null) {
-									pstmtInsert_tDBOutput_1.setNull(16, java.sql.Types.INTEGER);
-								} else {
-									pstmtInsert_tDBOutput_1.setShort(16, toOracle.ADDR_SEQ);
-								}
-
-								if (toOracle.CONTACT_SEQ == null) {
-									pstmtInsert_tDBOutput_1.setNull(17, java.sql.Types.INTEGER);
-								} else {
-									pstmtInsert_tDBOutput_1.setShort(17, toOracle.CONTACT_SEQ);
-								}
-
-								if (toOracle.AUTH_BY == null) {
-									pstmtInsert_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(18, toOracle.AUTH_BY);
-								}
-
-								if (toOracle.AUTH_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(19,
-											new java.sql.Timestamp(toOracle.AUTH_DATE.getTime()), java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(19, java.sql.Types.DATE);
-								}
-
-								if (toOracle.STATUS == null) {
-									pstmtInsert_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(20, toOracle.STATUS);
-								}
-
-								if (toOracle.REASON_CODE == null) {
-									pstmtInsert_tDBOutput_1.setNull(21, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(21, toOracle.REASON_CODE);
-								}
-
-								if (toOracle.REASON_NOTE == null) {
-									pstmtInsert_tDBOutput_1.setNull(22, java.sql.Types.CLOB);
-								} else {
-									pstmtInsert_tDBOutput_1.setCharacterStream(22,
-											new java.io.StringReader(toOracle.REASON_NOTE),
-											toOracle.REASON_NOTE.length());
-								}
-
-								if (toOracle.CREATE_BY == null) {
-									pstmtInsert_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(23, toOracle.CREATE_BY);
-								}
-
-								if (toOracle.CREATE_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(24,
-											new java.sql.Timestamp(toOracle.CREATE_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(24, java.sql.Types.DATE);
-								}
-
-								if (toOracle.LAST_UPDATE_BY == null) {
-									pstmtInsert_tDBOutput_1.setNull(25, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(25, toOracle.LAST_UPDATE_BY);
-								}
-
-								if (toOracle.LAST_UPDATE_DATE != null) {
-									pstmtInsert_tDBOutput_1.setObject(26,
-											new java.sql.Timestamp(toOracle.LAST_UPDATE_DATE.getTime()),
-											java.sql.Types.DATE);
-								} else {
-									pstmtInsert_tDBOutput_1.setNull(26, java.sql.Types.DATE);
-								}
-
-								if (toOracle.IS_SKIPPED_BY_FINANCE == null) {
-									pstmtInsert_tDBOutput_1.setNull(27, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(27, toOracle.IS_SKIPPED_BY_FINANCE);
-								}
-
-								if (toOracle.MY_COMMISSION_ID == null) {
-									pstmtInsert_tDBOutput_1.setNull(28, java.sql.Types.VARCHAR);
-								} else {
-									pstmtInsert_tDBOutput_1.setString(28, toOracle.MY_COMMISSION_ID);
-								}
-
-								if (toOracle.IS_PROTOTYPE == null) {
-									pstmtInsert_tDBOutput_1.setNull(29, java.sql.Types.INTEGER);
-								} else {
-									pstmtInsert_tDBOutput_1.setByte(29, toOracle.IS_PROTOTYPE);
-								}
-
-								try {
-									insertedCount_tDBOutput_1 = insertedCount_tDBOutput_1
-											+ pstmtInsert_tDBOutput_1.executeUpdate();
-									nb_line_tDBOutput_1++;
-								} catch (java.lang.Exception e_tDBOutput_1) {
-									whetherReject_tDBOutput_1 = true;
-									nb_line_tDBOutput_1++;
-									System.err.print(e_tDBOutput_1.getMessage());
-								}
-							}
-							commitCounter_tDBOutput_1++;
-							if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
-
-								conn_tDBOutput_1.commit();
-								commitCounter_tDBOutput_1 = 0;
+								pstmtUpdate_tDBOutput_1.setString(2, row1.PARTNER_ID);
 							}
 
-							tos_count_tDBOutput_1++;
+							if (row1.REF_CONTRACT == null) {
+								pstmtUpdate_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(3, row1.REF_CONTRACT);
+							}
 
-							/**
-							 * [tDBOutput_1 main ] stop
-							 */
+							if (row1.PROJECT_NAME == null) {
+								pstmtUpdate_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(4, row1.PROJECT_NAME);
+							}
 
-							/**
-							 * [tDBOutput_1 process_data_begin ] start
-							 */
+							if (row1.SERVICE_CATE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(5, row1.SERVICE_CATE);
+							}
 
-							currentComponent = "tDBOutput_1";
+							if (row1.SAA_REGION == null) {
+								pstmtUpdate_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(6, row1.SAA_REGION);
+							}
 
-							/**
-							 * [tDBOutput_1 process_data_begin ] stop
-							 */
+							if (row1.SAA_PROVINCE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(7, row1.SAA_PROVINCE);
+							}
 
-							/**
-							 * [tDBOutput_1 process_data_end ] start
-							 */
+							if (row1.SAA_SALES_TEAM == null) {
+								pstmtUpdate_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(8, row1.SAA_SALES_TEAM);
+							}
 
-							currentComponent = "tDBOutput_1";
+							if (row1.SAA_SALES_REP == null) {
+								pstmtUpdate_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(9, row1.SAA_SALES_REP);
+							}
 
-							/**
-							 * [tDBOutput_1 process_data_end ] stop
-							 */
+							if (row1.REF_SAA == null) {
+								pstmtUpdate_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(10, row1.REF_SAA);
+							}
 
-						} // End of branch "toOracle"
+							if (row1.REF_DOC == null) {
+								pstmtUpdate_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(11, row1.REF_DOC);
+							}
+
+							if (row1.EFF_DATE != null) {
+								pstmtUpdate_tDBOutput_1.setObject(12, new java.sql.Timestamp(row1.EFF_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtUpdate_tDBOutput_1.setNull(12, java.sql.Types.DATE);
+							}
+
+							if (row1.EXPR_DATE != null) {
+								pstmtUpdate_tDBOutput_1.setObject(13, new java.sql.Timestamp(row1.EXPR_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtUpdate_tDBOutput_1.setNull(13, java.sql.Types.DATE);
+							}
+
+							if (row1.COMMISSION_ID == null) {
+								pstmtUpdate_tDBOutput_1.setNull(14, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(14, row1.COMMISSION_ID);
+							}
+
+							if (row1.ADDR_SEQ == null) {
+								pstmtUpdate_tDBOutput_1.setNull(15, java.sql.Types.INTEGER);
+							} else {
+								pstmtUpdate_tDBOutput_1.setShort(15, row1.ADDR_SEQ);
+							}
+
+							if (row1.CONTACT_SEQ == null) {
+								pstmtUpdate_tDBOutput_1.setNull(16, java.sql.Types.INTEGER);
+							} else {
+								pstmtUpdate_tDBOutput_1.setShort(16, row1.CONTACT_SEQ);
+							}
+
+							if (row1.AUTH_BY == null) {
+								pstmtUpdate_tDBOutput_1.setNull(17, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(17, row1.AUTH_BY);
+							}
+
+							if (row1.AUTH_DATE != null) {
+								pstmtUpdate_tDBOutput_1.setObject(18, new java.sql.Timestamp(row1.AUTH_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtUpdate_tDBOutput_1.setNull(18, java.sql.Types.DATE);
+							}
+
+							if (row1.STATUS == null) {
+								pstmtUpdate_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(19, row1.STATUS);
+							}
+
+							if (row1.REASON_CODE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(20, row1.REASON_CODE);
+							}
+
+							if (row1.REASON_NOTE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(21, java.sql.Types.CLOB);
+							} else {
+								pstmtUpdate_tDBOutput_1.setCharacterStream(21,
+										new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
+							}
+
+							if (row1.CREATE_BY == null) {
+								pstmtUpdate_tDBOutput_1.setNull(22, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(22, row1.CREATE_BY);
+							}
+
+							if (row1.LAST_UPDATE_BY == null) {
+								pstmtUpdate_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(23, row1.LAST_UPDATE_BY);
+							}
+
+							if (row1.IS_SKIPPED_BY_FINANCE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(24, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(24, row1.IS_SKIPPED_BY_FINANCE);
+							}
+
+							if (row1.MY_COMMISSION_ID == null) {
+								pstmtUpdate_tDBOutput_1.setNull(25, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(25, row1.MY_COMMISSION_ID);
+							}
+
+							if (row1.IS_PROTOTYPE == null) {
+								pstmtUpdate_tDBOutput_1.setNull(26, java.sql.Types.INTEGER);
+							} else {
+								pstmtUpdate_tDBOutput_1.setByte(26, row1.IS_PROTOTYPE);
+							}
+
+							if (row1.CONTRACT_ID == null) {
+								pstmtUpdate_tDBOutput_1.setNull(27 + count_tDBOutput_1, java.sql.Types.VARCHAR);
+							} else {
+								pstmtUpdate_tDBOutput_1.setString(27 + count_tDBOutput_1, row1.CONTRACT_ID);
+							}
+
+							try {
+								updatedCount_tDBOutput_1 = updatedCount_tDBOutput_1
+										+ pstmtUpdate_tDBOutput_1.executeUpdate();
+								nb_line_tDBOutput_1++;
+							} catch (java.lang.Exception e_tDBOutput_1) {
+								whetherReject_tDBOutput_1 = true;
+								nb_line_tDBOutput_1++;
+								System.err.print(e_tDBOutput_1.getMessage());
+							}
+						} else {
+							if (row1.CONTRACT_ID == null) {
+								pstmtInsert_tDBOutput_1.setNull(1, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(1, row1.CONTRACT_ID);
+							}
+
+							if (row1.CONTRACT_DATE != null) {
+								pstmtInsert_tDBOutput_1.setObject(2,
+										new java.sql.Timestamp(row1.CONTRACT_DATE.getTime()), java.sql.Types.DATE);
+							} else {
+								pstmtInsert_tDBOutput_1.setNull(2, java.sql.Types.DATE);
+							}
+
+							if (row1.PARTNER_ID == null) {
+								pstmtInsert_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(3, row1.PARTNER_ID);
+							}
+
+							if (row1.REF_CONTRACT == null) {
+								pstmtInsert_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(4, row1.REF_CONTRACT);
+							}
+
+							if (row1.PROJECT_NAME == null) {
+								pstmtInsert_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(5, row1.PROJECT_NAME);
+							}
+
+							if (row1.SERVICE_CATE == null) {
+								pstmtInsert_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(6, row1.SERVICE_CATE);
+							}
+
+							if (row1.SAA_REGION == null) {
+								pstmtInsert_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(7, row1.SAA_REGION);
+							}
+
+							if (row1.SAA_PROVINCE == null) {
+								pstmtInsert_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(8, row1.SAA_PROVINCE);
+							}
+
+							if (row1.SAA_SALES_TEAM == null) {
+								pstmtInsert_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(9, row1.SAA_SALES_TEAM);
+							}
+
+							if (row1.SAA_SALES_REP == null) {
+								pstmtInsert_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(10, row1.SAA_SALES_REP);
+							}
+
+							if (row1.REF_SAA == null) {
+								pstmtInsert_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(11, row1.REF_SAA);
+							}
+
+							if (row1.REF_DOC == null) {
+								pstmtInsert_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(12, row1.REF_DOC);
+							}
+
+							if (row1.EFF_DATE != null) {
+								pstmtInsert_tDBOutput_1.setObject(13, new java.sql.Timestamp(row1.EFF_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtInsert_tDBOutput_1.setNull(13, java.sql.Types.DATE);
+							}
+
+							if (row1.EXPR_DATE != null) {
+								pstmtInsert_tDBOutput_1.setObject(14, new java.sql.Timestamp(row1.EXPR_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtInsert_tDBOutput_1.setNull(14, java.sql.Types.DATE);
+							}
+
+							if (row1.COMMISSION_ID == null) {
+								pstmtInsert_tDBOutput_1.setNull(15, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(15, row1.COMMISSION_ID);
+							}
+
+							if (row1.ADDR_SEQ == null) {
+								pstmtInsert_tDBOutput_1.setNull(16, java.sql.Types.INTEGER);
+							} else {
+								pstmtInsert_tDBOutput_1.setShort(16, row1.ADDR_SEQ);
+							}
+
+							if (row1.CONTACT_SEQ == null) {
+								pstmtInsert_tDBOutput_1.setNull(17, java.sql.Types.INTEGER);
+							} else {
+								pstmtInsert_tDBOutput_1.setShort(17, row1.CONTACT_SEQ);
+							}
+
+							if (row1.AUTH_BY == null) {
+								pstmtInsert_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(18, row1.AUTH_BY);
+							}
+
+							if (row1.AUTH_DATE != null) {
+								pstmtInsert_tDBOutput_1.setObject(19, new java.sql.Timestamp(row1.AUTH_DATE.getTime()),
+										java.sql.Types.DATE);
+							} else {
+								pstmtInsert_tDBOutput_1.setNull(19, java.sql.Types.DATE);
+							}
+
+							if (row1.STATUS == null) {
+								pstmtInsert_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(20, row1.STATUS);
+							}
+
+							if (row1.REASON_CODE == null) {
+								pstmtInsert_tDBOutput_1.setNull(21, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(21, row1.REASON_CODE);
+							}
+
+							if (row1.REASON_NOTE == null) {
+								pstmtInsert_tDBOutput_1.setNull(22, java.sql.Types.CLOB);
+							} else {
+								pstmtInsert_tDBOutput_1.setCharacterStream(22,
+										new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
+							}
+
+							if (row1.CREATE_BY == null) {
+								pstmtInsert_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(23, row1.CREATE_BY);
+							}
+
+							if (row1.LAST_UPDATE_BY == null) {
+								pstmtInsert_tDBOutput_1.setNull(24, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(24, row1.LAST_UPDATE_BY);
+							}
+
+							if (row1.IS_SKIPPED_BY_FINANCE == null) {
+								pstmtInsert_tDBOutput_1.setNull(25, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(25, row1.IS_SKIPPED_BY_FINANCE);
+							}
+
+							if (row1.MY_COMMISSION_ID == null) {
+								pstmtInsert_tDBOutput_1.setNull(26, java.sql.Types.VARCHAR);
+							} else {
+								pstmtInsert_tDBOutput_1.setString(26, row1.MY_COMMISSION_ID);
+							}
+
+							if (row1.IS_PROTOTYPE == null) {
+								pstmtInsert_tDBOutput_1.setNull(27, java.sql.Types.INTEGER);
+							} else {
+								pstmtInsert_tDBOutput_1.setByte(27, row1.IS_PROTOTYPE);
+							}
+
+							try {
+								insertedCount_tDBOutput_1 = insertedCount_tDBOutput_1
+										+ pstmtInsert_tDBOutput_1.executeUpdate();
+								nb_line_tDBOutput_1++;
+							} catch (java.lang.Exception e_tDBOutput_1) {
+								whetherReject_tDBOutput_1 = true;
+								nb_line_tDBOutput_1++;
+								System.err.print(e_tDBOutput_1.getMessage());
+							}
+						}
+						commitCounter_tDBOutput_1++;
+						if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+							conn_tDBOutput_1.commit();
+							commitCounter_tDBOutput_1 = 0;
+						}
+
+						tos_count_tDBOutput_1++;
 
 						/**
-						 * [tMap_1 process_data_end ] start
+						 * [tDBOutput_1 main ] stop
 						 */
 
-						currentComponent = "tMap_1";
+						/**
+						 * [tDBOutput_1 process_data_begin ] start
+						 */
+
+						currentComponent = "tDBOutput_1";
 
 						/**
-						 * [tMap_1 process_data_end ] stop
+						 * [tDBOutput_1 process_data_begin ] stop
+						 */
+
+						/**
+						 * [tDBOutput_1 process_data_end ] start
+						 */
+
+						currentComponent = "tDBOutput_1";
+
+						/**
+						 * [tDBOutput_1 process_data_end ] stop
 						 */
 
 						/**
@@ -2533,27 +1763,6 @@ public class loadContractMast implements TalendJob {
 				 */
 
 				/**
-				 * [tMap_1 end ] start
-				 */
-
-				currentComponent = "tMap_1";
-
-// ###############################
-// # Lookup hashes releasing
-// ###############################      
-
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
-				}
-
-				ok_Hash.put("tMap_1", true);
-				end_Hash.put("tMap_1", System.currentTimeMillis());
-
-				/**
-				 * [tMap_1 end ] stop
-				 */
-
-				/**
 				 * [tDBOutput_1 end ] start
 				 */
 
@@ -2594,7 +1803,7 @@ public class loadContractMast implements TalendJob {
 				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
 
 				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "toOracle");
+					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
 				}
 
 				ok_Hash.put("tDBOutput_1", true);
@@ -2628,16 +1837,6 @@ public class loadContractMast implements TalendJob {
 
 				/**
 				 * [tDBInput_1 finally ] stop
-				 */
-
-				/**
-				 * [tMap_1 finally ] start
-				 */
-
-				currentComponent = "tMap_1";
-
-				/**
-				 * [tMap_1 finally ] stop
 				 */
 
 				/**
@@ -3050,6 +2249,6 @@ public class loadContractMast implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 96297 characters generated by Talend Open Studio for Data Integration on the
- * March 29, 2021 5:52:02 PM ICT
+ * 74987 characters generated by Talend Open Studio for Data Integration on the
+ * March 29, 2021 6:00:11 PM ICT
  ************************************************************************************************/

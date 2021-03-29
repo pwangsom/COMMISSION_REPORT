@@ -379,7 +379,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFB7JBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFB7ZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFB7pBoEeufK6KJRdxkDw" name="CREATE_DATE" comment="วันที่ทำรายการ" label="CREATE_DATE" length="19" sourceType="DATETIME" talendType="id_Date" pattern="&quot;dd-MM-yyyy hh:mm:ss&quot;">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFB7pBoEeufK6KJRdxkDw" name="CREATE_DATE" comment="วันที่ทำรายการ" label="CREATE_DATE" length="19" sourceType="DATETIME" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;">
         <taggedValue xmi:id="_6TFB75BoEeufK6KJRdxkDw" tag="Comment" value="วันที่ทำรายการ"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFB8JBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFB8ZBoEeufK6KJRdxkDw" name="DATETIME" numericPrecisionRadix="10" javaDataType="93" nullable="columnNullable"/>
@@ -389,7 +389,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFB9JBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFB9ZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFB9pBoEeufK6KJRdxkDw" name="LAST_UPDATE_DATE" comment="วันที่ปรับปรุงล่าสุด" label="LAST_UPDATE_DATE" length="19" sourceType="DATETIME" talendType="id_Date" pattern="&quot;dd-MM-yyyy hh:mm:ss&quot;">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFB9pBoEeufK6KJRdxkDw" name="LAST_UPDATE_DATE" comment="วันที่ปรับปรุงล่าสุด" label="LAST_UPDATE_DATE" length="19" sourceType="DATETIME" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;">
         <taggedValue xmi:id="_6TFB95BoEeufK6KJRdxkDw" tag="Comment" value="วันที่ปรับปรุงล่าสุด"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFB-JBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFB-ZBoEeufK6KJRdxkDw" name="DATETIME" numericPrecisionRadix="10" javaDataType="93" nullable="columnNullable"/>
