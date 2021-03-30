@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:9bp4SCLVPSI/1vDk8SULTf/bGdJxgXMlh6dAEGji" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:n/CDB8p/E/sPhkL8W2JpJ9tVPPZ88D/Tb6HTCYuz" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:nA+OcJ5jESX91938LX1Kx1rj4a25lrFKsHscPj49" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:kr1NMRT3AWyXl7Ud7eclHYgh/MmnRWwVSfnNF4oL" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -103,10 +103,10 @@
     <routinesParameter id="_QpW2IJBgEeufK6KJRdxkDw" name="StringHandling"/>
     <routinesParameter id="_QpjqcJBgEeufK6KJRdxkDw" name="TalendDataGenerator"/>
     <routinesParameter id="_Qpxs4JBgEeufK6KJRdxkDw" name="TalendDate"/>
-    <routinesParameter id="_QqAWYJBgEeufK6KJRdxkDw" name="TalendString"/>
     <routinesParameter id="_QqNxwJBgEeufK6KJRdxkDw" name="TalendStringUtil"/>
+    <routinesParameter id="_QqAWYJBgEeufK6KJRdxkDw" name="TalendString"/>
   </parameters>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="160">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw" show="false"/>
@@ -118,7 +118,7 @@
     <elementParameter field="TEXT" name="DBNAME" value="&quot;CAT_PM&quot;"/>
     <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;pms_app&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:gBiqFks98kV534ITufuR94ftTrAEq+qMbfkagAGpFR3YADPIw38D7O9/Qr8="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:be0+YbEXtf5weSjVbZxVM3jV7nKGfXugzKKl8sRAmIHManUMvcDKKw8QR8I="/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw - SAA_ON_ORACLE" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;SAA_ON_ORACLE&quot;"/>
@@ -154,7 +154,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tOracleOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="160">
+  <node componentName="tOracleOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="480" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBOutput_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_vkU1UJBnEeufK6KJRdxkDw" show="false"/>
@@ -170,7 +170,7 @@
     <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;frontend&quot;" show="false"/>
     <elementParameter field="TEXT" name="TABLESCHEMA" value="&quot;A_PMS_COM&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;a_pms_com&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:0wA/Y+dF+rWvDlu9x6Udgw14mQ67l+GlxEZ7+mXxDG6pB2qULLE="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:MmC3YP579A5Yoi67dQITnB51SdUUV0b4C8q5lMekQCq0c/SDlvM="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;SAA_ON_ORACLE&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CREATE_IF_NOT_EXISTS"/>
     <elementParameter field="LABEL" name="NOTE" value="Warning : this component configuration will automatically generate a commit before data insert/update/delete" show="false"/>

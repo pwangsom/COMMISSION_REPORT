@@ -15,14 +15,14 @@
     <module>jobs/process/Commission/loadcommissionformuladetails_0.1</module>
     <module>jobs/process/Commission/loadcommissionreport_0.1</module>
     <module>jobs/process/Commission/loadcommissionreportmonth_0.1</module>
-    <module>jobs/process/Commission/loadcontractmast_0.1</module>
     <module>jobs/process/Commission/loadpartnerservicerelationship_0.1</module>
-    <module>jobs/process/Commission/loadsaaonoracle_0.1</module>
     <module>jobs/process/Commission/loadcontractsaasapcode_0.1</module>
     <module>jobs/process/Commission/loadcontractsaaservice_0.1</module>
     <module>jobs/process/Commission/loadcontractserviceformula_0.1</module>
     <module>jobs/process/Commission/loadpartnermast_0.1</module>
     <module>jobs/process/Commission/loadpartnersaleareaaccount_0.1</module>
+    <module>jobs/process/Commission/loadsaaonoracle_0.1</module>
+    <module>jobs/process/Commission/loadcontractmast_0.1</module>
   </modules>
   <properties>
     <talend.project.name>COMMISSION_REPORT</talend.project.name>

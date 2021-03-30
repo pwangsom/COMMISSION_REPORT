@@ -34,7 +34,7 @@
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
     <current.resources.dir>${basedir}/src/main/ext-resources</current.resources.dir>
     <talend.job.name>loadPartnerSaleAreaAccount</talend.job.name>
-    <talend.job.id>_Ly-vgJCAEeufK6KJRdxkDw</talend.job.id>
+    <talend.job.id>_tUJPQJETEeuB9-8ZjWAdzg</talend.job.id>
     <talend.project.id>0</talend.project.id>
     <talend.job.folder>commission/</talend.job.folder>
     <talend.job.framework></talend.job.framework>

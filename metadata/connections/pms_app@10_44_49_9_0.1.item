@@ -279,17 +279,17 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBnJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBnZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBnpBoEeufK6KJRdxkDw" name="REF_CONTRACT" comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" label="REF_CONTRACT" length="20" sourceType="VARCHAR" talendType="id_String">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBnpBoEeufK6KJRdxkDw" name="REF_CONTRACT" comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" label="REF_CONTRACT" length="50" sourceType="VARCHAR" talendType="id_String">
         <taggedValue xmi:id="_6TFBn5BoEeufK6KJRdxkDw" tag="Comment" value="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBoJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBoZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBopBoEeufK6KJRdxkDw" name="PROJECT_NAME" comment="ชื่อสัญญา/โครงการ" label="PROJECT_NAME" length="200" sourceType="VARCHAR" talendType="id_String">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBopBoEeufK6KJRdxkDw" name="PROJECT_NAME" comment="ชื่อสัญญา/โครงการ" label="PROJECT_NAME" length="255" sourceType="VARCHAR" talendType="id_String">
         <taggedValue xmi:id="_6TFBo5BoEeufK6KJRdxkDw" tag="Comment" value="ชื่อสัญญา/โครงการ"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBpJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBpZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBppBoEeufK6KJRdxkDw" name="SERVICE_CATE" comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" label="SERVICE_CATE" length="3" sourceType="VARCHAR" talendType="id_String">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBppBoEeufK6KJRdxkDw" name="SERVICE_CATE" comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" label="SERVICE_CATE" length="10" sourceType="VARCHAR" talendType="id_String">
         <taggedValue xmi:id="_6TFBp5BoEeufK6KJRdxkDw" tag="Comment" value="รหัสหมวดสินค้า (REF. lk_service_cate.code)"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBqJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBqZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
@@ -319,7 +319,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBvJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBvZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBvpBoEeufK6KJRdxkDw" name="REF_DOC" comment="เลขที่พัสดุ" label="REF_DOC" length="20" sourceType="VARCHAR" talendType="id_String">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFBvpBoEeufK6KJRdxkDw" name="REF_DOC" comment="เลขที่พัสดุ" label="REF_DOC" length="30" sourceType="VARCHAR" talendType="id_String">
         <taggedValue xmi:id="_6TFBv5BoEeufK6KJRdxkDw" tag="Comment" value="เลขที่พัสดุ"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFBwJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFBwZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
@@ -404,7 +404,7 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFCAJBoEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFCAZBoEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12" nullable="columnNullable"/>
       </feature>
-      <feature xsi:type="relational:TdColumn" xmi:id="_6TFCApBoEeufK6KJRdxkDw" name="IS_PROTOTYPE" comment="0 = no, 1 = yes" label="IS_PROTOTYPE" length="3" sourceType="TINYINT" talendType="id_Byte">
+      <feature xsi:type="relational:TdColumn" xmi:id="_6TFCApBoEeufK6KJRdxkDw" name="IS_PROTOTYPE" comment="0 = no, 1 = yes" label="IS_PROTOTYPE" length="4" sourceType="TINYINT" talendType="id_Byte">
         <taggedValue xmi:id="_6TFCA5BoEeufK6KJRdxkDw" tag="Comment" value="0 = no, 1 = yes"/>
         <initialValue xsi:type="relational:TdExpression" xmi:id="_6TFCBJBoEeufK6KJRdxkDw" body="'0'" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_6TFCBZBoEeufK6KJRdxkDw" name="TINYINT" numericPrecisionRadix="10" javaDataType="-6" nullable="columnNullable"/>

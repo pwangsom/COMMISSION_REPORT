@@ -42,7 +42,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:+sx5ZvW4itWBwOyKbYaj3+sD5rDbnOR/SLPiw5oI" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:gVmytygNhR7A6MWKqclv5xFKMCo/VLlqB2Hvdxi/" show="false"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
@@ -77,7 +77,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:FpEWaqMOuaWikMPcJltRMu+L03TaD/kk612l04Qv" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:rpihbyvQjKg9wDKLWLs74YobLVSSr8FJI/DBIZ94" show="false"/>
     <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
@@ -103,10 +103,10 @@
     <routinesParameter id="_QpW2IJBgEeufK6KJRdxkDw" name="StringHandling"/>
     <routinesParameter id="_QpjqcJBgEeufK6KJRdxkDw" name="TalendDataGenerator"/>
     <routinesParameter id="_Qpxs4JBgEeufK6KJRdxkDw" name="TalendDate"/>
-    <routinesParameter id="_QqAWYJBgEeufK6KJRdxkDw" name="TalendString"/>
     <routinesParameter id="_QqNxwJBgEeufK6KJRdxkDw" name="TalendStringUtil"/>
+    <routinesParameter id="_QqAWYJBgEeufK6KJRdxkDw" name="TalendString"/>
   </parameters>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="128">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw" show="false"/>
@@ -118,7 +118,7 @@
     <elementParameter field="TEXT" name="DBNAME" value="&quot;CAT_PM&quot;"/>
     <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
     <elementParameter field="TEXT" name="USER" value="&quot;pms_app&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:Eu0o0Tf5dtGaC06I6A9kkUJJWpaFgCSk18EACFUZlSWpPIqIOv3CnbsYajE="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:bzIj6MlDWvOT0lu0rzlQMm4kCqPZMNL8/Iq5S/qwFRn6bM1WW102E5fc1HE="/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_NjZRIJBoEeufK6KJRdxkDw - CONTRACT_MAST" show="false"/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;CONTRACT_MAST&quot;"/>
@@ -126,7 +126,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `CONTRACT_MAST`.`CONTRACT_ID`, &#xA;  `CONTRACT_MAST`.`CONTRACT_DATE`, &#xA;  `CONTRACT_MAST`.`PARTNER_ID`, &#xA;  `CONTRACT_MAST`.`REF_CONTRACT`, &#xA;  `CONTRACT_MAST`.`PROJECT_NAME`, &#xA;  `CONTRACT_MAST`.`SERVICE_CATE`, &#xA;  `CONTRACT_MAST`.`SAA_REGION`, &#xA;  `CONTRACT_MAST`.`SAA_PROVINCE`, &#xA;  `CONTRACT_MAST`.`SAA_SALES_TEAM`, &#xA;  `CONTRACT_MAST`.`SAA_SALES_REP`, &#xA;  `CONTRACT_MAST`.`REF_SAA`, &#xA;  `CONTRACT_MAST`.`REF_DOC`, &#xA;  `CONTRACT_MAST`.`EFF_DATE`, &#xA;  `CONTRACT_MAST`.`EXPR_DATE`, &#xA;  `CONTRACT_MAST`.`COMMISSION_ID`, &#xA;  `CONTRACT_MAST`.`ADDR_SEQ`, &#xA;  `CONTRACT_MAST`.`CONTACT_SEQ`, &#xA;  `CONTRACT_MAST`.`AUTH_BY`, &#xA;  `CONTRACT_MAST`.`AUTH_DATE`, &#xA;  `CONTRACT_MAST`.`STATUS`, &#xA;  `CONTRACT_MAST`.`REASON_CODE`, &#xA;  `CONTRACT_MAST`.`REASON_NOTE`, &#xA;  `CONTRACT_MAST`.`CREATE_BY`, &#xA;  `CONTRACT_MAST`.`LAST_UPDATE_BY`, &#xA;  `CONTRACT_MAST`.`IS_SKIPPED_BY_FINANCE`, &#xA;  `CONTRACT_MAST`.`MY_COMMISSION_ID`, &#xA;  `CONTRACT_MAST`.`IS_PROTOTYPE`&#xA;FROM `CONTRACT_MAST`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `CONTRACT_MAST`.`CONTRACT_ID`, &#xA;  `CONTRACT_MAST`.`PARTNER_ID`, &#xA;  `CONTRACT_MAST`.`REF_CONTRACT`, &#xA;  `CONTRACT_MAST`.`PROJECT_NAME`, &#xA;  `CONTRACT_MAST`.`SERVICE_CATE`, &#xA;  `CONTRACT_MAST`.`SAA_REGION`, &#xA;  `CONTRACT_MAST`.`SAA_PROVINCE`, &#xA;  `CONTRACT_MAST`.`SAA_SALES_TEAM`, &#xA;  `CONTRACT_MAST`.`SAA_SALES_REP`, &#xA;  `CONTRACT_MAST`.`REF_SAA`, &#xA;  `CONTRACT_MAST`.`REF_DOC`, &#xA;  `CONTRACT_MAST`.`EFF_DATE`, &#xA;  `CONTRACT_MAST`.`EXPR_DATE`, &#xA;  `CONTRACT_MAST`.`COMMISSION_ID`, &#xA;  `CONTRACT_MAST`.`ADDR_SEQ`, &#xA;  `CONTRACT_MAST`.`CONTACT_SEQ`, &#xA;  `CONTRACT_MAST`.`AUTH_BY`, &#xA;  `CONTRACT_MAST`.`AUTH_DATE`, &#xA;  `CONTRACT_MAST`.`STATUS`, &#xA;  `CONTRACT_MAST`.`REASON_CODE`, &#xA;  `CONTRACT_MAST`.`REASON_NOTE`, &#xA;  `CONTRACT_MAST`.`CREATE_BY`, &#xA;  `CONTRACT_MAST`.`CREATE_DATE`, &#xA;  `CONTRACT_MAST`.`LAST_UPDATE_BY`, &#xA;  `CONTRACT_MAST`.`LAST_UPDATE_DATE`, &#xA;  `CONTRACT_MAST`.`IS_SKIPPED_BY_FINANCE`, &#xA;  `CONTRACT_MAST`.`MY_COMMISSION_ID`, &#xA;  `CONTRACT_MAST`.`IS_PROTOTYPE`&#xA;FROM `CONTRACT_MAST`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -138,8 +138,6 @@
     <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
     <elementParameter field="TABLE" name="TRIM_COLUMN">
       <elementValue elementRef="SCHEMA_COLUMN" value="CONTRACT_ID"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONTRACT_DATE"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PARTNER_ID"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -183,7 +181,11 @@
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_BY"/>
       <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_DATE"/>
+      <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_BY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_DATE"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="IS_SKIPPED_BY_FINANCE"/>
       <elementValue elementRef="TRIM" value="false"/>
@@ -198,19 +200,19 @@
       <column comment="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999" key="true" length="20" name="CONTRACT_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999"/>
       </column>
-      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="false">
         <additionalField key="Comment" value="วันที่ทำสัญญา"/>
       </column>
       <column comment="รหัสตัวแทนขาย" key="false" length="10" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสตัวแทนขาย"/>
       </column>
-      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="20" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="50" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT"/>
       </column>
-      <column comment="ชื่อสัญญา/โครงการ" key="false" length="200" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="ชื่อสัญญา/โครงการ" key="false" length="255" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ชื่อสัญญา/โครงการ"/>
       </column>
-      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="3" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="10" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสหมวดสินค้า (REF. lk_service_cate.code)"/>
       </column>
       <column comment="รหัส สข.  REF. LK_REGION_CODE" key="false" length="20" name="SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -228,7 +230,7 @@
       <column comment="" key="false" length="50" name="REF_SAA" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="เลขที่พัสดุ" key="false" length="20" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่พัสดุ" key="false" length="30" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่พัสดุ"/>
       </column>
       <column comment="วันที่เริ่มต้นสัญญา" key="false" length="10" name="EFF_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
@@ -264,8 +266,14 @@
       <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้สร้างรายการ"/>
       </column>
+      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ทำรายการ"/>
+      </column>
       <column comment="ผู้ปรับปรุงรายการล่าสุด" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้ปรับปรุงรายการล่าสุด"/>
+      </column>
+      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
       </column>
       <column comment="NO/YES" defaultValue="'NO'" key="false" length="10" name="IS_SKIPPED_BY_FINANCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="NO/YES"/>
@@ -273,19 +281,13 @@
       <column comment="REF COMM_FORMULA.COMMISSION_ID" key="false" length="45" name="MY_COMMISSION_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="REF COMM_FORMULA.COMMISSION_ID"/>
       </column>
-      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="3" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="TINYINT" type="id_Byte" usefulColumn="true">
+      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="4" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="TINYINT" type="id_Byte" usefulColumn="true">
         <additionalField key="Comment" value="0 = no, 1 = yes"/>
-      </column>
-      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ทำรายการ"/>
-      </column>
-      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
       </column>
       <additionalProperties key="Comment" value="แฟ้มข้อมูลเลขที่สัญญา"/>
     </metadata>
   </node>
-  <node componentName="tOracleOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="576" posY="128">
+  <node componentName="tOracleOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBOutput_1" show="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_vkU1UJBnEeufK6KJRdxkDw" show="false"/>
@@ -301,7 +303,7 @@
     <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;frontend&quot;" show="false"/>
     <elementParameter field="TEXT" name="TABLESCHEMA" value="&quot;A_PMS_COM&quot;"/>
     <elementParameter field="TEXT" name="USER" value="&quot;a_pms_com&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:ZKwQHxuFKCGOzQeBCKyfZxDcmgt8sgo5kIcfIyTW9beKeyZ1Rx4="/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:CTq63+1y9qAab0RkqGjRqczAzJ67R8eK1r7BUPAwyj+WdCRp2vc="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;CONTRACT_MAST&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="CREATE_IF_NOT_EXISTS"/>
     <elementParameter field="LABEL" name="NOTE" value="Warning : this component configuration will automatically generate a commit before data insert/update/delete" show="false"/>
@@ -323,11 +325,6 @@
     <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="CONTRACT_ID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CONTRACT_DATE"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -437,7 +434,17 @@
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CREATE_DATE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_BY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_UPDATE_DATE"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
@@ -473,19 +480,16 @@
       <column comment="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999" key="true" length="20" name="CONTRACT_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999"/>
       </column>
-      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
-        <additionalField key="Comment" value="วันที่ทำสัญญา"/>
-      </column>
       <column comment="รหัสตัวแทนขาย" key="false" length="10" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสตัวแทนขาย"/>
       </column>
-      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="20" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="50" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT"/>
       </column>
-      <column comment="ชื่อสัญญา/โครงการ" key="false" length="200" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="ชื่อสัญญา/โครงการ" key="false" length="255" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ชื่อสัญญา/โครงการ"/>
       </column>
-      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="3" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="10" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสหมวดสินค้า (REF. lk_service_cate.code)"/>
       </column>
       <column comment="รหัส สข.  REF. LK_REGION_CODE" key="false" length="20" name="SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -503,7 +507,7 @@
       <column comment="" key="false" length="50" name="REF_SAA" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="เลขที่พัสดุ" key="false" length="20" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่พัสดุ" key="false" length="30" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่พัสดุ"/>
       </column>
       <column comment="วันที่เริ่มต้นสัญญา" key="false" length="10" name="EFF_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
@@ -533,14 +537,20 @@
       <column comment="ในกรณีที่ Reject ให้ใส่เหตุผลของการ Rejected  (Ref. LK_CONTR_REASON.CODE)" key="false" length="3" name="REASON_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ในกรณีที่ Reject ให้ใส่เหตุผลของการ Rejected  (Ref. LK_CONTR_REASON.CODE)"/>
       </column>
-      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="VARCHAR2" type="id_String" usefulColumn="true">
+      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="คำอธิบายการพิจารณาเพิ่มเติม"/>
       </column>
       <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้สร้างรายการ"/>
       </column>
+      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ทำรายการ"/>
+      </column>
       <column comment="ผู้ปรับปรุงรายการล่าสุด" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้ปรับปรุงรายการล่าสุด"/>
+      </column>
+      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
       </column>
       <column comment="NO/YES" defaultValue="'NO'" key="false" length="10" name="IS_SKIPPED_BY_FINANCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="NO/YES"/>
@@ -548,14 +558,11 @@
       <column comment="REF COMM_FORMULA.COMMISSION_ID" key="false" length="45" name="MY_COMMISSION_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="REF COMM_FORMULA.COMMISSION_ID"/>
       </column>
-      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="3" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="VARCHAR2" type="id_Byte" usefulColumn="true">
+      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="4" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="NUMBER" type="id_Byte" usefulColumn="true">
         <additionalField key="Comment" value="0 = no, 1 = yes"/>
       </column>
-      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ทำรายการ"/>
-      </column>
-      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
+      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="false">
+        <additionalField key="Comment" value="วันที่ทำสัญญา"/>
       </column>
       <additionalProperties key="Comment" value="แฟ้มข้อมูลเลขที่สัญญา"/>
     </metadata>
@@ -563,19 +570,16 @@
       <column comment="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999" key="true" length="20" name="CONTRACT_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญา &lt;SERVICE_CATE>+YYCC99999"/>
       </column>
-      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
-        <additionalField key="Comment" value="วันที่ทำสัญญา"/>
-      </column>
       <column comment="รหัสตัวแทนขาย" key="false" length="10" name="PARTNER_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสตัวแทนขาย"/>
       </column>
-      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="20" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT" key="false" length="50" name="REF_CONTRACT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่สัญญาจริง ที่ตัวแทนขายเซ็นกับทาง CAT"/>
       </column>
-      <column comment="ชื่อสัญญา/โครงการ" key="false" length="200" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="ชื่อสัญญา/โครงการ" key="false" length="255" name="PROJECT_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ชื่อสัญญา/โครงการ"/>
       </column>
-      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="3" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="รหัสหมวดสินค้า (REF. lk_service_cate.code)" key="false" length="10" name="SERVICE_CATE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="รหัสหมวดสินค้า (REF. lk_service_cate.code)"/>
       </column>
       <column comment="รหัส สข.  REF. LK_REGION_CODE" key="false" length="20" name="SAA_REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -593,7 +597,7 @@
       <column comment="" key="false" length="50" name="REF_SAA" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="เลขที่พัสดุ" key="false" length="20" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="เลขที่พัสดุ" key="false" length="30" name="REF_DOC" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="เลขที่พัสดุ"/>
       </column>
       <column comment="วันที่เริ่มต้นสัญญา" key="false" length="10" name="EFF_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
@@ -623,14 +627,20 @@
       <column comment="ในกรณีที่ Reject ให้ใส่เหตุผลของการ Rejected  (Ref. LK_CONTR_REASON.CODE)" key="false" length="3" name="REASON_CODE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ในกรณีที่ Reject ให้ใส่เหตุผลของการ Rejected  (Ref. LK_CONTR_REASON.CODE)"/>
       </column>
-      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="VARCHAR2" type="id_String" usefulColumn="true">
+      <column comment="คำอธิบายการพิจารณาเพิ่มเติม" key="false" length="65535" name="REASON_NOTE" nullable="true" pattern="" precision="0" sourceType="CLOB" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="คำอธิบายการพิจารณาเพิ่มเติม"/>
       </column>
       <column comment="ผู้สร้างรายการ" key="false" length="20" name="CREATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้สร้างรายการ"/>
       </column>
+      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ทำรายการ"/>
+      </column>
       <column comment="ผู้ปรับปรุงรายการล่าสุด" key="false" length="20" name="LAST_UPDATE_BY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="ผู้ปรับปรุงรายการล่าสุด"/>
+      </column>
+      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
       </column>
       <column comment="NO/YES" defaultValue="'NO'" key="false" length="10" name="IS_SKIPPED_BY_FINANCE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="NO/YES"/>
@@ -638,16 +648,13 @@
       <column comment="REF COMM_FORMULA.COMMISSION_ID" key="false" length="45" name="MY_COMMISSION_ID" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value="REF COMM_FORMULA.COMMISSION_ID"/>
       </column>
-      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="3" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="VARCHAR2" type="id_Byte" usefulColumn="true">
+      <column comment="0 = no, 1 = yes" defaultValue="'0'" key="false" length="4" name="IS_PROTOTYPE" nullable="true" pattern="" precision="0" sourceType="NUMBER" type="id_Byte" usefulColumn="true">
         <additionalField key="Comment" value="0 = no, 1 = yes"/>
       </column>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR2" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR2" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="วันที่ทำรายการ" key="false" length="19" name="CREATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ทำรายการ"/>
-      </column>
-      <column comment="วันที่ปรับปรุงล่าสุด" key="false" length="19" name="LAST_UPDATE_DATE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="false">
-        <additionalField key="Comment" value="วันที่ปรับปรุงล่าสุด"/>
+      <column comment="วันที่ทำสัญญา" defaultValue="'2019-10-30'" key="false" length="10" name="CONTRACT_DATE" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATE" type="id_Date" usefulColumn="false">
+        <additionalField key="Comment" value="วันที่ทำสัญญา"/>
       </column>
       <additionalProperties key="Comment" value="แฟ้มข้อมูลเลขที่สัญญา"/>
     </metadata>

@@ -529,10 +529,6 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
 
 
 
-            int updateKeyCount_tDBOutput_1 = 1;
-            if(updateKeyCount_tDBOutput_1 < 1) {
-                throw new RuntimeException("For update, the schema must have a key");
-            }
     int nb_line_tDBOutput_1 = 0;
     int nb_line_update_tDBOutput_1 = 0;
     int nb_line_inserted_tDBOutput_1 = 0;
@@ -561,7 +557,7 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
                     url_tDBOutput_1 = "jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=" + "10.44.66.245" + ")(port=" + "1521" + "))(connect_data=(service_name=" + "frontend" + ")))";
                 String dbUser_tDBOutput_1 = "a_pms_com";
  
-	final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:FHsD8N4U4ZtP0PRwsILDVpi/vMjbW2uO6FCbKWH8uweXovw9");
+	final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:d+HdOnCO/MGVJ3H1KL7g+/bA0tT+HDvhmJizVboWv75YCEZV");
 
                 String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
                 dbschema_tDBOutput_1 = "A_PMS_COM";
@@ -572,6 +568,8 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
             conn_tDBOutput_1.setAutoCommit(false);
             int commitEvery_tDBOutput_1 = 10000;
             int commitCounter_tDBOutput_1 = 0;
+        int batchSize_tDBOutput_1 = 10000;
+        int batchSizeCounter_tDBOutput_1=0;
         int count_tDBOutput_1=0;
 
         if(dbschema_tDBOutput_1 == null || dbschema_tDBOutput_1.trim().length() == 0) {
@@ -579,40 +577,22 @@ public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) thr
         } else {
             tableName_tDBOutput_1 = dbschema_tDBOutput_1 + "." + ("COMMISSION_REPORT_MONTH");
         }
-                                String tableNameForSearch_tDBOutput_1= "" + ((String)"COMMISSION_REPORT_MONTH") + "";
-String dbschemaForSearch_tDBOutput_1= null;
-if(dbschema_tDBOutput_1== null || dbschema_tDBOutput_1.trim().length() == 0) {
-dbschemaForSearch_tDBOutput_1= ((String)"a_pms_com").toUpperCase();
-} else {
-dbschemaForSearch_tDBOutput_1= dbschema_tDBOutput_1.toUpperCase();
-}
-
-                                java.sql.DatabaseMetaData dbMetaData_tDBOutput_1 = conn_tDBOutput_1.getMetaData();
-                                if(tableNameForSearch_tDBOutput_1.indexOf("\"")==-1){
-                                    tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.toUpperCase();
-                                }else{
-                                    tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.replaceAll("\"","");
-                                }
-                                boolean whetherExist_tDBOutput_1 = false;
-                                try (java.sql.ResultSet rsTable_tDBOutput_1 = dbMetaData_tDBOutput_1.getTables(null, dbschemaForSearch_tDBOutput_1, tableNameForSearch_tDBOutput_1, new String[]{"TABLE"})) {
-                                    if(rsTable_tDBOutput_1.next()) {
-                                        whetherExist_tDBOutput_1 = true;
-                                    }
-                                }
-
-                                if(!whetherExist_tDBOutput_1) {
-                                    try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
-                                        stmtCreate_tDBOutput_1.execute("CREATE TABLE " + tableName_tDBOutput_1 + "(REPORT_MONTH_ID DATE  not null ,primary key(REPORT_MONTH_ID))");
-                                    }
-                                }
-                java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1.prepareStatement("SELECT COUNT(1) FROM " + tableName_tDBOutput_1 + " WHERE REPORT_MONTH_ID = ?");
-                resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
+            int rsTruncCountNumber_tDBOutput_1 = 0;
+            try(java.sql.Statement stmtTruncCount_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
+                try (java.sql.ResultSet rsTruncCount_tDBOutput_1 = stmtTruncCount_tDBOutput_1.executeQuery("SELECT COUNT(1) FROM " + tableName_tDBOutput_1 + "")) {
+                    if(rsTruncCount_tDBOutput_1.next()) {
+                        rsTruncCountNumber_tDBOutput_1 = rsTruncCount_tDBOutput_1.getInt(1);
+                    }
+                }
+            }
+            try (java.sql.Statement stmtTrunc_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
+                stmtTrunc_tDBOutput_1.executeUpdate("TRUNCATE TABLE " + tableName_tDBOutput_1 + "");
+                deletedCount_tDBOutput_1 += rsTruncCountNumber_tDBOutput_1;
+            }
                 String insert_tDBOutput_1 = "INSERT INTO " + tableName_tDBOutput_1 + " (REPORT_MONTH_ID) VALUES (?)";    
-                java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(insert_tDBOutput_1);
-                resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
-                String update_tDBOutput_1 = "UPDATE " + tableName_tDBOutput_1 + " SET  WHERE REPORT_MONTH_ID = ?";
-                java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(update_tDBOutput_1);
-                resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
+
+                        java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(insert_tDBOutput_1);
+                        resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
 
 
 
@@ -658,7 +638,7 @@ dbschemaForSearch_tDBOutput_1= dbschema_tDBOutput_1.toUpperCase();
 				String dbUser_tDBInput_1 = "pms_app";
 				
 				 
-	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:D+II2Lxjx20zQxZNNmKe280Y/h8TGf5zu0a65uCQEajFzCjxdeaaIIBb");
+	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:RmM+n2xXBCUvMvm006Pu9I0ylLL0lGWBEMtKHytaJGaCX9Au+M12Mq8t");
 				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
 				
@@ -772,52 +752,59 @@ dbschemaForSearch_tDBOutput_1= dbschema_tDBOutput_1.toUpperCase();
 
 
         whetherReject_tDBOutput_1 = false;
-                    if(row1.REPORT_MONTH_ID != null) {
+                        if(row1.REPORT_MONTH_ID != null) {
 pstmt_tDBOutput_1.setObject(1, new java.sql.Timestamp(row1.REPORT_MONTH_ID.getTime()),java.sql.Types.DATE);
 } else {
 pstmt_tDBOutput_1.setNull(1, java.sql.Types.DATE);
 }
 
-            int checkCount_tDBOutput_1 = -1;
-            try (java.sql.ResultSet rs_tDBOutput_1 = pstmt_tDBOutput_1.executeQuery()) {
-                while(rs_tDBOutput_1.next()) {
-                    checkCount_tDBOutput_1 = rs_tDBOutput_1.getInt(1);
-                }
-            }
-            if(checkCount_tDBOutput_1 > 0) {
-                        if(row1.REPORT_MONTH_ID != null) {
-pstmtUpdate_tDBOutput_1.setObject(1 + count_tDBOutput_1, new java.sql.Timestamp(row1.REPORT_MONTH_ID.getTime()),java.sql.Types.DATE);
-} else {
-pstmtUpdate_tDBOutput_1.setNull(1 + count_tDBOutput_1, java.sql.Types.DATE);
-}
-
+                pstmt_tDBOutput_1.addBatch();
+                nb_line_tDBOutput_1++;
+                batchSizeCounter_tDBOutput_1++;
+            if (batchSize_tDBOutput_1 > 0 &&  batchSize_tDBOutput_1 <= batchSizeCounter_tDBOutput_1) {
                 try {
-                    updatedCount_tDBOutput_1 = updatedCount_tDBOutput_1 + pstmtUpdate_tDBOutput_1.executeUpdate();
-                    nb_line_tDBOutput_1++;
-                } catch(java.lang.Exception e_tDBOutput_1) {
-                    whetherReject_tDBOutput_1 = true;
-                        nb_line_tDBOutput_1++;
-                            System.err.print(e_tDBOutput_1.getMessage());
-                }
-            } else {
-                        if(row1.REPORT_MONTH_ID != null) {
-pstmtInsert_tDBOutput_1.setObject(1, new java.sql.Timestamp(row1.REPORT_MONTH_ID.getTime()),java.sql.Types.DATE);
-} else {
-pstmtInsert_tDBOutput_1.setNull(1, java.sql.Types.DATE);
-}
-
-                try {
-                    insertedCount_tDBOutput_1 = insertedCount_tDBOutput_1 + pstmtInsert_tDBOutput_1.executeUpdate();
-                    nb_line_tDBOutput_1++;
-                } catch(java.lang.Exception e_tDBOutput_1) {
-                    whetherReject_tDBOutput_1 = true;
-                        nb_line_tDBOutput_1++;
-                            System.err.print(e_tDBOutput_1.getMessage());
-                }
+                    pstmt_tDBOutput_1.executeBatch();
+                }catch (java.sql.BatchUpdateException e_tDBOutput_1){
+			        java.sql.SQLException ne_tDBOutput_1 = e_tDBOutput_1.getNextException(),sqle_tDBOutput_1=null;
+			    	String errormessage_tDBOutput_1;
+					if (ne_tDBOutput_1 != null) {
+						// build new exception to provide the original cause
+						sqle_tDBOutput_1 = new java.sql.SQLException(e_tDBOutput_1.getMessage() + "\ncaused by: " + ne_tDBOutput_1.getMessage(), ne_tDBOutput_1.getSQLState(), ne_tDBOutput_1.getErrorCode(), ne_tDBOutput_1);
+						errormessage_tDBOutput_1 = sqle_tDBOutput_1.getMessage();
+					}else{
+						errormessage_tDBOutput_1 = e_tDBOutput_1.getMessage();
+					}
+	            	
+	                	System.err.println(errormessage_tDBOutput_1);
+	            	
+	        	}
+                tmp_batchUpdateCount_tDBOutput_1 = pstmt_tDBOutput_1.getUpdateCount();
+                    insertedCount_tDBOutput_1
+                += (tmp_batchUpdateCount_tDBOutput_1!=-1?tmp_batchUpdateCount_tDBOutput_1:0);
+                batchSizeCounter_tDBOutput_1 = 0;
             }
                 commitCounter_tDBOutput_1++;
                 if(commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
 
+                        try {
+                            pstmt_tDBOutput_1.executeBatch();
+                        }catch (java.sql.BatchUpdateException e_tDBOutput_1){
+					        java.sql.SQLException ne_tDBOutput_1 = e_tDBOutput_1.getNextException(),sqle_tDBOutput_1=null;
+					    	String errormessage_tDBOutput_1;
+							if (ne_tDBOutput_1 != null) {
+								// build new exception to provide the original cause
+								sqle_tDBOutput_1 = new java.sql.SQLException(e_tDBOutput_1.getMessage() + "\ncaused by: " + ne_tDBOutput_1.getMessage(), ne_tDBOutput_1.getSQLState(), ne_tDBOutput_1.getErrorCode(), ne_tDBOutput_1);
+								errormessage_tDBOutput_1 = sqle_tDBOutput_1.getMessage();
+							}else{
+								errormessage_tDBOutput_1 = e_tDBOutput_1.getMessage();
+							}
+			            	
+			                	System.err.println(errormessage_tDBOutput_1);
+			            	
+			        	}
+                        tmp_batchUpdateCount_tDBOutput_1 = pstmt_tDBOutput_1.getUpdateCount();
+                            insertedCount_tDBOutput_1
+                        += (tmp_batchUpdateCount_tDBOutput_1!=-1?tmp_batchUpdateCount_tDBOutput_1:0);
                     conn_tDBOutput_1.commit();
                     commitCounter_tDBOutput_1=0;
                 }
@@ -961,17 +948,38 @@ end_Hash.put("tDBInput_1", System.currentTimeMillis());
 
 
 	
-        if(pstmtUpdate_tDBOutput_1 != null){
-            pstmtUpdate_tDBOutput_1.close();
-            resourceMap.remove("pstmtUpdate_tDBOutput_1");
-        }
-        if(pstmtInsert_tDBOutput_1 != null){
-            pstmtInsert_tDBOutput_1.close();
-            resourceMap.remove("pstmtInsert_tDBOutput_1");
-        }
+            try {
+            	if (pstmt_tDBOutput_1 != null) {
+					
+					pstmt_tDBOutput_1.executeBatch();
+					
+        	    }
+            }catch (java.sql.BatchUpdateException e_tDBOutput_1){
+		        java.sql.SQLException ne_tDBOutput_1 = e_tDBOutput_1.getNextException(),sqle_tDBOutput_1=null;
+		    	String errormessage_tDBOutput_1;
+				if (ne_tDBOutput_1 != null) {
+					// build new exception to provide the original cause
+					sqle_tDBOutput_1 = new java.sql.SQLException(e_tDBOutput_1.getMessage() + "\ncaused by: " + ne_tDBOutput_1.getMessage(), ne_tDBOutput_1.getSQLState(), ne_tDBOutput_1.getErrorCode(), ne_tDBOutput_1);
+					errormessage_tDBOutput_1 = sqle_tDBOutput_1.getMessage();
+				}else{
+					errormessage_tDBOutput_1 = e_tDBOutput_1.getMessage();
+				}
+            	
+                	System.err.println(errormessage_tDBOutput_1);
+            	
+        	}
+        	if (pstmt_tDBOutput_1 != null) {
+            	tmp_batchUpdateCount_tDBOutput_1 = pstmt_tDBOutput_1.getUpdateCount();
+    	    	
+    	    		insertedCount_tDBOutput_1
+    	    	
+    	    	+= (tmp_batchUpdateCount_tDBOutput_1!=-1?tmp_batchUpdateCount_tDBOutput_1:0);
+            }
         if(pstmt_tDBOutput_1 != null) {
-            pstmt_tDBOutput_1.close();
-            resourceMap.remove("pstmt_tDBOutput_1");
+			
+				pstmt_tDBOutput_1.close();
+				resourceMap.remove("pstmt_tDBOutput_1");
+			
         }
     resourceMap.put("statementClosed_tDBOutput_1", true);
 		if(commitCounter_tDBOutput_1 > 0) {
@@ -1080,14 +1088,6 @@ end_Hash.put("tDBOutput_1", System.currentTimeMillis());
 
     try {
     if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
-                java.sql.PreparedStatement pstmtUpdateToClose_tDBOutput_1 = null;
-                if ((pstmtUpdateToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmtUpdate_tDBOutput_1")) != null) {
-                    pstmtUpdateToClose_tDBOutput_1.close();
-                }
-                java.sql.PreparedStatement pstmtInsertToClose_tDBOutput_1 = null;
-                if ((pstmtInsertToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmtInsert_tDBOutput_1")) != null) {
-                    pstmtInsertToClose_tDBOutput_1.close();
-                }
                 java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
                 if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmt_tDBOutput_1")) != null) {
                     pstmtToClose_tDBOutput_1.close();
@@ -1514,6 +1514,6 @@ if (execStat) {
     ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- *     44430 characters generated by Talend Open Studio for Data Integration 
- *     on the March 29, 2021 4:21:41 PM ICT
+ *     43720 characters generated by Talend Open Studio for Data Integration 
+ *     on the March 30, 2021 2:14:35 PM ICT
  ************************************************************************************************/

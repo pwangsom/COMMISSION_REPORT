@@ -254,10 +254,18 @@
             <outputDirectory>${talend.job.name}</outputDirectory>
             <includes>
                 <include>org.example.commission_report.job:loadMasterDataFromPmToOracle:jar:0.1.0</include>
-                <include>org.example.commission_report.job:loadCommissionFormula:jar:0.1.0</include>
-                <include>org.example.commission_report.job:loadCommissionReportMonth:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadContractSaaSapcode:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadContractServiceFormula:jar:0.1.0</include>
                 <include>org.example.commission_report.job:loadCommissionReport:jar:0.1.0</include>
                 <include>org.example.commission_report.job:loadCommissionFormulaDetails:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadPartnerServiceRelationship:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadPartnerSaleAreaAccount:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadPartnerMast:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadCommissionFormula:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadContractMast:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadCommissionReportMonth:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadContractSaaService:jar:0.1.0</include>
+                <include>org.example.commission_report.job:loadSaaOnOracle:jar:0.1.0</include>
             </includes>
             <outputFileNameMapping>${artifact.build.finalName}.${artifact.extension}</outputFileNameMapping>
             <useProjectArtifact>true</useProjectArtifact>

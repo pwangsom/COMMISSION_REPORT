@@ -14,6 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 package commission_report.loadpartnermast_0_1;
 
 import routines.Numeric;
@@ -40,26 +41,31 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.Comparator;
+ 
+
+
+
+
 
 @SuppressWarnings("unused")
 
 /**
  * Job: loadPartnerMast Purpose: <br>
- * Description: <br>
- * 
+ * Description:  <br>
  * @author user@talend.com
  * @version 7.3.1.20200219_1130
  * @status PROD
  */
 public class loadPartnerMast implements TalendJob {
 
-	protected static void logIgnoredError(String message, Throwable cause) {
-		System.err.println(message);
-		if (cause != null) {
-			cause.printStackTrace();
-		}
+protected static void logIgnoredError(String message, Throwable cause) {
+       System.err.println(message);
+       if (cause != null) {
+               cause.printStackTrace();
+       }
 
-	}
+}
+
 
 	public final Object obj = new Object();
 
@@ -73,3258 +79,3341 @@ public class loadPartnerMast implements TalendJob {
 	public void setValueObject(Object valueObject) {
 		this.valueObject = valueObject;
 	}
-
+	
 	private final static String defaultCharset = java.nio.charset.Charset.defaultCharset().name();
 
+	
 	private final static String utf8Charset = "UTF-8";
-
-	// contains type for every context property
+	//contains type for every context property
 	public class PropertiesWithType extends java.util.Properties {
 		private static final long serialVersionUID = 1L;
-		private java.util.Map<String, String> propertyTypes = new java.util.HashMap<>();
-
-		public PropertiesWithType(java.util.Properties properties) {
+		private java.util.Map<String,String> propertyTypes = new java.util.HashMap<>();
+		
+		public PropertiesWithType(java.util.Properties properties){
 			super(properties);
 		}
-
-		public PropertiesWithType() {
+		public PropertiesWithType(){
 			super();
 		}
-
+		
 		public void setContextType(String key, String type) {
-			propertyTypes.put(key, type);
+			propertyTypes.put(key,type);
 		}
-
+	
 		public String getContextType(String key) {
 			return propertyTypes.get(key);
 		}
 	}
-
+	
 	// create and load default properties
 	private java.util.Properties defaultProps = new java.util.Properties();
-
 	// create application properties with default
 	public class ContextProperties extends PropertiesWithType {
 
 		private static final long serialVersionUID = 1L;
 
-		public ContextProperties(java.util.Properties properties) {
+		public ContextProperties(java.util.Properties properties){
 			super(properties);
 		}
-
-		public ContextProperties() {
+		public ContextProperties(){
 			super();
 		}
 
-		public void synchronizeContext() {
-
+		public void synchronizeContext(){
+			
 		}
 
 	}
-
 	protected ContextProperties context = new ContextProperties(); // will be instanciated by MS.
-
 	public ContextProperties getContext() {
 		return this.context;
 	}
-
 	private final String jobVersion = "0.1";
 	private final String jobName = "loadPartnerMast";
 	private final String projectName = "COMMISSION_REPORT";
 	public Integer errorCode = null;
 	private String currentComponent = "";
+	
+		private final java.util.Map<String, Object> globalMap = new java.util.HashMap<String, Object>();
+        private final static java.util.Map<String, Object> junitGlobalMap = new java.util.HashMap<String, Object>();
+	
+		private final java.util.Map<String, Long> start_Hash = new java.util.HashMap<String, Long>();
+		private final java.util.Map<String, Long> end_Hash = new java.util.HashMap<String, Long>();
+		private final java.util.Map<String, Boolean> ok_Hash = new java.util.HashMap<String, Boolean>();
+		public  final java.util.List<String[]> globalBuffer = new java.util.ArrayList<String[]>();
+	
 
-	private final java.util.Map<String, Object> globalMap = new java.util.HashMap<String, Object>();
-	private final static java.util.Map<String, Object> junitGlobalMap = new java.util.HashMap<String, Object>();
-
-	private final java.util.Map<String, Long> start_Hash = new java.util.HashMap<String, Long>();
-	private final java.util.Map<String, Long> end_Hash = new java.util.HashMap<String, Long>();
-	private final java.util.Map<String, Boolean> ok_Hash = new java.util.HashMap<String, Boolean>();
-	public final java.util.List<String[]> globalBuffer = new java.util.ArrayList<String[]>();
-
-	private RunStat runStat = new RunStat();
+private RunStat runStat = new RunStat();
 
 	// OSGi DataSource
 	private final static String KEY_DB_DATASOURCES = "KEY_DB_DATASOURCES";
-
+	
 	private final static String KEY_DB_DATASOURCES_RAW = "KEY_DB_DATASOURCES_RAW";
 
 	public void setDataSources(java.util.Map<String, javax.sql.DataSource> dataSources) {
 		java.util.Map<String, routines.system.TalendDataSource> talendDataSources = new java.util.HashMap<String, routines.system.TalendDataSource>();
 		for (java.util.Map.Entry<String, javax.sql.DataSource> dataSourceEntry : dataSources.entrySet()) {
-			talendDataSources.put(dataSourceEntry.getKey(),
-					new routines.system.TalendDataSource(dataSourceEntry.getValue()));
+			talendDataSources.put(dataSourceEntry.getKey(), new routines.system.TalendDataSource(dataSourceEntry.getValue()));
 		}
 		globalMap.put(KEY_DB_DATASOURCES, talendDataSources);
 		globalMap.put(KEY_DB_DATASOURCES_RAW, new java.util.HashMap<String, javax.sql.DataSource>(dataSources));
 	}
 
-	private final java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-	private final java.io.PrintStream errorMessagePS = new java.io.PrintStream(new java.io.BufferedOutputStream(baos));
 
-	public String getExceptionStackTrace() {
-		if ("failure".equals(this.getStatus())) {
-			errorMessagePS.flush();
-			return baos.toString();
-		}
-		return null;
+private final java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
+private final java.io.PrintStream errorMessagePS = new java.io.PrintStream(new java.io.BufferedOutputStream(baos));
+
+public String getExceptionStackTrace() {
+	if ("failure".equals(this.getStatus())) {
+		errorMessagePS.flush();
+		return baos.toString();
+	}
+	return null;
+}
+
+private Exception exception;
+
+public Exception getException() {
+	if ("failure".equals(this.getStatus())) {
+		return this.exception;
+	}
+	return null;
+}
+
+private class TalendException extends Exception {
+
+	private static final long serialVersionUID = 1L;
+
+	private java.util.Map<String, Object> globalMap = null;
+	private Exception e = null;
+	private String currentComponent = null;
+	private String virtualComponentName = null;
+	
+	public void setVirtualComponentName (String virtualComponentName){
+		this.virtualComponentName = virtualComponentName;
 	}
 
-	private Exception exception;
+	private TalendException(Exception e, String errorComponent, final java.util.Map<String, Object> globalMap) {
+		this.currentComponent= errorComponent;
+		this.globalMap = globalMap;
+		this.e = e;
+	}
 
 	public Exception getException() {
-		if ("failure".equals(this.getStatus())) {
-			return this.exception;
-		}
-		return null;
+		return this.e;
 	}
 
-	private class TalendException extends Exception {
+	public String getCurrentComponent() {
+		return this.currentComponent;
+	}
 
-		private static final long serialVersionUID = 1L;
+	
+    public String getExceptionCauseMessage(Exception e){
+        Throwable cause = e;
+        String message = null;
+        int i = 10;
+        while (null != cause && 0 < i--) {
+            message = cause.getMessage();
+            if (null == message) {
+                cause = cause.getCause();
+            } else {
+                break;          
+            }
+        }
+        if (null == message) {
+            message = e.getClass().getName();
+        }   
+        return message;
+    }
 
-		private java.util.Map<String, Object> globalMap = null;
-		private Exception e = null;
-		private String currentComponent = null;
-		private String virtualComponentName = null;
-
-		public void setVirtualComponentName(String virtualComponentName) {
-			this.virtualComponentName = virtualComponentName;
+	@Override
+	public void printStackTrace() {
+		if (!(e instanceof TalendException || e instanceof TDieException)) {
+			if(virtualComponentName!=null && currentComponent.indexOf(virtualComponentName+"_")==0){
+				globalMap.put(virtualComponentName+"_ERROR_MESSAGE",getExceptionCauseMessage(e));
+			}
+			globalMap.put(currentComponent+"_ERROR_MESSAGE",getExceptionCauseMessage(e));
+			System.err.println("Exception in component " + currentComponent + " (" + jobName + ")");
 		}
-
-		private TalendException(Exception e, String errorComponent, final java.util.Map<String, Object> globalMap) {
-			this.currentComponent = errorComponent;
-			this.globalMap = globalMap;
-			this.e = e;
+		if (!(e instanceof TDieException)) {
+			if(e instanceof TalendException){
+				e.printStackTrace();
+			} else {
+				e.printStackTrace();
+				e.printStackTrace(errorMessagePS);
+				loadPartnerMast.this.exception = e;
+			}
 		}
-
-		public Exception getException() {
-			return this.e;
-		}
-
-		public String getCurrentComponent() {
-			return this.currentComponent;
-		}
-
-		public String getExceptionCauseMessage(Exception e) {
-			Throwable cause = e;
-			String message = null;
-			int i = 10;
-			while (null != cause && 0 < i--) {
-				message = cause.getMessage();
-				if (null == message) {
-					cause = cause.getCause();
-				} else {
+		if (!(e instanceof TalendException)) {
+		try {
+			for (java.lang.reflect.Method m : this.getClass().getEnclosingClass().getMethods()) {
+				if (m.getName().compareTo(currentComponent + "_error") == 0) {
+					m.invoke(loadPartnerMast.this, new Object[] { e , currentComponent, globalMap});
 					break;
 				}
 			}
-			if (null == message) {
-				message = e.getClass().getName();
-			}
-			return message;
-		}
 
-		@Override
-		public void printStackTrace() {
-			if (!(e instanceof TalendException || e instanceof TDieException)) {
-				if (virtualComponentName != null && currentComponent.indexOf(virtualComponentName + "_") == 0) {
-					globalMap.put(virtualComponentName + "_ERROR_MESSAGE", getExceptionCauseMessage(e));
-				}
-				globalMap.put(currentComponent + "_ERROR_MESSAGE", getExceptionCauseMessage(e));
-				System.err.println("Exception in component " + currentComponent + " (" + jobName + ")");
+			if(!(e instanceof TDieException)){
 			}
-			if (!(e instanceof TDieException)) {
-				if (e instanceof TalendException) {
-					e.printStackTrace();
+		} catch (Exception e) {
+			this.e.printStackTrace();
+		}
+		}
+	}
+}
+
+			public void tDBInput_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tDBOutput_1_error(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+				
+				end_Hash.put(errorComponent, System.currentTimeMillis());
+				
+				status = "failure";
+				
+					tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
+			}
+			
+			public void tDBInput_1_onSubJobError(Exception exception, String errorComponent, final java.util.Map<String, Object> globalMap) throws TalendException {
+
+resumeUtil.addLog("SYSTEM_LOG", "NODE:"+ errorComponent, "", Thread.currentThread().getId()+ "", "FATAL", "", exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception),"");
+
+			}
+	
+
+
+
+
+
+
+public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
+    final static byte[] commonByteArrayLock_COMMISSION_REPORT_loadPartnerMast = new byte[0];
+    static byte[] commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[0];
+	protected static final int DEFAULT_HASHCODE = 1;
+    protected static final int PRIME = 31;
+    protected int hashCode = DEFAULT_HASHCODE;
+    public boolean hashCodeDirty = true;
+
+    public String loopKey;
+
+
+
+	
+			    public long PARTNER_ID;
+
+				public long getPARTNER_ID () {
+					return this.PARTNER_ID;
+				}
+				
+			    public java.util.Date PARTNER_DATE;
+
+				public java.util.Date getPARTNER_DATE () {
+					return this.PARTNER_DATE;
+				}
+				
+			    public String REF_APPL_ID;
+
+				public String getREF_APPL_ID () {
+					return this.REF_APPL_ID;
+				}
+				
+			    public String PARTNER_TYPE;
+
+				public String getPARTNER_TYPE () {
+					return this.PARTNER_TYPE;
+				}
+				
+			    public String PREFIX_CODE;
+
+				public String getPREFIX_CODE () {
+					return this.PREFIX_CODE;
+				}
+				
+			    public String PARTNER_NAME;
+
+				public String getPARTNER_NAME () {
+					return this.PARTNER_NAME;
+				}
+				
+			    public String SUFFIX_NAME;
+
+				public String getSUFFIX_NAME () {
+					return this.SUFFIX_NAME;
+				}
+				
+			    public String PARTNER_FULL_NAME;
+
+				public String getPARTNER_FULL_NAME () {
+					return this.PARTNER_FULL_NAME;
+				}
+				
+			    public String PARTNER_ABBV;
+
+				public String getPARTNER_ABBV () {
+					return this.PARTNER_ABBV;
+				}
+				
+			    public String ID_TYPE;
+
+				public String getID_TYPE () {
+					return this.ID_TYPE;
+				}
+				
+			    public String ID_CARD;
+
+				public String getID_CARD () {
+					return this.ID_CARD;
+				}
+				
+			    public String ID_BRANCH;
+
+				public String getID_BRANCH () {
+					return this.ID_BRANCH;
+				}
+				
+			    public String BRANCH_NAME;
+
+				public String getBRANCH_NAME () {
+					return this.BRANCH_NAME;
+				}
+				
+			    public java.util.Date DATE_OF_BIRTH;
+
+				public java.util.Date getDATE_OF_BIRTH () {
+					return this.DATE_OF_BIRTH;
+				}
+				
+			    public String ISSUED_BY;
+
+				public String getISSUED_BY () {
+					return this.ISSUED_BY;
+				}
+				
+			    public java.util.Date ISSUED_DATE;
+
+				public java.util.Date getISSUED_DATE () {
+					return this.ISSUED_DATE;
+				}
+				
+			    public java.util.Date EXPIRED_DATE;
+
+				public java.util.Date getEXPIRED_DATE () {
+					return this.EXPIRED_DATE;
+				}
+				
+			    public String GENDER;
+
+				public String getGENDER () {
+					return this.GENDER;
+				}
+				
+			    public String NATION_CODE;
+
+				public String getNATION_CODE () {
+					return this.NATION_CODE;
+				}
+				
+			    public String PRIORITY_CODE;
+
+				public String getPRIORITY_CODE () {
+					return this.PRIORITY_CODE;
+				}
+				
+			    public String VAT_CODE;
+
+				public String getVAT_CODE () {
+					return this.VAT_CODE;
+				}
+				
+			    public BigDecimal CAP_INCOME;
+
+				public BigDecimal getCAP_INCOME () {
+					return this.CAP_INCOME;
+				}
+				
+			    public String SALARY_RANGE;
+
+				public String getSALARY_RANGE () {
+					return this.SALARY_RANGE;
+				}
+				
+			    public String TOTAL_EMP;
+
+				public String getTOTAL_EMP () {
+					return this.TOTAL_EMP;
+				}
+				
+			    public Integer ADDR_SEQ_BILL;
+
+				public Integer getADDR_SEQ_BILL () {
+					return this.ADDR_SEQ_BILL;
+				}
+				
+			    public Integer CONTACT_PERSON_SEQ;
+
+				public Integer getCONTACT_PERSON_SEQ () {
+					return this.CONTACT_PERSON_SEQ;
+				}
+				
+			    public Integer CONTACT_CHANNEL_SEQ_MOBILE;
+
+				public Integer getCONTACT_CHANNEL_SEQ_MOBILE () {
+					return this.CONTACT_CHANNEL_SEQ_MOBILE;
+				}
+				
+			    public Integer CONTACT_CHANNEL_SEQ_EMAIL;
+
+				public Integer getCONTACT_CHANNEL_SEQ_EMAIL () {
+					return this.CONTACT_CHANNEL_SEQ_EMAIL;
+				}
+				
+			    public Integer DOC_ATTCH_SEQ;
+
+				public Integer getDOC_ATTCH_SEQ () {
+					return this.DOC_ATTCH_SEQ;
+				}
+				
+			    public String REF_SERVICE_CATE;
+
+				public String getREF_SERVICE_CATE () {
+					return this.REF_SERVICE_CATE;
+				}
+				
+			    public String REF_SAA_REGION;
+
+				public String getREF_SAA_REGION () {
+					return this.REF_SAA_REGION;
+				}
+				
+			    public String REF_SAA_PROVINCE;
+
+				public String getREF_SAA_PROVINCE () {
+					return this.REF_SAA_PROVINCE;
+				}
+				
+			    public String REF_SAA_SALES_TEAM;
+
+				public String getREF_SAA_SALES_TEAM () {
+					return this.REF_SAA_SALES_TEAM;
+				}
+				
+			    public String REF_SAA_SALES_REP;
+
+				public String getREF_SAA_SALES_REP () {
+					return this.REF_SAA_SALES_REP;
+				}
+				
+			    public String ASSIGN_BY_REG;
+
+				public String getASSIGN_BY_REG () {
+					return this.ASSIGN_BY_REG;
+				}
+				
+			    public String ASSIGN_TO_TEAM_MGR;
+
+				public String getASSIGN_TO_TEAM_MGR () {
+					return this.ASSIGN_TO_TEAM_MGR;
+				}
+				
+			    public java.util.Date ASSIGN_DATE_1;
+
+				public java.util.Date getASSIGN_DATE_1 () {
+					return this.ASSIGN_DATE_1;
+				}
+				
+			    public java.util.Date ASSIGN_DATE_2;
+
+				public java.util.Date getASSIGN_DATE_2 () {
+					return this.ASSIGN_DATE_2;
+				}
+				
+			    public String APPV_BY;
+
+				public String getAPPV_BY () {
+					return this.APPV_BY;
+				}
+				
+			    public java.util.Date APPV_DATE;
+
+				public java.util.Date getAPPV_DATE () {
+					return this.APPV_DATE;
+				}
+				
+			    public String STATUS;
+
+				public String getSTATUS () {
+					return this.STATUS;
+				}
+				
+			    public String REASON_CODE;
+
+				public String getREASON_CODE () {
+					return this.REASON_CODE;
+				}
+				
+			    public String REASON_NOTE;
+
+				public String getREASON_NOTE () {
+					return this.REASON_NOTE;
+				}
+				
+			    public String BLACKLIST_FLAG;
+
+				public String getBLACKLIST_FLAG () {
+					return this.BLACKLIST_FLAG;
+				}
+				
+			    public String BLACKLIST_LEVEL;
+
+				public String getBLACKLIST_LEVEL () {
+					return this.BLACKLIST_LEVEL;
+				}
+				
+			    public String REF_CR_NO;
+
+				public String getREF_CR_NO () {
+					return this.REF_CR_NO;
+				}
+				
+			    public String REF_CA_ID;
+
+				public String getREF_CA_ID () {
+					return this.REF_CA_ID;
+				}
+				
+			    public String REF_PA_ID;
+
+				public String getREF_PA_ID () {
+					return this.REF_PA_ID;
+				}
+				
+			    public BigDecimal CREDIT_LIMIT;
+
+				public BigDecimal getCREDIT_LIMIT () {
+					return this.CREDIT_LIMIT;
+				}
+				
+			    public BigDecimal CREDIT_AVAILABLE;
+
+				public BigDecimal getCREDIT_AVAILABLE () {
+					return this.CREDIT_AVAILABLE;
+				}
+				
+			    public Short CREDIT_TERMS;
+
+				public Short getCREDIT_TERMS () {
+					return this.CREDIT_TERMS;
+				}
+				
+			    public Integer CONTR_RUNNING;
+
+				public Integer getCONTR_RUNNING () {
+					return this.CONTR_RUNNING;
+				}
+				
+			    public String CREATE_BY;
+
+				public String getCREATE_BY () {
+					return this.CREATE_BY;
+				}
+				
+			    public java.util.Date CREATE_DATE;
+
+				public java.util.Date getCREATE_DATE () {
+					return this.CREATE_DATE;
+				}
+				
+			    public String LAST_UPDATE_BY;
+
+				public String getLAST_UPDATE_BY () {
+					return this.LAST_UPDATE_BY;
+				}
+				
+			    public java.util.Date LAST_UPDATE_DATE;
+
+				public java.util.Date getLAST_UPDATE_DATE () {
+					return this.LAST_UPDATE_DATE;
+				}
+				
+			    public String REMARK;
+
+				public String getREMARK () {
+					return this.REMARK;
+				}
+				
+			    public String REF_SAA_CODE;
+
+				public String getREF_SAA_CODE () {
+					return this.REF_SAA_CODE;
+				}
+				
+			    public String VENDOR_CODE;
+
+				public String getVENDOR_CODE () {
+					return this.VENDOR_CODE;
+				}
+				
+			    public Integer USSD_SELLER_CODE_SEQ;
+
+				public Integer getUSSD_SELLER_CODE_SEQ () {
+					return this.USSD_SELLER_CODE_SEQ;
+				}
+				
+
+
+	@Override
+	public int hashCode() {
+		if (this.hashCodeDirty) {
+			final int prime = PRIME;
+			int result = DEFAULT_HASHCODE;
+	
+							result = prime * result + (int) this.PARTNER_ID;
+						
+    		this.hashCode = result;
+    		this.hashCodeDirty = false;
+		}
+		return this.hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		final row1Struct other = (row1Struct) obj;
+		
+						if (this.PARTNER_ID != other.PARTNER_ID)
+							return false;
+					
+
+		return true;
+    }
+
+	public void copyDataTo(row1Struct other) {
+
+		other.PARTNER_ID = this.PARTNER_ID;
+	            other.PARTNER_DATE = this.PARTNER_DATE;
+	            other.REF_APPL_ID = this.REF_APPL_ID;
+	            other.PARTNER_TYPE = this.PARTNER_TYPE;
+	            other.PREFIX_CODE = this.PREFIX_CODE;
+	            other.PARTNER_NAME = this.PARTNER_NAME;
+	            other.SUFFIX_NAME = this.SUFFIX_NAME;
+	            other.PARTNER_FULL_NAME = this.PARTNER_FULL_NAME;
+	            other.PARTNER_ABBV = this.PARTNER_ABBV;
+	            other.ID_TYPE = this.ID_TYPE;
+	            other.ID_CARD = this.ID_CARD;
+	            other.ID_BRANCH = this.ID_BRANCH;
+	            other.BRANCH_NAME = this.BRANCH_NAME;
+	            other.DATE_OF_BIRTH = this.DATE_OF_BIRTH;
+	            other.ISSUED_BY = this.ISSUED_BY;
+	            other.ISSUED_DATE = this.ISSUED_DATE;
+	            other.EXPIRED_DATE = this.EXPIRED_DATE;
+	            other.GENDER = this.GENDER;
+	            other.NATION_CODE = this.NATION_CODE;
+	            other.PRIORITY_CODE = this.PRIORITY_CODE;
+	            other.VAT_CODE = this.VAT_CODE;
+	            other.CAP_INCOME = this.CAP_INCOME;
+	            other.SALARY_RANGE = this.SALARY_RANGE;
+	            other.TOTAL_EMP = this.TOTAL_EMP;
+	            other.ADDR_SEQ_BILL = this.ADDR_SEQ_BILL;
+	            other.CONTACT_PERSON_SEQ = this.CONTACT_PERSON_SEQ;
+	            other.CONTACT_CHANNEL_SEQ_MOBILE = this.CONTACT_CHANNEL_SEQ_MOBILE;
+	            other.CONTACT_CHANNEL_SEQ_EMAIL = this.CONTACT_CHANNEL_SEQ_EMAIL;
+	            other.DOC_ATTCH_SEQ = this.DOC_ATTCH_SEQ;
+	            other.REF_SERVICE_CATE = this.REF_SERVICE_CATE;
+	            other.REF_SAA_REGION = this.REF_SAA_REGION;
+	            other.REF_SAA_PROVINCE = this.REF_SAA_PROVINCE;
+	            other.REF_SAA_SALES_TEAM = this.REF_SAA_SALES_TEAM;
+	            other.REF_SAA_SALES_REP = this.REF_SAA_SALES_REP;
+	            other.ASSIGN_BY_REG = this.ASSIGN_BY_REG;
+	            other.ASSIGN_TO_TEAM_MGR = this.ASSIGN_TO_TEAM_MGR;
+	            other.ASSIGN_DATE_1 = this.ASSIGN_DATE_1;
+	            other.ASSIGN_DATE_2 = this.ASSIGN_DATE_2;
+	            other.APPV_BY = this.APPV_BY;
+	            other.APPV_DATE = this.APPV_DATE;
+	            other.STATUS = this.STATUS;
+	            other.REASON_CODE = this.REASON_CODE;
+	            other.REASON_NOTE = this.REASON_NOTE;
+	            other.BLACKLIST_FLAG = this.BLACKLIST_FLAG;
+	            other.BLACKLIST_LEVEL = this.BLACKLIST_LEVEL;
+	            other.REF_CR_NO = this.REF_CR_NO;
+	            other.REF_CA_ID = this.REF_CA_ID;
+	            other.REF_PA_ID = this.REF_PA_ID;
+	            other.CREDIT_LIMIT = this.CREDIT_LIMIT;
+	            other.CREDIT_AVAILABLE = this.CREDIT_AVAILABLE;
+	            other.CREDIT_TERMS = this.CREDIT_TERMS;
+	            other.CONTR_RUNNING = this.CONTR_RUNNING;
+	            other.CREATE_BY = this.CREATE_BY;
+	            other.CREATE_DATE = this.CREATE_DATE;
+	            other.LAST_UPDATE_BY = this.LAST_UPDATE_BY;
+	            other.LAST_UPDATE_DATE = this.LAST_UPDATE_DATE;
+	            other.REMARK = this.REMARK;
+	            other.REF_SAA_CODE = this.REF_SAA_CODE;
+	            other.VENDOR_CODE = this.VENDOR_CODE;
+	            other.USSD_SELLER_CODE_SEQ = this.USSD_SELLER_CODE_SEQ;
+	            
+	}
+
+	public void copyKeysDataTo(row1Struct other) {
+
+		other.PARTNER_ID = this.PARTNER_ID;
+	            	
+	}
+
+
+
+
+	private java.util.Date readDate(ObjectInputStream dis) throws IOException{
+		java.util.Date dateReturn = null;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			dateReturn = null;
+		} else {
+	    	dateReturn = new Date(dis.readLong());
+		}
+		return dateReturn;
+	}
+
+    private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException{
+		if(date1 == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeLong(date1.getTime());
+    	}
+    }
+
+	private String readString(ObjectInputStream dis) throws IOException{
+		String strReturn = null;
+		int length = 0;
+        length = dis.readInt();
+		if (length == -1) {
+			strReturn = null;
+		} else {
+			if(length > commonByteArray_COMMISSION_REPORT_loadPartnerMast.length) {
+				if(length < 1024 && commonByteArray_COMMISSION_REPORT_loadPartnerMast.length == 0) {
+   					commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[1024];
 				} else {
-					e.printStackTrace();
-					e.printStackTrace(errorMessagePS);
-					loadPartnerMast.this.exception = e;
-				}
+   					commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[2 * length];
+   				}
 			}
-			if (!(e instanceof TalendException)) {
-				try {
-					for (java.lang.reflect.Method m : this.getClass().getEnclosingClass().getMethods()) {
-						if (m.getName().compareTo(currentComponent + "_error") == 0) {
-							m.invoke(loadPartnerMast.this, new Object[] { e, currentComponent, globalMap });
-							break;
-						}
-					}
-
-					if (!(e instanceof TDieException)) {
-					}
-				} catch (Exception e) {
-					this.e.printStackTrace();
-				}
-			}
+			dis.readFully(commonByteArray_COMMISSION_REPORT_loadPartnerMast, 0, length);
+			strReturn = new String(commonByteArray_COMMISSION_REPORT_loadPartnerMast, 0, length, utf8Charset);
 		}
+		return strReturn;
 	}
 
-	public void tDBInput_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
+    private void writeString(String str, ObjectOutputStream dos) throws IOException{
+		if(str == null) {
+            dos.writeInt(-1);
+		} else {
+            byte[] byteArray = str.getBytes(utf8Charset);
+	    	dos.writeInt(byteArray.length);
+			dos.write(byteArray);
+    	}
+    }
+	private Integer readInteger(ObjectInputStream dis) throws IOException{
+		Integer intReturn;
+        int length = 0;
+        length = dis.readByte();
+		if (length == -1) {
+			intReturn = null;
+		} else {
+	    	intReturn = dis.readInt();
+		}
+		return intReturn;
 	}
 
-	public void tDBOutput_1_error(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
-
-		end_Hash.put(errorComponent, System.currentTimeMillis());
-
-		status = "failure";
-
-		tDBInput_1_onSubJobError(exception, errorComponent, globalMap);
+	private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException{
+		if(intNum == null) {
+            dos.writeByte(-1);
+		} else {
+			dos.writeByte(0);
+	    	dos.writeInt(intNum);
+    	}
 	}
 
-	public void tDBInput_1_onSubJobError(Exception exception, String errorComponent,
-			final java.util.Map<String, Object> globalMap) throws TalendException {
+    public void readData(ObjectInputStream dis) {
 
-		resumeUtil.addLog("SYSTEM_LOG", "NODE:" + errorComponent, "", Thread.currentThread().getId() + "", "FATAL", "",
-				exception.getMessage(), ResumeUtil.getExceptionStackTrace(exception), "");
+		synchronized(commonByteArrayLock_COMMISSION_REPORT_loadPartnerMast) {
 
-	}
+        	try {
 
-	public static class row1Struct implements routines.system.IPersistableRow<row1Struct> {
-		final static byte[] commonByteArrayLock_COMMISSION_REPORT_loadPartnerMast = new byte[0];
-		static byte[] commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[0];
-		protected static final int DEFAULT_HASHCODE = 1;
-		protected static final int PRIME = 31;
-		protected int hashCode = DEFAULT_HASHCODE;
-		public boolean hashCodeDirty = true;
-
-		public String loopKey;
-
-		public long PARTNER_ID;
-
-		public long getPARTNER_ID() {
-			return this.PARTNER_ID;
-		}
-
-		public java.util.Date PARTNER_DATE;
-
-		public java.util.Date getPARTNER_DATE() {
-			return this.PARTNER_DATE;
-		}
-
-		public String REF_APPL_ID;
-
-		public String getREF_APPL_ID() {
-			return this.REF_APPL_ID;
-		}
-
-		public String PARTNER_TYPE;
-
-		public String getPARTNER_TYPE() {
-			return this.PARTNER_TYPE;
-		}
-
-		public String PREFIX_CODE;
-
-		public String getPREFIX_CODE() {
-			return this.PREFIX_CODE;
-		}
-
-		public String PARTNER_NAME;
-
-		public String getPARTNER_NAME() {
-			return this.PARTNER_NAME;
-		}
-
-		public String SUFFIX_NAME;
-
-		public String getSUFFIX_NAME() {
-			return this.SUFFIX_NAME;
-		}
-
-		public String PARTNER_FULL_NAME;
-
-		public String getPARTNER_FULL_NAME() {
-			return this.PARTNER_FULL_NAME;
-		}
-
-		public String PARTNER_ABBV;
-
-		public String getPARTNER_ABBV() {
-			return this.PARTNER_ABBV;
-		}
-
-		public String ID_TYPE;
-
-		public String getID_TYPE() {
-			return this.ID_TYPE;
-		}
-
-		public String ID_CARD;
-
-		public String getID_CARD() {
-			return this.ID_CARD;
-		}
-
-		public String ID_BRANCH;
-
-		public String getID_BRANCH() {
-			return this.ID_BRANCH;
-		}
-
-		public String BRANCH_NAME;
-
-		public String getBRANCH_NAME() {
-			return this.BRANCH_NAME;
-		}
-
-		public java.util.Date DATE_OF_BIRTH;
-
-		public java.util.Date getDATE_OF_BIRTH() {
-			return this.DATE_OF_BIRTH;
-		}
-
-		public String ISSUED_BY;
-
-		public String getISSUED_BY() {
-			return this.ISSUED_BY;
-		}
-
-		public java.util.Date ISSUED_DATE;
-
-		public java.util.Date getISSUED_DATE() {
-			return this.ISSUED_DATE;
-		}
-
-		public java.util.Date EXPIRED_DATE;
-
-		public java.util.Date getEXPIRED_DATE() {
-			return this.EXPIRED_DATE;
-		}
-
-		public String GENDER;
-
-		public String getGENDER() {
-			return this.GENDER;
-		}
-
-		public String NATION_CODE;
-
-		public String getNATION_CODE() {
-			return this.NATION_CODE;
-		}
-
-		public String PRIORITY_CODE;
-
-		public String getPRIORITY_CODE() {
-			return this.PRIORITY_CODE;
-		}
-
-		public String VAT_CODE;
-
-		public String getVAT_CODE() {
-			return this.VAT_CODE;
-		}
-
-		public BigDecimal CAP_INCOME;
-
-		public BigDecimal getCAP_INCOME() {
-			return this.CAP_INCOME;
-		}
-
-		public String SALARY_RANGE;
-
-		public String getSALARY_RANGE() {
-			return this.SALARY_RANGE;
-		}
-
-		public String TOTAL_EMP;
-
-		public String getTOTAL_EMP() {
-			return this.TOTAL_EMP;
-		}
-
-		public Integer ADDR_SEQ_BILL;
-
-		public Integer getADDR_SEQ_BILL() {
-			return this.ADDR_SEQ_BILL;
-		}
-
-		public Integer CONTACT_PERSON_SEQ;
-
-		public Integer getCONTACT_PERSON_SEQ() {
-			return this.CONTACT_PERSON_SEQ;
-		}
-
-		public Integer CONTACT_CHANNEL_SEQ_MOBILE;
-
-		public Integer getCONTACT_CHANNEL_SEQ_MOBILE() {
-			return this.CONTACT_CHANNEL_SEQ_MOBILE;
-		}
-
-		public Integer CONTACT_CHANNEL_SEQ_EMAIL;
-
-		public Integer getCONTACT_CHANNEL_SEQ_EMAIL() {
-			return this.CONTACT_CHANNEL_SEQ_EMAIL;
-		}
-
-		public Integer DOC_ATTCH_SEQ;
-
-		public Integer getDOC_ATTCH_SEQ() {
-			return this.DOC_ATTCH_SEQ;
-		}
-
-		public String REF_SERVICE_CATE;
-
-		public String getREF_SERVICE_CATE() {
-			return this.REF_SERVICE_CATE;
-		}
-
-		public String REF_SAA_REGION;
-
-		public String getREF_SAA_REGION() {
-			return this.REF_SAA_REGION;
-		}
-
-		public String REF_SAA_PROVINCE;
-
-		public String getREF_SAA_PROVINCE() {
-			return this.REF_SAA_PROVINCE;
-		}
-
-		public String REF_SAA_SALES_TEAM;
-
-		public String getREF_SAA_SALES_TEAM() {
-			return this.REF_SAA_SALES_TEAM;
-		}
-
-		public String REF_SAA_SALES_REP;
-
-		public String getREF_SAA_SALES_REP() {
-			return this.REF_SAA_SALES_REP;
-		}
-
-		public String ASSIGN_BY_REG;
-
-		public String getASSIGN_BY_REG() {
-			return this.ASSIGN_BY_REG;
-		}
-
-		public String ASSIGN_TO_TEAM_MGR;
-
-		public String getASSIGN_TO_TEAM_MGR() {
-			return this.ASSIGN_TO_TEAM_MGR;
-		}
-
-		public java.util.Date ASSIGN_DATE_1;
-
-		public java.util.Date getASSIGN_DATE_1() {
-			return this.ASSIGN_DATE_1;
-		}
-
-		public java.util.Date ASSIGN_DATE_2;
-
-		public java.util.Date getASSIGN_DATE_2() {
-			return this.ASSIGN_DATE_2;
-		}
-
-		public String APPV_BY;
-
-		public String getAPPV_BY() {
-			return this.APPV_BY;
-		}
-
-		public java.util.Date APPV_DATE;
-
-		public java.util.Date getAPPV_DATE() {
-			return this.APPV_DATE;
-		}
-
-		public String STATUS;
-
-		public String getSTATUS() {
-			return this.STATUS;
-		}
-
-		public String REASON_CODE;
-
-		public String getREASON_CODE() {
-			return this.REASON_CODE;
-		}
-
-		public String REASON_NOTE;
-
-		public String getREASON_NOTE() {
-			return this.REASON_NOTE;
-		}
-
-		public String BLACKLIST_FLAG;
-
-		public String getBLACKLIST_FLAG() {
-			return this.BLACKLIST_FLAG;
-		}
-
-		public String BLACKLIST_LEVEL;
-
-		public String getBLACKLIST_LEVEL() {
-			return this.BLACKLIST_LEVEL;
-		}
-
-		public String REF_CR_NO;
-
-		public String getREF_CR_NO() {
-			return this.REF_CR_NO;
-		}
-
-		public String REF_CA_ID;
-
-		public String getREF_CA_ID() {
-			return this.REF_CA_ID;
-		}
-
-		public String REF_PA_ID;
-
-		public String getREF_PA_ID() {
-			return this.REF_PA_ID;
-		}
-
-		public BigDecimal CREDIT_LIMIT;
-
-		public BigDecimal getCREDIT_LIMIT() {
-			return this.CREDIT_LIMIT;
-		}
-
-		public BigDecimal CREDIT_AVAILABLE;
-
-		public BigDecimal getCREDIT_AVAILABLE() {
-			return this.CREDIT_AVAILABLE;
-		}
-
-		public Short CREDIT_TERMS;
-
-		public Short getCREDIT_TERMS() {
-			return this.CREDIT_TERMS;
-		}
-
-		public Integer CONTR_RUNNING;
-
-		public Integer getCONTR_RUNNING() {
-			return this.CONTR_RUNNING;
-		}
-
-		public String CREATE_BY;
-
-		public String getCREATE_BY() {
-			return this.CREATE_BY;
-		}
-
-		public java.util.Date CREATE_DATE;
-
-		public java.util.Date getCREATE_DATE() {
-			return this.CREATE_DATE;
-		}
-
-		public String LAST_UPDATE_BY;
-
-		public String getLAST_UPDATE_BY() {
-			return this.LAST_UPDATE_BY;
-		}
-
-		public java.util.Date LAST_UPDATE_DATE;
-
-		public java.util.Date getLAST_UPDATE_DATE() {
-			return this.LAST_UPDATE_DATE;
-		}
-
-		public String REMARK;
-
-		public String getREMARK() {
-			return this.REMARK;
-		}
-
-		public String REF_SAA_CODE;
-
-		public String getREF_SAA_CODE() {
-			return this.REF_SAA_CODE;
-		}
-
-		public String VENDOR_CODE;
-
-		public String getVENDOR_CODE() {
-			return this.VENDOR_CODE;
-		}
-
-		public Integer USSD_SELLER_CODE_SEQ;
-
-		public Integer getUSSD_SELLER_CODE_SEQ() {
-			return this.USSD_SELLER_CODE_SEQ;
-		}
-
-		@Override
-		public int hashCode() {
-			if (this.hashCodeDirty) {
-				final int prime = PRIME;
-				int result = DEFAULT_HASHCODE;
-
-				result = prime * result + (int) this.PARTNER_ID;
-
-				this.hashCode = result;
-				this.hashCodeDirty = false;
-			}
-			return this.hashCode;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			final row1Struct other = (row1Struct) obj;
-
-			if (this.PARTNER_ID != other.PARTNER_ID)
-				return false;
-
-			return true;
-		}
-
-		public void copyDataTo(row1Struct other) {
-
-			other.PARTNER_ID = this.PARTNER_ID;
-			other.PARTNER_DATE = this.PARTNER_DATE;
-			other.REF_APPL_ID = this.REF_APPL_ID;
-			other.PARTNER_TYPE = this.PARTNER_TYPE;
-			other.PREFIX_CODE = this.PREFIX_CODE;
-			other.PARTNER_NAME = this.PARTNER_NAME;
-			other.SUFFIX_NAME = this.SUFFIX_NAME;
-			other.PARTNER_FULL_NAME = this.PARTNER_FULL_NAME;
-			other.PARTNER_ABBV = this.PARTNER_ABBV;
-			other.ID_TYPE = this.ID_TYPE;
-			other.ID_CARD = this.ID_CARD;
-			other.ID_BRANCH = this.ID_BRANCH;
-			other.BRANCH_NAME = this.BRANCH_NAME;
-			other.DATE_OF_BIRTH = this.DATE_OF_BIRTH;
-			other.ISSUED_BY = this.ISSUED_BY;
-			other.ISSUED_DATE = this.ISSUED_DATE;
-			other.EXPIRED_DATE = this.EXPIRED_DATE;
-			other.GENDER = this.GENDER;
-			other.NATION_CODE = this.NATION_CODE;
-			other.PRIORITY_CODE = this.PRIORITY_CODE;
-			other.VAT_CODE = this.VAT_CODE;
-			other.CAP_INCOME = this.CAP_INCOME;
-			other.SALARY_RANGE = this.SALARY_RANGE;
-			other.TOTAL_EMP = this.TOTAL_EMP;
-			other.ADDR_SEQ_BILL = this.ADDR_SEQ_BILL;
-			other.CONTACT_PERSON_SEQ = this.CONTACT_PERSON_SEQ;
-			other.CONTACT_CHANNEL_SEQ_MOBILE = this.CONTACT_CHANNEL_SEQ_MOBILE;
-			other.CONTACT_CHANNEL_SEQ_EMAIL = this.CONTACT_CHANNEL_SEQ_EMAIL;
-			other.DOC_ATTCH_SEQ = this.DOC_ATTCH_SEQ;
-			other.REF_SERVICE_CATE = this.REF_SERVICE_CATE;
-			other.REF_SAA_REGION = this.REF_SAA_REGION;
-			other.REF_SAA_PROVINCE = this.REF_SAA_PROVINCE;
-			other.REF_SAA_SALES_TEAM = this.REF_SAA_SALES_TEAM;
-			other.REF_SAA_SALES_REP = this.REF_SAA_SALES_REP;
-			other.ASSIGN_BY_REG = this.ASSIGN_BY_REG;
-			other.ASSIGN_TO_TEAM_MGR = this.ASSIGN_TO_TEAM_MGR;
-			other.ASSIGN_DATE_1 = this.ASSIGN_DATE_1;
-			other.ASSIGN_DATE_2 = this.ASSIGN_DATE_2;
-			other.APPV_BY = this.APPV_BY;
-			other.APPV_DATE = this.APPV_DATE;
-			other.STATUS = this.STATUS;
-			other.REASON_CODE = this.REASON_CODE;
-			other.REASON_NOTE = this.REASON_NOTE;
-			other.BLACKLIST_FLAG = this.BLACKLIST_FLAG;
-			other.BLACKLIST_LEVEL = this.BLACKLIST_LEVEL;
-			other.REF_CR_NO = this.REF_CR_NO;
-			other.REF_CA_ID = this.REF_CA_ID;
-			other.REF_PA_ID = this.REF_PA_ID;
-			other.CREDIT_LIMIT = this.CREDIT_LIMIT;
-			other.CREDIT_AVAILABLE = this.CREDIT_AVAILABLE;
-			other.CREDIT_TERMS = this.CREDIT_TERMS;
-			other.CONTR_RUNNING = this.CONTR_RUNNING;
-			other.CREATE_BY = this.CREATE_BY;
-			other.CREATE_DATE = this.CREATE_DATE;
-			other.LAST_UPDATE_BY = this.LAST_UPDATE_BY;
-			other.LAST_UPDATE_DATE = this.LAST_UPDATE_DATE;
-			other.REMARK = this.REMARK;
-			other.REF_SAA_CODE = this.REF_SAA_CODE;
-			other.VENDOR_CODE = this.VENDOR_CODE;
-			other.USSD_SELLER_CODE_SEQ = this.USSD_SELLER_CODE_SEQ;
-
-		}
-
-		public void copyKeysDataTo(row1Struct other) {
-
-			other.PARTNER_ID = this.PARTNER_ID;
-
-		}
-
-		private java.util.Date readDate(ObjectInputStream dis) throws IOException {
-			java.util.Date dateReturn = null;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				dateReturn = null;
-			} else {
-				dateReturn = new Date(dis.readLong());
-			}
-			return dateReturn;
-		}
-
-		private void writeDate(java.util.Date date1, ObjectOutputStream dos) throws IOException {
-			if (date1 == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeLong(date1.getTime());
-			}
-		}
-
-		private String readString(ObjectInputStream dis) throws IOException {
-			String strReturn = null;
-			int length = 0;
-			length = dis.readInt();
-			if (length == -1) {
-				strReturn = null;
-			} else {
-				if (length > commonByteArray_COMMISSION_REPORT_loadPartnerMast.length) {
-					if (length < 1024 && commonByteArray_COMMISSION_REPORT_loadPartnerMast.length == 0) {
-						commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[1024];
-					} else {
-						commonByteArray_COMMISSION_REPORT_loadPartnerMast = new byte[2 * length];
-					}
-				}
-				dis.readFully(commonByteArray_COMMISSION_REPORT_loadPartnerMast, 0, length);
-				strReturn = new String(commonByteArray_COMMISSION_REPORT_loadPartnerMast, 0, length, utf8Charset);
-			}
-			return strReturn;
-		}
-
-		private void writeString(String str, ObjectOutputStream dos) throws IOException {
-			if (str == null) {
-				dos.writeInt(-1);
-			} else {
-				byte[] byteArray = str.getBytes(utf8Charset);
-				dos.writeInt(byteArray.length);
-				dos.write(byteArray);
-			}
-		}
-
-		private Integer readInteger(ObjectInputStream dis) throws IOException {
-			Integer intReturn;
-			int length = 0;
-			length = dis.readByte();
-			if (length == -1) {
-				intReturn = null;
-			} else {
-				intReturn = dis.readInt();
-			}
-			return intReturn;
-		}
-
-		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
-			if (intNum == null) {
-				dos.writeByte(-1);
-			} else {
-				dos.writeByte(0);
-				dos.writeInt(intNum);
-			}
-		}
-
-		public void readData(ObjectInputStream dis) {
-
-			synchronized (commonByteArrayLock_COMMISSION_REPORT_loadPartnerMast) {
-
-				try {
-
-					int length = 0;
-
-					this.PARTNER_ID = dis.readLong();
-
+        		int length = 0;
+		
+			        this.PARTNER_ID = dis.readLong();
+					
 					this.PARTNER_DATE = readDate(dis);
-
+					
 					this.REF_APPL_ID = readString(dis);
-
+					
 					this.PARTNER_TYPE = readString(dis);
-
+					
 					this.PREFIX_CODE = readString(dis);
-
+					
 					this.PARTNER_NAME = readString(dis);
-
+					
 					this.SUFFIX_NAME = readString(dis);
-
+					
 					this.PARTNER_FULL_NAME = readString(dis);
-
+					
 					this.PARTNER_ABBV = readString(dis);
-
+					
 					this.ID_TYPE = readString(dis);
-
+					
 					this.ID_CARD = readString(dis);
-
+					
 					this.ID_BRANCH = readString(dis);
-
+					
 					this.BRANCH_NAME = readString(dis);
-
+					
 					this.DATE_OF_BIRTH = readDate(dis);
-
+					
 					this.ISSUED_BY = readString(dis);
-
+					
 					this.ISSUED_DATE = readDate(dis);
-
+					
 					this.EXPIRED_DATE = readDate(dis);
-
+					
 					this.GENDER = readString(dis);
-
+					
 					this.NATION_CODE = readString(dis);
-
+					
 					this.PRIORITY_CODE = readString(dis);
-
+					
 					this.VAT_CODE = readString(dis);
-
-					this.CAP_INCOME = (BigDecimal) dis.readObject();
-
+					
+						this.CAP_INCOME = (BigDecimal) dis.readObject();
+					
 					this.SALARY_RANGE = readString(dis);
-
+					
 					this.TOTAL_EMP = readString(dis);
-
-					this.ADDR_SEQ_BILL = readInteger(dis);
-
-					this.CONTACT_PERSON_SEQ = readInteger(dis);
-
-					this.CONTACT_CHANNEL_SEQ_MOBILE = readInteger(dis);
-
-					this.CONTACT_CHANNEL_SEQ_EMAIL = readInteger(dis);
-
-					this.DOC_ATTCH_SEQ = readInteger(dis);
-
+					
+						this.ADDR_SEQ_BILL = readInteger(dis);
+					
+						this.CONTACT_PERSON_SEQ = readInteger(dis);
+					
+						this.CONTACT_CHANNEL_SEQ_MOBILE = readInteger(dis);
+					
+						this.CONTACT_CHANNEL_SEQ_EMAIL = readInteger(dis);
+					
+						this.DOC_ATTCH_SEQ = readInteger(dis);
+					
 					this.REF_SERVICE_CATE = readString(dis);
-
+					
 					this.REF_SAA_REGION = readString(dis);
-
+					
 					this.REF_SAA_PROVINCE = readString(dis);
-
+					
 					this.REF_SAA_SALES_TEAM = readString(dis);
-
+					
 					this.REF_SAA_SALES_REP = readString(dis);
-
+					
 					this.ASSIGN_BY_REG = readString(dis);
-
+					
 					this.ASSIGN_TO_TEAM_MGR = readString(dis);
-
+					
 					this.ASSIGN_DATE_1 = readDate(dis);
-
+					
 					this.ASSIGN_DATE_2 = readDate(dis);
-
+					
 					this.APPV_BY = readString(dis);
-
+					
 					this.APPV_DATE = readDate(dis);
-
+					
 					this.STATUS = readString(dis);
-
+					
 					this.REASON_CODE = readString(dis);
-
+					
 					this.REASON_NOTE = readString(dis);
-
+					
 					this.BLACKLIST_FLAG = readString(dis);
-
+					
 					this.BLACKLIST_LEVEL = readString(dis);
-
+					
 					this.REF_CR_NO = readString(dis);
-
+					
 					this.REF_CA_ID = readString(dis);
-
+					
 					this.REF_PA_ID = readString(dis);
-
-					this.CREDIT_LIMIT = (BigDecimal) dis.readObject();
-
-					this.CREDIT_AVAILABLE = (BigDecimal) dis.readObject();
-
-					length = dis.readByte();
-					if (length == -1) {
-						this.CREDIT_TERMS = null;
-					} else {
-						this.CREDIT_TERMS = dis.readShort();
-					}
-
-					this.CONTR_RUNNING = readInteger(dis);
-
+					
+						this.CREDIT_LIMIT = (BigDecimal) dis.readObject();
+					
+						this.CREDIT_AVAILABLE = (BigDecimal) dis.readObject();
+					
+			            length = dis.readByte();
+           				if (length == -1) {
+           	    			this.CREDIT_TERMS = null;
+           				} else {
+           			    	this.CREDIT_TERMS = dis.readShort();
+           				}
+					
+						this.CONTR_RUNNING = readInteger(dis);
+					
 					this.CREATE_BY = readString(dis);
-
+					
 					this.CREATE_DATE = readDate(dis);
-
+					
 					this.LAST_UPDATE_BY = readString(dis);
-
+					
 					this.LAST_UPDATE_DATE = readDate(dis);
-
+					
 					this.REMARK = readString(dis);
-
+					
 					this.REF_SAA_CODE = readString(dis);
-
+					
 					this.VENDOR_CODE = readString(dis);
-
-					this.USSD_SELLER_CODE_SEQ = readInteger(dis);
-
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-
-				} catch (ClassNotFoundException eCNFE) {
-					throw new RuntimeException(eCNFE);
-
-				}
-
-			}
-
-		}
-
-		public void writeData(ObjectOutputStream dos) {
-			try {
-
-				// long
-
-				dos.writeLong(this.PARTNER_ID);
-
-				// java.util.Date
-
-				writeDate(this.PARTNER_DATE, dos);
-
-				// String
-
-				writeString(this.REF_APPL_ID, dos);
-
-				// String
-
-				writeString(this.PARTNER_TYPE, dos);
-
-				// String
-
-				writeString(this.PREFIX_CODE, dos);
-
-				// String
-
-				writeString(this.PARTNER_NAME, dos);
-
-				// String
-
-				writeString(this.SUFFIX_NAME, dos);
-
-				// String
-
-				writeString(this.PARTNER_FULL_NAME, dos);
-
-				// String
-
-				writeString(this.PARTNER_ABBV, dos);
-
-				// String
-
-				writeString(this.ID_TYPE, dos);
-
-				// String
-
-				writeString(this.ID_CARD, dos);
-
-				// String
-
-				writeString(this.ID_BRANCH, dos);
-
-				// String
-
-				writeString(this.BRANCH_NAME, dos);
-
-				// java.util.Date
-
-				writeDate(this.DATE_OF_BIRTH, dos);
-
-				// String
-
-				writeString(this.ISSUED_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.ISSUED_DATE, dos);
-
-				// java.util.Date
-
-				writeDate(this.EXPIRED_DATE, dos);
-
-				// String
-
-				writeString(this.GENDER, dos);
-
-				// String
-
-				writeString(this.NATION_CODE, dos);
-
-				// String
-
-				writeString(this.PRIORITY_CODE, dos);
-
-				// String
-
-				writeString(this.VAT_CODE, dos);
-
-				// BigDecimal
-
-				dos.writeObject(this.CAP_INCOME);
-
-				// String
-
-				writeString(this.SALARY_RANGE, dos);
-
-				// String
-
-				writeString(this.TOTAL_EMP, dos);
-
-				// Integer
-
-				writeInteger(this.ADDR_SEQ_BILL, dos);
-
-				// Integer
-
-				writeInteger(this.CONTACT_PERSON_SEQ, dos);
-
-				// Integer
-
-				writeInteger(this.CONTACT_CHANNEL_SEQ_MOBILE, dos);
-
-				// Integer
-
-				writeInteger(this.CONTACT_CHANNEL_SEQ_EMAIL, dos);
-
-				// Integer
-
-				writeInteger(this.DOC_ATTCH_SEQ, dos);
-
-				// String
-
-				writeString(this.REF_SERVICE_CATE, dos);
-
-				// String
-
-				writeString(this.REF_SAA_REGION, dos);
-
-				// String
-
-				writeString(this.REF_SAA_PROVINCE, dos);
-
-				// String
-
-				writeString(this.REF_SAA_SALES_TEAM, dos);
-
-				// String
-
-				writeString(this.REF_SAA_SALES_REP, dos);
-
-				// String
-
-				writeString(this.ASSIGN_BY_REG, dos);
-
-				// String
-
-				writeString(this.ASSIGN_TO_TEAM_MGR, dos);
-
-				// java.util.Date
-
-				writeDate(this.ASSIGN_DATE_1, dos);
-
-				// java.util.Date
-
-				writeDate(this.ASSIGN_DATE_2, dos);
-
-				// String
-
-				writeString(this.APPV_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.APPV_DATE, dos);
-
-				// String
-
-				writeString(this.STATUS, dos);
-
-				// String
-
-				writeString(this.REASON_CODE, dos);
-
-				// String
-
-				writeString(this.REASON_NOTE, dos);
-
-				// String
-
-				writeString(this.BLACKLIST_FLAG, dos);
-
-				// String
-
-				writeString(this.BLACKLIST_LEVEL, dos);
-
-				// String
-
-				writeString(this.REF_CR_NO, dos);
-
-				// String
-
-				writeString(this.REF_CA_ID, dos);
-
-				// String
-
-				writeString(this.REF_PA_ID, dos);
-
-				// BigDecimal
-
-				dos.writeObject(this.CREDIT_LIMIT);
-
-				// BigDecimal
-
-				dos.writeObject(this.CREDIT_AVAILABLE);
-
-				// Short
-
-				if (this.CREDIT_TERMS == null) {
-					dos.writeByte(-1);
-				} else {
-					dos.writeByte(0);
-					dos.writeShort(this.CREDIT_TERMS);
-				}
-
-				// Integer
-
-				writeInteger(this.CONTR_RUNNING, dos);
-
-				// String
-
-				writeString(this.CREATE_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.CREATE_DATE, dos);
-
-				// String
-
-				writeString(this.LAST_UPDATE_BY, dos);
-
-				// java.util.Date
-
-				writeDate(this.LAST_UPDATE_DATE, dos);
-
-				// String
-
-				writeString(this.REMARK, dos);
-
-				// String
-
-				writeString(this.REF_SAA_CODE, dos);
-
-				// String
-
-				writeString(this.VENDOR_CODE, dos);
-
-				// Integer
-
-				writeInteger(this.USSD_SELLER_CODE_SEQ, dos);
-
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-
-		}
-
-		public String toString() {
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(super.toString());
-			sb.append("[");
-			sb.append("PARTNER_ID=" + String.valueOf(PARTNER_ID));
-			sb.append(",PARTNER_DATE=" + String.valueOf(PARTNER_DATE));
-			sb.append(",REF_APPL_ID=" + REF_APPL_ID);
-			sb.append(",PARTNER_TYPE=" + PARTNER_TYPE);
-			sb.append(",PREFIX_CODE=" + PREFIX_CODE);
-			sb.append(",PARTNER_NAME=" + PARTNER_NAME);
-			sb.append(",SUFFIX_NAME=" + SUFFIX_NAME);
-			sb.append(",PARTNER_FULL_NAME=" + PARTNER_FULL_NAME);
-			sb.append(",PARTNER_ABBV=" + PARTNER_ABBV);
-			sb.append(",ID_TYPE=" + ID_TYPE);
-			sb.append(",ID_CARD=" + ID_CARD);
-			sb.append(",ID_BRANCH=" + ID_BRANCH);
-			sb.append(",BRANCH_NAME=" + BRANCH_NAME);
-			sb.append(",DATE_OF_BIRTH=" + String.valueOf(DATE_OF_BIRTH));
-			sb.append(",ISSUED_BY=" + ISSUED_BY);
-			sb.append(",ISSUED_DATE=" + String.valueOf(ISSUED_DATE));
-			sb.append(",EXPIRED_DATE=" + String.valueOf(EXPIRED_DATE));
-			sb.append(",GENDER=" + GENDER);
-			sb.append(",NATION_CODE=" + NATION_CODE);
-			sb.append(",PRIORITY_CODE=" + PRIORITY_CODE);
-			sb.append(",VAT_CODE=" + VAT_CODE);
-			sb.append(",CAP_INCOME=" + String.valueOf(CAP_INCOME));
-			sb.append(",SALARY_RANGE=" + SALARY_RANGE);
-			sb.append(",TOTAL_EMP=" + TOTAL_EMP);
-			sb.append(",ADDR_SEQ_BILL=" + String.valueOf(ADDR_SEQ_BILL));
-			sb.append(",CONTACT_PERSON_SEQ=" + String.valueOf(CONTACT_PERSON_SEQ));
-			sb.append(",CONTACT_CHANNEL_SEQ_MOBILE=" + String.valueOf(CONTACT_CHANNEL_SEQ_MOBILE));
-			sb.append(",CONTACT_CHANNEL_SEQ_EMAIL=" + String.valueOf(CONTACT_CHANNEL_SEQ_EMAIL));
-			sb.append(",DOC_ATTCH_SEQ=" + String.valueOf(DOC_ATTCH_SEQ));
-			sb.append(",REF_SERVICE_CATE=" + REF_SERVICE_CATE);
-			sb.append(",REF_SAA_REGION=" + REF_SAA_REGION);
-			sb.append(",REF_SAA_PROVINCE=" + REF_SAA_PROVINCE);
-			sb.append(",REF_SAA_SALES_TEAM=" + REF_SAA_SALES_TEAM);
-			sb.append(",REF_SAA_SALES_REP=" + REF_SAA_SALES_REP);
-			sb.append(",ASSIGN_BY_REG=" + ASSIGN_BY_REG);
-			sb.append(",ASSIGN_TO_TEAM_MGR=" + ASSIGN_TO_TEAM_MGR);
-			sb.append(",ASSIGN_DATE_1=" + String.valueOf(ASSIGN_DATE_1));
-			sb.append(",ASSIGN_DATE_2=" + String.valueOf(ASSIGN_DATE_2));
-			sb.append(",APPV_BY=" + APPV_BY);
-			sb.append(",APPV_DATE=" + String.valueOf(APPV_DATE));
-			sb.append(",STATUS=" + STATUS);
-			sb.append(",REASON_CODE=" + REASON_CODE);
-			sb.append(",REASON_NOTE=" + REASON_NOTE);
-			sb.append(",BLACKLIST_FLAG=" + BLACKLIST_FLAG);
-			sb.append(",BLACKLIST_LEVEL=" + BLACKLIST_LEVEL);
-			sb.append(",REF_CR_NO=" + REF_CR_NO);
-			sb.append(",REF_CA_ID=" + REF_CA_ID);
-			sb.append(",REF_PA_ID=" + REF_PA_ID);
-			sb.append(",CREDIT_LIMIT=" + String.valueOf(CREDIT_LIMIT));
-			sb.append(",CREDIT_AVAILABLE=" + String.valueOf(CREDIT_AVAILABLE));
-			sb.append(",CREDIT_TERMS=" + String.valueOf(CREDIT_TERMS));
-			sb.append(",CONTR_RUNNING=" + String.valueOf(CONTR_RUNNING));
-			sb.append(",CREATE_BY=" + CREATE_BY);
-			sb.append(",CREATE_DATE=" + String.valueOf(CREATE_DATE));
-			sb.append(",LAST_UPDATE_BY=" + LAST_UPDATE_BY);
-			sb.append(",LAST_UPDATE_DATE=" + String.valueOf(LAST_UPDATE_DATE));
-			sb.append(",REMARK=" + REMARK);
-			sb.append(",REF_SAA_CODE=" + REF_SAA_CODE);
-			sb.append(",VENDOR_CODE=" + VENDOR_CODE);
-			sb.append(",USSD_SELLER_CODE_SEQ=" + String.valueOf(USSD_SELLER_CODE_SEQ));
-			sb.append("]");
-
-			return sb.toString();
-		}
-
-		/**
-		 * Compare keys
-		 */
-		public int compareTo(row1Struct other) {
-
-			int returnValue = -1;
-
-			returnValue = checkNullsAndCompare(this.PARTNER_ID, other.PARTNER_ID);
-			if (returnValue != 0) {
-				return returnValue;
-			}
-
-			return returnValue;
-		}
-
-		private int checkNullsAndCompare(Object object1, Object object2) {
-			int returnValue = 0;
-			if (object1 instanceof Comparable && object2 instanceof Comparable) {
-				returnValue = ((Comparable) object1).compareTo(object2);
-			} else if (object1 != null && object2 != null) {
-				returnValue = compareStrings(object1.toString(), object2.toString());
-			} else if (object1 == null && object2 != null) {
-				returnValue = 1;
-			} else if (object1 != null && object2 == null) {
-				returnValue = -1;
-			} else {
-				returnValue = 0;
-			}
-
-			return returnValue;
-		}
-
-		private int compareStrings(String string1, String string2) {
-			return string1.compareTo(string2);
-		}
-
-	}
-
-	public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
-		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 0);
-
-		final boolean execStat = this.execStat;
-
+					
+						this.USSD_SELLER_CODE_SEQ = readInteger(dis);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+
+		
+			} catch(ClassNotFoundException eCNFE) {
+				 throw new RuntimeException(eCNFE);
+		
+
+        }
+
+		
+
+      }
+
+
+    }
+
+    public void writeData(ObjectOutputStream dos) {
+        try {
+
+		
+					// long
+				
+		            	dos.writeLong(this.PARTNER_ID);
+					
+					// java.util.Date
+				
+						writeDate(this.PARTNER_DATE,dos);
+					
+					// String
+				
+						writeString(this.REF_APPL_ID,dos);
+					
+					// String
+				
+						writeString(this.PARTNER_TYPE,dos);
+					
+					// String
+				
+						writeString(this.PREFIX_CODE,dos);
+					
+					// String
+				
+						writeString(this.PARTNER_NAME,dos);
+					
+					// String
+				
+						writeString(this.SUFFIX_NAME,dos);
+					
+					// String
+				
+						writeString(this.PARTNER_FULL_NAME,dos);
+					
+					// String
+				
+						writeString(this.PARTNER_ABBV,dos);
+					
+					// String
+				
+						writeString(this.ID_TYPE,dos);
+					
+					// String
+				
+						writeString(this.ID_CARD,dos);
+					
+					// String
+				
+						writeString(this.ID_BRANCH,dos);
+					
+					// String
+				
+						writeString(this.BRANCH_NAME,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.DATE_OF_BIRTH,dos);
+					
+					// String
+				
+						writeString(this.ISSUED_BY,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.ISSUED_DATE,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.EXPIRED_DATE,dos);
+					
+					// String
+				
+						writeString(this.GENDER,dos);
+					
+					// String
+				
+						writeString(this.NATION_CODE,dos);
+					
+					// String
+				
+						writeString(this.PRIORITY_CODE,dos);
+					
+					// String
+				
+						writeString(this.VAT_CODE,dos);
+					
+					// BigDecimal
+				
+       			    	dos.writeObject(this.CAP_INCOME);
+					
+					// String
+				
+						writeString(this.SALARY_RANGE,dos);
+					
+					// String
+				
+						writeString(this.TOTAL_EMP,dos);
+					
+					// Integer
+				
+						writeInteger(this.ADDR_SEQ_BILL,dos);
+					
+					// Integer
+				
+						writeInteger(this.CONTACT_PERSON_SEQ,dos);
+					
+					// Integer
+				
+						writeInteger(this.CONTACT_CHANNEL_SEQ_MOBILE,dos);
+					
+					// Integer
+				
+						writeInteger(this.CONTACT_CHANNEL_SEQ_EMAIL,dos);
+					
+					// Integer
+				
+						writeInteger(this.DOC_ATTCH_SEQ,dos);
+					
+					// String
+				
+						writeString(this.REF_SERVICE_CATE,dos);
+					
+					// String
+				
+						writeString(this.REF_SAA_REGION,dos);
+					
+					// String
+				
+						writeString(this.REF_SAA_PROVINCE,dos);
+					
+					// String
+				
+						writeString(this.REF_SAA_SALES_TEAM,dos);
+					
+					// String
+				
+						writeString(this.REF_SAA_SALES_REP,dos);
+					
+					// String
+				
+						writeString(this.ASSIGN_BY_REG,dos);
+					
+					// String
+				
+						writeString(this.ASSIGN_TO_TEAM_MGR,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.ASSIGN_DATE_1,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.ASSIGN_DATE_2,dos);
+					
+					// String
+				
+						writeString(this.APPV_BY,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.APPV_DATE,dos);
+					
+					// String
+				
+						writeString(this.STATUS,dos);
+					
+					// String
+				
+						writeString(this.REASON_CODE,dos);
+					
+					// String
+				
+						writeString(this.REASON_NOTE,dos);
+					
+					// String
+				
+						writeString(this.BLACKLIST_FLAG,dos);
+					
+					// String
+				
+						writeString(this.BLACKLIST_LEVEL,dos);
+					
+					// String
+				
+						writeString(this.REF_CR_NO,dos);
+					
+					// String
+				
+						writeString(this.REF_CA_ID,dos);
+					
+					// String
+				
+						writeString(this.REF_PA_ID,dos);
+					
+					// BigDecimal
+				
+       			    	dos.writeObject(this.CREDIT_LIMIT);
+					
+					// BigDecimal
+				
+       			    	dos.writeObject(this.CREDIT_AVAILABLE);
+					
+					// Short
+				
+						if(this.CREDIT_TERMS == null) {
+			                dos.writeByte(-1);
+						} else {
+               				dos.writeByte(0);
+           			    	dos.writeShort(this.CREDIT_TERMS);
+		            	}
+					
+					// Integer
+				
+						writeInteger(this.CONTR_RUNNING,dos);
+					
+					// String
+				
+						writeString(this.CREATE_BY,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.CREATE_DATE,dos);
+					
+					// String
+				
+						writeString(this.LAST_UPDATE_BY,dos);
+					
+					// java.util.Date
+				
+						writeDate(this.LAST_UPDATE_DATE,dos);
+					
+					// String
+				
+						writeString(this.REMARK,dos);
+					
+					// String
+				
+						writeString(this.REF_SAA_CODE,dos);
+					
+					// String
+				
+						writeString(this.VENDOR_CODE,dos);
+					
+					// Integer
+				
+						writeInteger(this.USSD_SELLER_CODE_SEQ,dos);
+					
+        	} catch (IOException e) {
+	            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+    public String toString() {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append("[");
+		sb.append("PARTNER_ID="+String.valueOf(PARTNER_ID));
+		sb.append(",PARTNER_DATE="+String.valueOf(PARTNER_DATE));
+		sb.append(",REF_APPL_ID="+REF_APPL_ID);
+		sb.append(",PARTNER_TYPE="+PARTNER_TYPE);
+		sb.append(",PREFIX_CODE="+PREFIX_CODE);
+		sb.append(",PARTNER_NAME="+PARTNER_NAME);
+		sb.append(",SUFFIX_NAME="+SUFFIX_NAME);
+		sb.append(",PARTNER_FULL_NAME="+PARTNER_FULL_NAME);
+		sb.append(",PARTNER_ABBV="+PARTNER_ABBV);
+		sb.append(",ID_TYPE="+ID_TYPE);
+		sb.append(",ID_CARD="+ID_CARD);
+		sb.append(",ID_BRANCH="+ID_BRANCH);
+		sb.append(",BRANCH_NAME="+BRANCH_NAME);
+		sb.append(",DATE_OF_BIRTH="+String.valueOf(DATE_OF_BIRTH));
+		sb.append(",ISSUED_BY="+ISSUED_BY);
+		sb.append(",ISSUED_DATE="+String.valueOf(ISSUED_DATE));
+		sb.append(",EXPIRED_DATE="+String.valueOf(EXPIRED_DATE));
+		sb.append(",GENDER="+GENDER);
+		sb.append(",NATION_CODE="+NATION_CODE);
+		sb.append(",PRIORITY_CODE="+PRIORITY_CODE);
+		sb.append(",VAT_CODE="+VAT_CODE);
+		sb.append(",CAP_INCOME="+String.valueOf(CAP_INCOME));
+		sb.append(",SALARY_RANGE="+SALARY_RANGE);
+		sb.append(",TOTAL_EMP="+TOTAL_EMP);
+		sb.append(",ADDR_SEQ_BILL="+String.valueOf(ADDR_SEQ_BILL));
+		sb.append(",CONTACT_PERSON_SEQ="+String.valueOf(CONTACT_PERSON_SEQ));
+		sb.append(",CONTACT_CHANNEL_SEQ_MOBILE="+String.valueOf(CONTACT_CHANNEL_SEQ_MOBILE));
+		sb.append(",CONTACT_CHANNEL_SEQ_EMAIL="+String.valueOf(CONTACT_CHANNEL_SEQ_EMAIL));
+		sb.append(",DOC_ATTCH_SEQ="+String.valueOf(DOC_ATTCH_SEQ));
+		sb.append(",REF_SERVICE_CATE="+REF_SERVICE_CATE);
+		sb.append(",REF_SAA_REGION="+REF_SAA_REGION);
+		sb.append(",REF_SAA_PROVINCE="+REF_SAA_PROVINCE);
+		sb.append(",REF_SAA_SALES_TEAM="+REF_SAA_SALES_TEAM);
+		sb.append(",REF_SAA_SALES_REP="+REF_SAA_SALES_REP);
+		sb.append(",ASSIGN_BY_REG="+ASSIGN_BY_REG);
+		sb.append(",ASSIGN_TO_TEAM_MGR="+ASSIGN_TO_TEAM_MGR);
+		sb.append(",ASSIGN_DATE_1="+String.valueOf(ASSIGN_DATE_1));
+		sb.append(",ASSIGN_DATE_2="+String.valueOf(ASSIGN_DATE_2));
+		sb.append(",APPV_BY="+APPV_BY);
+		sb.append(",APPV_DATE="+String.valueOf(APPV_DATE));
+		sb.append(",STATUS="+STATUS);
+		sb.append(",REASON_CODE="+REASON_CODE);
+		sb.append(",REASON_NOTE="+REASON_NOTE);
+		sb.append(",BLACKLIST_FLAG="+BLACKLIST_FLAG);
+		sb.append(",BLACKLIST_LEVEL="+BLACKLIST_LEVEL);
+		sb.append(",REF_CR_NO="+REF_CR_NO);
+		sb.append(",REF_CA_ID="+REF_CA_ID);
+		sb.append(",REF_PA_ID="+REF_PA_ID);
+		sb.append(",CREDIT_LIMIT="+String.valueOf(CREDIT_LIMIT));
+		sb.append(",CREDIT_AVAILABLE="+String.valueOf(CREDIT_AVAILABLE));
+		sb.append(",CREDIT_TERMS="+String.valueOf(CREDIT_TERMS));
+		sb.append(",CONTR_RUNNING="+String.valueOf(CONTR_RUNNING));
+		sb.append(",CREATE_BY="+CREATE_BY);
+		sb.append(",CREATE_DATE="+String.valueOf(CREATE_DATE));
+		sb.append(",LAST_UPDATE_BY="+LAST_UPDATE_BY);
+		sb.append(",LAST_UPDATE_DATE="+String.valueOf(LAST_UPDATE_DATE));
+		sb.append(",REMARK="+REMARK);
+		sb.append(",REF_SAA_CODE="+REF_SAA_CODE);
+		sb.append(",VENDOR_CODE="+VENDOR_CODE);
+		sb.append(",USSD_SELLER_CODE_SEQ="+String.valueOf(USSD_SELLER_CODE_SEQ));
+	    sb.append("]");
+
+	    return sb.toString();
+    }
+
+    /**
+     * Compare keys
+     */
+    public int compareTo(row1Struct other) {
+
+		int returnValue = -1;
+		
+						returnValue = checkNullsAndCompare(this.PARTNER_ID, other.PARTNER_ID);
+						if(returnValue != 0) {
+							return returnValue;
+						}
+
+					
+	    return returnValue;
+    }
+
+
+    private int checkNullsAndCompare(Object object1, Object object2) {
+        int returnValue = 0;
+		if (object1 instanceof Comparable && object2 instanceof Comparable) {
+            returnValue = ((Comparable) object1).compareTo(object2);
+        } else if (object1 != null && object2 != null) {
+            returnValue = compareStrings(object1.toString(), object2.toString());
+        } else if (object1 == null && object2 != null) {
+            returnValue = 1;
+        } else if (object1 != null && object2 == null) {
+            returnValue = -1;
+        } else {
+            returnValue = 0;
+        }
+
+        return returnValue;
+    }
+
+    private int compareStrings(String string1, String string2) {
+        return string1.compareTo(string2);
+    }
+
+
+}
+public void tDBInput_1Process(final java.util.Map<String, Object> globalMap) throws TalendException {
+	globalMap.put("tDBInput_1_SUBPROCESS_STATE", 0);
+
+ final boolean execStat = this.execStat;
+	
 		String iterateId = "";
+	
+	
+	String currentComponent = "";
+	java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
 
-		String currentComponent = "";
-		java.util.Map<String, Object> resourceMap = new java.util.HashMap<String, Object>();
-
-		try {
+	try {
 			// TDI-39566 avoid throwing an useless Exception
 			boolean resumeIt = true;
 			if (globalResumeTicket == false && resumeEntryMethodName != null) {
 				String currentMethodName = new java.lang.Exception().getStackTrace()[0].getMethodName();
 				resumeIt = resumeEntryMethodName.equals(currentMethodName);
 			}
-			if (resumeIt || globalResumeTicket) { // start the resume
+			if (resumeIt || globalResumeTicket) { //start the resume
 				globalResumeTicket = true;
 
-				row1Struct row1 = new row1Struct();
 
-				/**
-				 * [tDBOutput_1 begin ] start
-				 */
 
-				ok_Hash.put("tDBOutput_1", false);
-				start_Hash.put("tDBOutput_1", System.currentTimeMillis());
+		row1Struct row1 = new row1Struct();
 
-				currentComponent = "tDBOutput_1";
 
-				if (execStat) {
-					runStat.updateStatOnConnection(resourceMap, iterateId, 0, 0, "row1");
-				}
 
-				int tos_count_tDBOutput_1 = 0;
 
-				int updateKeyCount_tDBOutput_1 = 1;
-				if (updateKeyCount_tDBOutput_1 < 1) {
-					throw new RuntimeException("For update, the schema must have a key");
-				}
-				int nb_line_tDBOutput_1 = 0;
-				int nb_line_update_tDBOutput_1 = 0;
-				int nb_line_inserted_tDBOutput_1 = 0;
-				int nb_line_deleted_tDBOutput_1 = 0;
-				int nb_line_rejected_tDBOutput_1 = 0;
+	
+	/**
+	 * [tDBOutput_1 begin ] start
+	 */
 
-				int tmp_batchUpdateCount_tDBOutput_1 = 0;
+	
 
-				int deletedCount_tDBOutput_1 = 0;
-				int updatedCount_tDBOutput_1 = 0;
-				int insertedCount_tDBOutput_1 = 0;
-				int rejectedCount_tDBOutput_1 = 0;
+	
+		
+		ok_Hash.put("tDBOutput_1", false);
+		start_Hash.put("tDBOutput_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tDBOutput_1";
 
-				boolean whetherReject_tDBOutput_1 = false;
-
-				java.sql.Connection conn_tDBOutput_1 = null;
-
-				// optional table
-				String dbschema_tDBOutput_1 = null;
-				String tableName_tDBOutput_1 = null;
-				String driverClass_tDBOutput_1 = "oracle.jdbc.OracleDriver";
-
-				java.lang.Class.forName(driverClass_tDBOutput_1);
-				String url_tDBOutput_1 = null;
-				url_tDBOutput_1 = "jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=" + "10.44.66.245"
-						+ ")(port=" + "1521" + "))(connect_data=(service_name=" + "frontend" + ")))";
-				String dbUser_tDBOutput_1 = "a_pms_com";
-
-				final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:+nNjGUzAlCD+NQHmrZRZuEzx2UE5totyiz1+u7OreS16tjSQ");
-
-				String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
-				dbschema_tDBOutput_1 = "A_PMS_COM";
-
-				conn_tDBOutput_1 = java.sql.DriverManager.getConnection(url_tDBOutput_1, dbUser_tDBOutput_1,
-						dbPwd_tDBOutput_1);
-				resourceMap.put("conn_tDBOutput_1", conn_tDBOutput_1);
-				conn_tDBOutput_1.setAutoCommit(false);
-				int commitEvery_tDBOutput_1 = 10000;
-				int commitCounter_tDBOutput_1 = 0;
-				int count_tDBOutput_1 = 0;
-
-				if (dbschema_tDBOutput_1 == null || dbschema_tDBOutput_1.trim().length() == 0) {
-					tableName_tDBOutput_1 = ("PARTNER_MAST");
-				} else {
-					tableName_tDBOutput_1 = dbschema_tDBOutput_1 + "." + ("PARTNER_MAST");
-				}
-				String tableNameForSearch_tDBOutput_1 = "" + ((String) "PARTNER_MAST") + "";
-				String dbschemaForSearch_tDBOutput_1 = null;
-				if (dbschema_tDBOutput_1 == null || dbschema_tDBOutput_1.trim().length() == 0) {
-					dbschemaForSearch_tDBOutput_1 = ((String) "a_pms_com").toUpperCase();
-				} else {
-					dbschemaForSearch_tDBOutput_1 = dbschema_tDBOutput_1.toUpperCase();
-				}
-
-				java.sql.DatabaseMetaData dbMetaData_tDBOutput_1 = conn_tDBOutput_1.getMetaData();
-				if (tableNameForSearch_tDBOutput_1.indexOf("\"") == -1) {
-					tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.toUpperCase();
-				} else {
-					tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.replaceAll("\"", "");
-				}
-				boolean whetherExist_tDBOutput_1 = false;
-				try (java.sql.ResultSet rsTable_tDBOutput_1 = dbMetaData_tDBOutput_1.getTables(null,
-						dbschemaForSearch_tDBOutput_1, tableNameForSearch_tDBOutput_1, new String[] { "TABLE" })) {
-					if (rsTable_tDBOutput_1.next()) {
-						whetherExist_tDBOutput_1 = true;
+	
+					if(execStat) {
+						runStat.updateStatOnConnection(resourceMap,iterateId,0,0,"row1");
 					}
-				}
+				
+		int tos_count_tDBOutput_1 = 0;
+		
 
-				if (!whetherExist_tDBOutput_1) {
-					try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
-						stmtCreate_tDBOutput_1.execute("CREATE TABLE " + tableName_tDBOutput_1
-								+ "(PARTNER_ID NUMBER(19,0)   not null ,PARTNER_DATE DATE ,REF_APPL_ID VARCHAR(20)  ,PARTNER_TYPE VARCHAR(2)  default '2'  not null ,PREFIX_CODE VARCHAR(5)  ,PARTNER_NAME VARCHAR(300)   not null ,SUFFIX_NAME VARCHAR(100)  ,PARTNER_FULL_NAME VARCHAR(300)  ,PARTNER_ABBV VARCHAR(20)  ,ID_TYPE VARCHAR(2)  default '1'  not null ,ID_CARD VARCHAR(20)  default '0'  not null ,ID_BRANCH VARCHAR(5)  ,BRANCH_NAME VARCHAR(200)  ,DATE_OF_BIRTH DATE ,ISSUED_BY VARCHAR(300)  ,ISSUED_DATE DATE ,EXPIRED_DATE DATE ,GENDER VARCHAR(1)  ,NATION_CODE VARCHAR(3)  ,PRIORITY_CODE VARCHAR(1)  ,VAT_CODE VARCHAR(1)  ,CAP_INCOME DECIMAL(15,0)  ,SALARY_RANGE VARCHAR(3)  ,TOTAL_EMP VARCHAR(3)  ,ADDR_SEQ_BILL INT ,CONTACT_PERSON_SEQ INT ,CONTACT_CHANNEL_SEQ_MOBILE INT ,CONTACT_CHANNEL_SEQ_EMAIL INT ,DOC_ATTCH_SEQ INT ,REF_SERVICE_CATE VARCHAR(3)  ,REF_SAA_REGION VARCHAR(20)  ,REF_SAA_PROVINCE VARCHAR(100)  ,REF_SAA_SALES_TEAM VARCHAR(20)  ,REF_SAA_SALES_REP VARCHAR(20)  ,ASSIGN_BY_REG VARCHAR(20)  ,ASSIGN_TO_TEAM_MGR VARCHAR(10)  ,ASSIGN_DATE_1 DATE ,ASSIGN_DATE_2 DATE ,APPV_BY VARCHAR(20)  ,APPV_DATE DATE ,STATUS VARCHAR(2)  ,REASON_CODE VARCHAR(5)  ,REASON_NOTE CLOB ,BLACKLIST_FLAG VARCHAR(1)  default 'N' ,BLACKLIST_LEVEL VARCHAR(5)  ,REF_CR_NO VARCHAR(10)  ,REF_CA_ID VARCHAR(20)  ,REF_PA_ID VARCHAR(20)  ,CREDIT_LIMIT DECIMAL(14,2)  default 0.00 ,CREDIT_AVAILABLE DECIMAL(14,2)  default 0.00 ,CREDIT_TERMS SMALLINT default 0 ,CONTR_RUNNING INT ,CREATE_BY VARCHAR(20)  ,CREATE_DATE DATE ,LAST_UPDATE_BY VARCHAR(20)  ,LAST_UPDATE_DATE DATE ,REMARK CLOB ,REF_SAA_CODE VARCHAR(50)  ,VENDOR_CODE VARCHAR(45)  ,USSD_SELLER_CODE_SEQ INT ,primary key(PARTNER_ID))");
-					}
-				}
-				java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1
-						.prepareStatement("SELECT COUNT(1) FROM " + tableName_tDBOutput_1 + " WHERE PARTNER_ID = ?");
-				resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
-				String insert_tDBOutput_1 = "INSERT INTO " + tableName_tDBOutput_1
-						+ " (PARTNER_ID,PARTNER_DATE,REF_APPL_ID,PARTNER_TYPE,PREFIX_CODE,PARTNER_NAME,SUFFIX_NAME,PARTNER_FULL_NAME,PARTNER_ABBV,ID_TYPE,ID_CARD,ID_BRANCH,BRANCH_NAME,DATE_OF_BIRTH,ISSUED_BY,ISSUED_DATE,EXPIRED_DATE,GENDER,NATION_CODE,PRIORITY_CODE,VAT_CODE,CAP_INCOME,SALARY_RANGE,TOTAL_EMP,ADDR_SEQ_BILL,CONTACT_PERSON_SEQ,CONTACT_CHANNEL_SEQ_MOBILE,CONTACT_CHANNEL_SEQ_EMAIL,DOC_ATTCH_SEQ,REF_SERVICE_CATE,REF_SAA_REGION,REF_SAA_PROVINCE,REF_SAA_SALES_TEAM,REF_SAA_SALES_REP,ASSIGN_BY_REG,ASSIGN_TO_TEAM_MGR,ASSIGN_DATE_1,ASSIGN_DATE_2,APPV_BY,APPV_DATE,STATUS,REASON_CODE,REASON_NOTE,BLACKLIST_FLAG,BLACKLIST_LEVEL,REF_CR_NO,REF_CA_ID,REF_PA_ID,CREDIT_LIMIT,CREDIT_AVAILABLE,CREDIT_TERMS,CONTR_RUNNING,CREATE_BY,CREATE_DATE,LAST_UPDATE_BY,LAST_UPDATE_DATE,REMARK,REF_SAA_CODE,VENDOR_CODE,USSD_SELLER_CODE_SEQ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-				java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1
-						.prepareStatement(insert_tDBOutput_1);
-				resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
-				String update_tDBOutput_1 = "UPDATE " + tableName_tDBOutput_1
-						+ " SET PARTNER_DATE = ?,REF_APPL_ID = ?,PARTNER_TYPE = ?,PREFIX_CODE = ?,PARTNER_NAME = ?,SUFFIX_NAME = ?,PARTNER_FULL_NAME = ?,PARTNER_ABBV = ?,ID_TYPE = ?,ID_CARD = ?,ID_BRANCH = ?,BRANCH_NAME = ?,DATE_OF_BIRTH = ?,ISSUED_BY = ?,ISSUED_DATE = ?,EXPIRED_DATE = ?,GENDER = ?,NATION_CODE = ?,PRIORITY_CODE = ?,VAT_CODE = ?,CAP_INCOME = ?,SALARY_RANGE = ?,TOTAL_EMP = ?,ADDR_SEQ_BILL = ?,CONTACT_PERSON_SEQ = ?,CONTACT_CHANNEL_SEQ_MOBILE = ?,CONTACT_CHANNEL_SEQ_EMAIL = ?,DOC_ATTCH_SEQ = ?,REF_SERVICE_CATE = ?,REF_SAA_REGION = ?,REF_SAA_PROVINCE = ?,REF_SAA_SALES_TEAM = ?,REF_SAA_SALES_REP = ?,ASSIGN_BY_REG = ?,ASSIGN_TO_TEAM_MGR = ?,ASSIGN_DATE_1 = ?,ASSIGN_DATE_2 = ?,APPV_BY = ?,APPV_DATE = ?,STATUS = ?,REASON_CODE = ?,REASON_NOTE = ?,BLACKLIST_FLAG = ?,BLACKLIST_LEVEL = ?,REF_CR_NO = ?,REF_CA_ID = ?,REF_PA_ID = ?,CREDIT_LIMIT = ?,CREDIT_AVAILABLE = ?,CREDIT_TERMS = ?,CONTR_RUNNING = ?,CREATE_BY = ?,CREATE_DATE = ?,LAST_UPDATE_BY = ?,LAST_UPDATE_DATE = ?,REMARK = ?,REF_SAA_CODE = ?,VENDOR_CODE = ?,USSD_SELLER_CODE_SEQ = ? WHERE PARTNER_ID = ?";
-				java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1
-						.prepareStatement(update_tDBOutput_1);
-				resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
 
-				/**
-				 * [tDBOutput_1 begin ] stop
-				 */
 
-				/**
-				 * [tDBInput_1 begin ] start
-				 */
 
-				ok_Hash.put("tDBInput_1", false);
-				start_Hash.put("tDBInput_1", System.currentTimeMillis());
 
-				currentComponent = "tDBInput_1";
 
-				int tos_count_tDBInput_1 = 0;
+            int updateKeyCount_tDBOutput_1 = 1;
+            if(updateKeyCount_tDBOutput_1 < 1) {
+                throw new RuntimeException("For update, the schema must have a key");
+            }
+    int nb_line_tDBOutput_1 = 0;
+    int nb_line_update_tDBOutput_1 = 0;
+    int nb_line_inserted_tDBOutput_1 = 0;
+    int nb_line_deleted_tDBOutput_1 = 0;
+    int nb_line_rejected_tDBOutput_1 = 0;
 
-				java.util.Calendar calendar_tDBInput_1 = java.util.Calendar.getInstance();
-				calendar_tDBInput_1.set(0, 0, 0, 0, 0, 0);
-				java.util.Date year0_tDBInput_1 = calendar_tDBInput_1.getTime();
-				int nb_line_tDBInput_1 = 0;
-				java.sql.Connection conn_tDBInput_1 = null;
+    int tmp_batchUpdateCount_tDBOutput_1 = 0;
+
+    int deletedCount_tDBOutput_1=0;
+    int updatedCount_tDBOutput_1=0;
+    int insertedCount_tDBOutput_1=0;
+    int rejectedCount_tDBOutput_1=0;
+
+    boolean whetherReject_tDBOutput_1 = false;
+
+    java.sql.Connection conn_tDBOutput_1 = null;
+
+    //optional table
+    String dbschema_tDBOutput_1 = null;
+    String tableName_tDBOutput_1 = null;
+                    String driverClass_tDBOutput_1 = "oracle.jdbc.OracleDriver";
+
+
+                java.lang.Class.forName(driverClass_tDBOutput_1);
+                String url_tDBOutput_1 = null;
+                    url_tDBOutput_1 = "jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=" + "10.44.66.245" + ")(port=" + "1521" + "))(connect_data=(service_name=" + "frontend" + ")))";
+                String dbUser_tDBOutput_1 = "a_pms_com";
+ 
+	final String decryptedPassword_tDBOutput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:6fqxJ7VIq/bfU1X7NomE9sWKHv4iry0NrQEs4IIgY1RUnwqP");
+
+                String dbPwd_tDBOutput_1 = decryptedPassword_tDBOutput_1;
+                dbschema_tDBOutput_1 = "A_PMS_COM";
+
+
+                    conn_tDBOutput_1 = java.sql.DriverManager.getConnection(url_tDBOutput_1, dbUser_tDBOutput_1, dbPwd_tDBOutput_1);
+        resourceMap.put("conn_tDBOutput_1", conn_tDBOutput_1);
+            conn_tDBOutput_1.setAutoCommit(false);
+            int commitEvery_tDBOutput_1 = 10000;
+            int commitCounter_tDBOutput_1 = 0;
+        int count_tDBOutput_1=0;
+
+        if(dbschema_tDBOutput_1 == null || dbschema_tDBOutput_1.trim().length() == 0) {
+            tableName_tDBOutput_1 = ("PARTNER_MAST");
+        } else {
+            tableName_tDBOutput_1 = dbschema_tDBOutput_1 + "." + ("PARTNER_MAST");
+        }
+                                String tableNameForSearch_tDBOutput_1= "" + ((String)"PARTNER_MAST") + "";
+String dbschemaForSearch_tDBOutput_1= null;
+if(dbschema_tDBOutput_1== null || dbschema_tDBOutput_1.trim().length() == 0) {
+dbschemaForSearch_tDBOutput_1= ((String)"a_pms_com").toUpperCase();
+} else {
+dbschemaForSearch_tDBOutput_1= dbschema_tDBOutput_1.toUpperCase();
+}
+
+                                java.sql.DatabaseMetaData dbMetaData_tDBOutput_1 = conn_tDBOutput_1.getMetaData();
+                                if(tableNameForSearch_tDBOutput_1.indexOf("\"")==-1){
+                                    tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.toUpperCase();
+                                }else{
+                                    tableNameForSearch_tDBOutput_1 = tableNameForSearch_tDBOutput_1.replaceAll("\"","");
+                                }
+                                boolean whetherExist_tDBOutput_1 = false;
+                                try (java.sql.ResultSet rsTable_tDBOutput_1 = dbMetaData_tDBOutput_1.getTables(null, dbschemaForSearch_tDBOutput_1, tableNameForSearch_tDBOutput_1, new String[]{"TABLE"})) {
+                                    if(rsTable_tDBOutput_1.next()) {
+                                        whetherExist_tDBOutput_1 = true;
+                                    }
+                                }
+
+                                if(!whetherExist_tDBOutput_1) {
+                                    try (java.sql.Statement stmtCreate_tDBOutput_1 = conn_tDBOutput_1.createStatement()) {
+                                        stmtCreate_tDBOutput_1.execute("CREATE TABLE " + tableName_tDBOutput_1 + "(PARTNER_ID NUMBER(19,0)   not null ,PARTNER_DATE DATE ,REF_APPL_ID VARCHAR(20)  ,PARTNER_TYPE VARCHAR(2)  default '2'  not null ,PREFIX_CODE VARCHAR(5)  ,PARTNER_NAME VARCHAR(300)   not null ,SUFFIX_NAME VARCHAR(100)  ,PARTNER_FULL_NAME VARCHAR(300)  ,PARTNER_ABBV VARCHAR(20)  ,ID_TYPE VARCHAR(2)  default '1'  not null ,ID_CARD VARCHAR(20)  default '0'  not null ,ID_BRANCH VARCHAR(5)  ,BRANCH_NAME VARCHAR(200)  ,DATE_OF_BIRTH DATE ,ISSUED_BY VARCHAR(300)  ,ISSUED_DATE DATE ,EXPIRED_DATE DATE ,GENDER VARCHAR(1)  ,NATION_CODE VARCHAR(3)  ,PRIORITY_CODE VARCHAR(1)  ,VAT_CODE VARCHAR(1)  ,CAP_INCOME DECIMAL(15,0)  ,SALARY_RANGE VARCHAR(3)  ,TOTAL_EMP VARCHAR(3)  ,ADDR_SEQ_BILL INT ,CONTACT_PERSON_SEQ INT ,CONTACT_CHANNEL_SEQ_MOBILE INT ,CONTACT_CHANNEL_SEQ_EMAIL INT ,DOC_ATTCH_SEQ INT ,REF_SERVICE_CATE VARCHAR(3)  ,REF_SAA_REGION VARCHAR(20)  ,REF_SAA_PROVINCE VARCHAR(100)  ,REF_SAA_SALES_TEAM VARCHAR(20)  ,REF_SAA_SALES_REP VARCHAR(20)  ,ASSIGN_BY_REG VARCHAR(20)  ,ASSIGN_TO_TEAM_MGR VARCHAR(10)  ,ASSIGN_DATE_1 DATE ,ASSIGN_DATE_2 DATE ,APPV_BY VARCHAR(20)  ,APPV_DATE DATE ,STATUS VARCHAR(2)  ,REASON_CODE VARCHAR(5)  ,REASON_NOTE CLOB ,BLACKLIST_FLAG VARCHAR(1)  default 'N' ,BLACKLIST_LEVEL VARCHAR(5)  ,REF_CR_NO VARCHAR(10)  ,REF_CA_ID VARCHAR(20)  ,REF_PA_ID VARCHAR(20)  ,CREDIT_LIMIT DECIMAL(14,2)  default 0.00 ,CREDIT_AVAILABLE DECIMAL(14,2)  default 0.00 ,CREDIT_TERMS SMALLINT default 0 ,CONTR_RUNNING INT ,CREATE_BY VARCHAR(20)  ,CREATE_DATE DATE ,LAST_UPDATE_BY VARCHAR(20)  ,LAST_UPDATE_DATE DATE ,REMARK CLOB ,REF_SAA_CODE VARCHAR(50)  ,VENDOR_CODE VARCHAR(45)  ,USSD_SELLER_CODE_SEQ INT ,primary key(PARTNER_ID))");
+                                    }
+                                }
+                java.sql.PreparedStatement pstmt_tDBOutput_1 = conn_tDBOutput_1.prepareStatement("SELECT COUNT(1) FROM " + tableName_tDBOutput_1 + " WHERE PARTNER_ID = ?");
+                resourceMap.put("pstmt_tDBOutput_1", pstmt_tDBOutput_1);
+                String insert_tDBOutput_1 = "INSERT INTO " + tableName_tDBOutput_1 + " (PARTNER_ID,PARTNER_DATE,REF_APPL_ID,PARTNER_TYPE,PREFIX_CODE,PARTNER_NAME,SUFFIX_NAME,PARTNER_FULL_NAME,PARTNER_ABBV,ID_TYPE,ID_CARD,ID_BRANCH,BRANCH_NAME,DATE_OF_BIRTH,ISSUED_BY,ISSUED_DATE,EXPIRED_DATE,GENDER,NATION_CODE,PRIORITY_CODE,VAT_CODE,CAP_INCOME,SALARY_RANGE,TOTAL_EMP,ADDR_SEQ_BILL,CONTACT_PERSON_SEQ,CONTACT_CHANNEL_SEQ_MOBILE,CONTACT_CHANNEL_SEQ_EMAIL,DOC_ATTCH_SEQ,REF_SERVICE_CATE,REF_SAA_REGION,REF_SAA_PROVINCE,REF_SAA_SALES_TEAM,REF_SAA_SALES_REP,ASSIGN_BY_REG,ASSIGN_TO_TEAM_MGR,ASSIGN_DATE_1,ASSIGN_DATE_2,APPV_BY,APPV_DATE,STATUS,REASON_CODE,REASON_NOTE,BLACKLIST_FLAG,BLACKLIST_LEVEL,REF_CR_NO,REF_CA_ID,REF_PA_ID,CREDIT_LIMIT,CREDIT_AVAILABLE,CREDIT_TERMS,CONTR_RUNNING,CREATE_BY,CREATE_DATE,LAST_UPDATE_BY,LAST_UPDATE_DATE,REMARK,REF_SAA_CODE,VENDOR_CODE,USSD_SELLER_CODE_SEQ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";    
+                java.sql.PreparedStatement pstmtInsert_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(insert_tDBOutput_1);
+                resourceMap.put("pstmtInsert_tDBOutput_1", pstmtInsert_tDBOutput_1);
+                String update_tDBOutput_1 = "UPDATE " + tableName_tDBOutput_1 + " SET PARTNER_DATE = ?,REF_APPL_ID = ?,PARTNER_TYPE = ?,PREFIX_CODE = ?,PARTNER_NAME = ?,SUFFIX_NAME = ?,PARTNER_FULL_NAME = ?,PARTNER_ABBV = ?,ID_TYPE = ?,ID_CARD = ?,ID_BRANCH = ?,BRANCH_NAME = ?,DATE_OF_BIRTH = ?,ISSUED_BY = ?,ISSUED_DATE = ?,EXPIRED_DATE = ?,GENDER = ?,NATION_CODE = ?,PRIORITY_CODE = ?,VAT_CODE = ?,CAP_INCOME = ?,SALARY_RANGE = ?,TOTAL_EMP = ?,ADDR_SEQ_BILL = ?,CONTACT_PERSON_SEQ = ?,CONTACT_CHANNEL_SEQ_MOBILE = ?,CONTACT_CHANNEL_SEQ_EMAIL = ?,DOC_ATTCH_SEQ = ?,REF_SERVICE_CATE = ?,REF_SAA_REGION = ?,REF_SAA_PROVINCE = ?,REF_SAA_SALES_TEAM = ?,REF_SAA_SALES_REP = ?,ASSIGN_BY_REG = ?,ASSIGN_TO_TEAM_MGR = ?,ASSIGN_DATE_1 = ?,ASSIGN_DATE_2 = ?,APPV_BY = ?,APPV_DATE = ?,STATUS = ?,REASON_CODE = ?,REASON_NOTE = ?,BLACKLIST_FLAG = ?,BLACKLIST_LEVEL = ?,REF_CR_NO = ?,REF_CA_ID = ?,REF_PA_ID = ?,CREDIT_LIMIT = ?,CREDIT_AVAILABLE = ?,CREDIT_TERMS = ?,CONTR_RUNNING = ?,CREATE_BY = ?,CREATE_DATE = ?,LAST_UPDATE_BY = ?,LAST_UPDATE_DATE = ?,REMARK = ?,REF_SAA_CODE = ?,VENDOR_CODE = ?,USSD_SELLER_CODE_SEQ = ? WHERE PARTNER_ID = ?";
+                java.sql.PreparedStatement pstmtUpdate_tDBOutput_1 = conn_tDBOutput_1.prepareStatement(update_tDBOutput_1);
+                resourceMap.put("pstmtUpdate_tDBOutput_1", pstmtUpdate_tDBOutput_1);
+
+
+
+
+
+ 
+
+
+
+/**
+ * [tDBOutput_1 begin ] stop
+ */
+
+
+
+	
+	/**
+	 * [tDBInput_1 begin ] start
+	 */
+
+	
+
+	
+		
+		ok_Hash.put("tDBInput_1", false);
+		start_Hash.put("tDBInput_1", System.currentTimeMillis());
+		
+	
+	currentComponent="tDBInput_1";
+
+	
+		int tos_count_tDBInput_1 = 0;
+		
+	
+	
+		    java.util.Calendar calendar_tDBInput_1 = java.util.Calendar.getInstance();
+		    calendar_tDBInput_1.set(0, 0, 0, 0, 0, 0);
+		    java.util.Date year0_tDBInput_1 = calendar_tDBInput_1.getTime();
+		    int nb_line_tDBInput_1 = 0;
+		    java.sql.Connection conn_tDBInput_1 = null;
 				String driverClass_tDBInput_1 = "com.mysql.jdbc.Driver";
-				java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
+			    java.lang.Class jdbcclazz_tDBInput_1 = java.lang.Class.forName(driverClass_tDBInput_1);
 				String dbUser_tDBInput_1 = "pms_app";
-
-				final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword(
-						"enc:routine.encryption.key.v1:O3LiDH+mFPJrZsX3gyi0o8gawkiDdjHx7+NCfiaxuEkQySF78Nua+cl/");
-
+				
+				 
+	final String decryptedPassword_tDBInput_1 = routines.system.PasswordEncryptUtil.decryptPassword("enc:routine.encryption.key.v1:1tv3UHSxy3MO/3CvOUPS88BlAIk1iqrGKpL3KZr6XzbyJi2RX6xdNf9/");
+				
 				String dbPwd_tDBInput_1 = decryptedPassword_tDBInput_1;
+				
+				String url_tDBInput_1 = "jdbc:mysql://" + "10.44.49.9" + ":" + "3306" + "/" + "CAT_PM" + "?" + "noDatetimeStringSync=true";
+				
+				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1,dbUser_tDBInput_1,dbPwd_tDBInput_1);
+		        
+		    
+			java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
 
-				String url_tDBInput_1 = "jdbc:mysql://" + "10.44.49.9" + ":" + "3306" + "/" + "CAT_PM" + "?"
-						+ "noDatetimeStringSync=true";
+		    String dbquery_tDBInput_1 = "SELECT \n  `PARTNER_MAST`.`PARTNER_ID`, \n  `PARTNER_MAST`.`PARTNER_DATE`, \n  `PARTNER_MAST`.`REF_APPL_ID`, \n  `PARTNER_M"
++"AST`.`PARTNER_TYPE`, \n  `PARTNER_MAST`.`PREFIX_CODE`, \n  `PARTNER_MAST`.`PARTNER_NAME`, \n  `PARTNER_MAST`.`SUFFIX_NAME`,"
++" \n  `PARTNER_MAST`.`PARTNER_FULL_NAME`, \n  `PARTNER_MAST`.`PARTNER_ABBV`, \n  `PARTNER_MAST`.`ID_TYPE`, \n  `PARTNER_MAST`"
++".`ID_CARD`, \n  `PARTNER_MAST`.`ID_BRANCH`, \n  `PARTNER_MAST`.`BRANCH_NAME`, \n  `PARTNER_MAST`.`DATE_OF_BIRTH`, \n  `PARTN"
++"ER_MAST`.`ISSUED_BY`, \n  `PARTNER_MAST`.`ISSUED_DATE`, \n  `PARTNER_MAST`.`EXPIRED_DATE`, \n  `PARTNER_MAST`.`GENDER`, \n  "
++"`PARTNER_MAST`.`NATION_CODE`, \n  `PARTNER_MAST`.`PRIORITY_CODE`, \n  `PARTNER_MAST`.`VAT_CODE`, \n  `PARTNER_MAST`.`CAP_IN"
++"COME`, \n  `PARTNER_MAST`.`SALARY_RANGE`, \n  `PARTNER_MAST`.`TOTAL_EMP`, \n  `PARTNER_MAST`.`ADDR_SEQ_BILL`, \n  `PARTNER_M"
++"AST`.`CONTACT_PERSON_SEQ`, \n  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_MOBILE`, \n  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_EMAIL`"
++", \n  `PARTNER_MAST`.`DOC_ATTCH_SEQ`, \n  `PARTNER_MAST`.`REF_SERVICE_CATE`, \n  `PARTNER_MAST`.`REF_SAA_REGION`, \n  `PARTN"
++"ER_MAST`.`REF_SAA_PROVINCE`, \n  `PARTNER_MAST`.`REF_SAA_SALES_TEAM`, \n  `PARTNER_MAST`.`REF_SAA_SALES_REP`, \n  `PARTNER_"
++"MAST`.`ASSIGN_BY_REG`, \n  `PARTNER_MAST`.`ASSIGN_TO_TEAM_MGR`, \n  `PARTNER_MAST`.`ASSIGN_DATE_1`, \n  `PARTNER_MAST`.`ASS"
++"IGN_DATE_2`, \n  `PARTNER_MAST`.`APPV_BY`, \n  `PARTNER_MAST`.`APPV_DATE`, \n  `PARTNER_MAST`.`STATUS`, \n  `PARTNER_MAST`.`"
++"REASON_CODE`, \n  `PARTNER_MAST`.`REASON_NOTE`, \n  `PARTNER_MAST`.`BLACKLIST_FLAG`, \n  `PARTNER_MAST`.`BLACKLIST_LEVEL`, "
++"\n  `PARTNER_MAST`.`REF_CR_NO`, \n  `PARTNER_MAST`.`REF_CA_ID`, \n  `PARTNER_MAST`.`REF_PA_ID`, \n  `PARTNER_MAST`.`CREDIT_L"
++"IMIT`, \n  `PARTNER_MAST`.`CREDIT_AVAILABLE`, \n  `PARTNER_MAST`.`CREDIT_TERMS`, \n  `PARTNER_MAST`.`CONTR_RUNNING`, \n  `PA"
++"RTNER_MAST`.`CREATE_BY`, \n  `PARTNER_MAST`.`CREATE_DATE`, \n  `PARTNER_MAST`.`LAST_UPDATE_BY`, \n  `PARTNER_MAST`.`LAST_UP"
++"DATE_DATE`, \n  `PARTNER_MAST`.`REMARK`, \n  `PARTNER_MAST`.`REF_SAA_CODE`, \n  `PARTNER_MAST`.`VENDOR_CODE`, \n  `PARTNER_M"
++"AST`.`USSD_SELLER_CODE_SEQ`\nFROM `PARTNER_MAST`";
+			
 
-				conn_tDBInput_1 = java.sql.DriverManager.getConnection(url_tDBInput_1, dbUser_tDBInput_1,
-						dbPwd_tDBInput_1);
+            	globalMap.put("tDBInput_1_QUERY",dbquery_tDBInput_1);
+		    java.sql.ResultSet rs_tDBInput_1 = null;
 
-				java.sql.Statement stmt_tDBInput_1 = conn_tDBInput_1.createStatement();
+		    try {
+		    	rs_tDBInput_1 = stmt_tDBInput_1.executeQuery(dbquery_tDBInput_1);
+		    	java.sql.ResultSetMetaData rsmd_tDBInput_1 = rs_tDBInput_1.getMetaData();
+		    	int colQtyInRs_tDBInput_1 = rsmd_tDBInput_1.getColumnCount();
 
-				String dbquery_tDBInput_1 = "SELECT \n  `PARTNER_MAST`.`PARTNER_ID`, \n  `PARTNER_MAST`.`PARTNER_DATE`, \n  `PARTNER_MAST`.`REF_APPL_ID`, \n  `PARTNER_M"
-						+ "AST`.`PARTNER_TYPE`, \n  `PARTNER_MAST`.`PREFIX_CODE`, \n  `PARTNER_MAST`.`PARTNER_NAME`, \n  `PARTNER_MAST`.`SUFFIX_NAME`,"
-						+ " \n  `PARTNER_MAST`.`PARTNER_FULL_NAME`, \n  `PARTNER_MAST`.`PARTNER_ABBV`, \n  `PARTNER_MAST`.`ID_TYPE`, \n  `PARTNER_MAST`"
-						+ ".`ID_CARD`, \n  `PARTNER_MAST`.`ID_BRANCH`, \n  `PARTNER_MAST`.`BRANCH_NAME`, \n  `PARTNER_MAST`.`DATE_OF_BIRTH`, \n  `PARTN"
-						+ "ER_MAST`.`ISSUED_BY`, \n  `PARTNER_MAST`.`ISSUED_DATE`, \n  `PARTNER_MAST`.`EXPIRED_DATE`, \n  `PARTNER_MAST`.`GENDER`, \n  "
-						+ "`PARTNER_MAST`.`NATION_CODE`, \n  `PARTNER_MAST`.`PRIORITY_CODE`, \n  `PARTNER_MAST`.`VAT_CODE`, \n  `PARTNER_MAST`.`CAP_IN"
-						+ "COME`, \n  `PARTNER_MAST`.`SALARY_RANGE`, \n  `PARTNER_MAST`.`TOTAL_EMP`, \n  `PARTNER_MAST`.`ADDR_SEQ_BILL`, \n  `PARTNER_M"
-						+ "AST`.`CONTACT_PERSON_SEQ`, \n  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_MOBILE`, \n  `PARTNER_MAST`.`CONTACT_CHANNEL_SEQ_EMAIL`"
-						+ ", \n  `PARTNER_MAST`.`DOC_ATTCH_SEQ`, \n  `PARTNER_MAST`.`REF_SERVICE_CATE`, \n  `PARTNER_MAST`.`REF_SAA_REGION`, \n  `PARTN"
-						+ "ER_MAST`.`REF_SAA_PROVINCE`, \n  `PARTNER_MAST`.`REF_SAA_SALES_TEAM`, \n  `PARTNER_MAST`.`REF_SAA_SALES_REP`, \n  `PARTNER_"
-						+ "MAST`.`ASSIGN_BY_REG`, \n  `PARTNER_MAST`.`ASSIGN_TO_TEAM_MGR`, \n  `PARTNER_MAST`.`ASSIGN_DATE_1`, \n  `PARTNER_MAST`.`ASS"
-						+ "IGN_DATE_2`, \n  `PARTNER_MAST`.`APPV_BY`, \n  `PARTNER_MAST`.`APPV_DATE`, \n  `PARTNER_MAST`.`STATUS`, \n  `PARTNER_MAST`.`"
-						+ "REASON_CODE`, \n  `PARTNER_MAST`.`REASON_NOTE`, \n  `PARTNER_MAST`.`BLACKLIST_FLAG`, \n  `PARTNER_MAST`.`BLACKLIST_LEVEL`, "
-						+ "\n  `PARTNER_MAST`.`REF_CR_NO`, \n  `PARTNER_MAST`.`REF_CA_ID`, \n  `PARTNER_MAST`.`REF_PA_ID`, \n  `PARTNER_MAST`.`CREDIT_L"
-						+ "IMIT`, \n  `PARTNER_MAST`.`CREDIT_AVAILABLE`, \n  `PARTNER_MAST`.`CREDIT_TERMS`, \n  `PARTNER_MAST`.`CONTR_RUNNING`, \n  `PA"
-						+ "RTNER_MAST`.`CREATE_BY`, \n  `PARTNER_MAST`.`CREATE_DATE`, \n  `PARTNER_MAST`.`LAST_UPDATE_BY`, \n  `PARTNER_MAST`.`LAST_UP"
-						+ "DATE_DATE`, \n  `PARTNER_MAST`.`REMARK`, \n  `PARTNER_MAST`.`REF_SAA_CODE`, \n  `PARTNER_MAST`.`VENDOR_CODE`, \n  `PARTNER_M"
-						+ "AST`.`USSD_SELLER_CODE_SEQ`\nFROM `PARTNER_MAST`";
-
-				globalMap.put("tDBInput_1_QUERY", dbquery_tDBInput_1);
-				java.sql.ResultSet rs_tDBInput_1 = null;
-
-				try {
-					rs_tDBInput_1 = stmt_tDBInput_1.executeQuery(dbquery_tDBInput_1);
-					java.sql.ResultSetMetaData rsmd_tDBInput_1 = rs_tDBInput_1.getMetaData();
-					int colQtyInRs_tDBInput_1 = rsmd_tDBInput_1.getColumnCount();
-
-					String tmpContent_tDBInput_1 = null;
-
-					while (rs_tDBInput_1.next()) {
-						nb_line_tDBInput_1++;
-
-						if (colQtyInRs_tDBInput_1 < 1) {
-							row1.PARTNER_ID = 0;
-						} else {
-
-							row1.PARTNER_ID = rs_tDBInput_1.getLong(1);
-							if (rs_tDBInput_1.wasNull()) {
-								throw new RuntimeException("Null value in non-Nullable column");
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 2) {
-							row1.PARTNER_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(2) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(2);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.PARTNER_DATE = rs_tDBInput_1.getTimestamp(2);
-								} else {
-									row1.PARTNER_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
+		    String tmpContent_tDBInput_1 = null;
+		    
+		    
+		    while (rs_tDBInput_1.next()) {
+		        nb_line_tDBInput_1++;
+		        
+							if(colQtyInRs_tDBInput_1 < 1) {
+								row1.PARTNER_ID = 0;
 							} else {
+		                          
+            row1.PARTNER_ID = rs_tDBInput_1.getLong(1);
+            if(rs_tDBInput_1.wasNull()){
+                    throw new RuntimeException("Null value in non-Nullable column");
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 2) {
 								row1.PARTNER_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 3) {
-							row1.REF_APPL_ID = null;
-						} else {
-
-							row1.REF_APPL_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 3, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 4) {
-							row1.PARTNER_TYPE = null;
-						} else {
-
-							row1.PARTNER_TYPE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 4, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 5) {
-							row1.PREFIX_CODE = null;
-						} else {
-
-							row1.PREFIX_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 5, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 6) {
-							row1.PARTNER_NAME = null;
-						} else {
-
-							row1.PARTNER_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 6, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 7) {
-							row1.SUFFIX_NAME = null;
-						} else {
-
-							row1.SUFFIX_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 7, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 8) {
-							row1.PARTNER_FULL_NAME = null;
-						} else {
-
-							row1.PARTNER_FULL_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 9) {
-							row1.PARTNER_ABBV = null;
-						} else {
-
-							row1.PARTNER_ABBV = routines.system.JDBCUtil.getString(rs_tDBInput_1, 9, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 10) {
-							row1.ID_TYPE = null;
-						} else {
-
-							row1.ID_TYPE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 10, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 11) {
-							row1.ID_CARD = null;
-						} else {
-
-							row1.ID_CARD = routines.system.JDBCUtil.getString(rs_tDBInput_1, 11, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 12) {
-							row1.ID_BRANCH = null;
-						} else {
-
-							row1.ID_BRANCH = routines.system.JDBCUtil.getString(rs_tDBInput_1, 12, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 13) {
-							row1.BRANCH_NAME = null;
-						} else {
-
-							row1.BRANCH_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 13, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 14) {
-							row1.DATE_OF_BIRTH = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(14) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(14);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.DATE_OF_BIRTH = rs_tDBInput_1.getTimestamp(14);
-								} else {
-									row1.DATE_OF_BIRTH = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(2) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(2);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.PARTNER_DATE = rs_tDBInput_1.getTimestamp(2);
+					} else {
+						row1.PARTNER_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.PARTNER_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 3) {
+								row1.REF_APPL_ID = null;
+							} else {
+	                         		
+        	row1.REF_APPL_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 3, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 4) {
+								row1.PARTNER_TYPE = null;
+							} else {
+	                         		
+        	row1.PARTNER_TYPE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 4, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 5) {
+								row1.PREFIX_CODE = null;
+							} else {
+	                         		
+        	row1.PREFIX_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 5, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 6) {
+								row1.PARTNER_NAME = null;
+							} else {
+	                         		
+        	row1.PARTNER_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 6, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 7) {
+								row1.SUFFIX_NAME = null;
+							} else {
+	                         		
+        	row1.SUFFIX_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 7, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 8) {
+								row1.PARTNER_FULL_NAME = null;
+							} else {
+	                         		
+        	row1.PARTNER_FULL_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 8, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 9) {
+								row1.PARTNER_ABBV = null;
+							} else {
+	                         		
+        	row1.PARTNER_ABBV = routines.system.JDBCUtil.getString(rs_tDBInput_1, 9, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 10) {
+								row1.ID_TYPE = null;
+							} else {
+	                         		
+        	row1.ID_TYPE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 10, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 11) {
+								row1.ID_CARD = null;
+							} else {
+	                         		
+        	row1.ID_CARD = routines.system.JDBCUtil.getString(rs_tDBInput_1, 11, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 12) {
+								row1.ID_BRANCH = null;
+							} else {
+	                         		
+        	row1.ID_BRANCH = routines.system.JDBCUtil.getString(rs_tDBInput_1, 12, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 13) {
+								row1.BRANCH_NAME = null;
+							} else {
+	                         		
+        	row1.BRANCH_NAME = routines.system.JDBCUtil.getString(rs_tDBInput_1, 13, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 14) {
 								row1.DATE_OF_BIRTH = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 15) {
-							row1.ISSUED_BY = null;
-						} else {
-
-							row1.ISSUED_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 15, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 16) {
-							row1.ISSUED_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(16) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(16);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.ISSUED_DATE = rs_tDBInput_1.getTimestamp(16);
-								} else {
-									row1.ISSUED_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(14) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(14);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.DATE_OF_BIRTH = rs_tDBInput_1.getTimestamp(14);
+					} else {
+						row1.DATE_OF_BIRTH = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.DATE_OF_BIRTH =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 15) {
+								row1.ISSUED_BY = null;
+							} else {
+	                         		
+        	row1.ISSUED_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 15, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 16) {
 								row1.ISSUED_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 17) {
-							row1.EXPIRED_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(17) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(17);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.EXPIRED_DATE = rs_tDBInput_1.getTimestamp(17);
-								} else {
-									row1.EXPIRED_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(16) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(16);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.ISSUED_DATE = rs_tDBInput_1.getTimestamp(16);
+					} else {
+						row1.ISSUED_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.ISSUED_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 17) {
 								row1.EXPIRED_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 18) {
-							row1.GENDER = null;
-						} else {
-
-							row1.GENDER = routines.system.JDBCUtil.getString(rs_tDBInput_1, 18, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 19) {
-							row1.NATION_CODE = null;
-						} else {
-
-							row1.NATION_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 19, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 20) {
-							row1.PRIORITY_CODE = null;
-						} else {
-
-							row1.PRIORITY_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 20, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 21) {
-							row1.VAT_CODE = null;
-						} else {
-
-							row1.VAT_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 21, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 22) {
-							row1.CAP_INCOME = null;
-						} else {
-
-							row1.CAP_INCOME = rs_tDBInput_1.getBigDecimal(22);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+										
+				if(rs_tDBInput_1.getString(17) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(17);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.EXPIRED_DATE = rs_tDBInput_1.getTimestamp(17);
+					} else {
+						row1.EXPIRED_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.EXPIRED_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 18) {
+								row1.GENDER = null;
+							} else {
+	                         		
+        	row1.GENDER = routines.system.JDBCUtil.getString(rs_tDBInput_1, 18, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 19) {
+								row1.NATION_CODE = null;
+							} else {
+	                         		
+        	row1.NATION_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 19, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 20) {
+								row1.PRIORITY_CODE = null;
+							} else {
+	                         		
+        	row1.PRIORITY_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 20, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 21) {
+								row1.VAT_CODE = null;
+							} else {
+	                         		
+        	row1.VAT_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 21, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 22) {
 								row1.CAP_INCOME = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 23) {
-							row1.SALARY_RANGE = null;
-						} else {
-
-							row1.SALARY_RANGE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 23, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 24) {
-							row1.TOTAL_EMP = null;
-						} else {
-
-							row1.TOTAL_EMP = routines.system.JDBCUtil.getString(rs_tDBInput_1, 24, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 25) {
-							row1.ADDR_SEQ_BILL = null;
-						} else {
-
-							row1.ADDR_SEQ_BILL = rs_tDBInput_1.getInt(25);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CAP_INCOME = rs_tDBInput_1.getBigDecimal(22);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CAP_INCOME = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 23) {
+								row1.SALARY_RANGE = null;
+							} else {
+	                         		
+        	row1.SALARY_RANGE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 23, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 24) {
+								row1.TOTAL_EMP = null;
+							} else {
+	                         		
+        	row1.TOTAL_EMP = routines.system.JDBCUtil.getString(rs_tDBInput_1, 24, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 25) {
 								row1.ADDR_SEQ_BILL = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 26) {
-							row1.CONTACT_PERSON_SEQ = null;
-						} else {
-
-							row1.CONTACT_PERSON_SEQ = rs_tDBInput_1.getInt(26);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.ADDR_SEQ_BILL = rs_tDBInput_1.getInt(25);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.ADDR_SEQ_BILL = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 26) {
 								row1.CONTACT_PERSON_SEQ = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 27) {
-							row1.CONTACT_CHANNEL_SEQ_MOBILE = null;
-						} else {
-
-							row1.CONTACT_CHANNEL_SEQ_MOBILE = rs_tDBInput_1.getInt(27);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CONTACT_PERSON_SEQ = rs_tDBInput_1.getInt(26);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CONTACT_PERSON_SEQ = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 27) {
 								row1.CONTACT_CHANNEL_SEQ_MOBILE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 28) {
-							row1.CONTACT_CHANNEL_SEQ_EMAIL = null;
-						} else {
-
-							row1.CONTACT_CHANNEL_SEQ_EMAIL = rs_tDBInput_1.getInt(28);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CONTACT_CHANNEL_SEQ_MOBILE = rs_tDBInput_1.getInt(27);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CONTACT_CHANNEL_SEQ_MOBILE = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 28) {
 								row1.CONTACT_CHANNEL_SEQ_EMAIL = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 29) {
-							row1.DOC_ATTCH_SEQ = null;
-						} else {
-
-							row1.DOC_ATTCH_SEQ = rs_tDBInput_1.getInt(29);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CONTACT_CHANNEL_SEQ_EMAIL = rs_tDBInput_1.getInt(28);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CONTACT_CHANNEL_SEQ_EMAIL = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 29) {
 								row1.DOC_ATTCH_SEQ = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 30) {
-							row1.REF_SERVICE_CATE = null;
-						} else {
-
-							row1.REF_SERVICE_CATE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 30, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 31) {
-							row1.REF_SAA_REGION = null;
-						} else {
-
-							row1.REF_SAA_REGION = routines.system.JDBCUtil.getString(rs_tDBInput_1, 31, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 32) {
-							row1.REF_SAA_PROVINCE = null;
-						} else {
-
-							row1.REF_SAA_PROVINCE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 32, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 33) {
-							row1.REF_SAA_SALES_TEAM = null;
-						} else {
-
-							row1.REF_SAA_SALES_TEAM = routines.system.JDBCUtil.getString(rs_tDBInput_1, 33, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 34) {
-							row1.REF_SAA_SALES_REP = null;
-						} else {
-
-							row1.REF_SAA_SALES_REP = routines.system.JDBCUtil.getString(rs_tDBInput_1, 34, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 35) {
-							row1.ASSIGN_BY_REG = null;
-						} else {
-
-							row1.ASSIGN_BY_REG = routines.system.JDBCUtil.getString(rs_tDBInput_1, 35, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 36) {
-							row1.ASSIGN_TO_TEAM_MGR = null;
-						} else {
-
-							row1.ASSIGN_TO_TEAM_MGR = routines.system.JDBCUtil.getString(rs_tDBInput_1, 36, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 37) {
-							row1.ASSIGN_DATE_1 = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(37) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(37);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.ASSIGN_DATE_1 = rs_tDBInput_1.getTimestamp(37);
-								} else {
-									row1.ASSIGN_DATE_1 = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+		                          
+            row1.DOC_ATTCH_SEQ = rs_tDBInput_1.getInt(29);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.DOC_ATTCH_SEQ = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 30) {
+								row1.REF_SERVICE_CATE = null;
+							} else {
+	                         		
+        	row1.REF_SERVICE_CATE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 30, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 31) {
+								row1.REF_SAA_REGION = null;
+							} else {
+	                         		
+        	row1.REF_SAA_REGION = routines.system.JDBCUtil.getString(rs_tDBInput_1, 31, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 32) {
+								row1.REF_SAA_PROVINCE = null;
+							} else {
+	                         		
+        	row1.REF_SAA_PROVINCE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 32, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 33) {
+								row1.REF_SAA_SALES_TEAM = null;
+							} else {
+	                         		
+        	row1.REF_SAA_SALES_TEAM = routines.system.JDBCUtil.getString(rs_tDBInput_1, 33, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 34) {
+								row1.REF_SAA_SALES_REP = null;
+							} else {
+	                         		
+        	row1.REF_SAA_SALES_REP = routines.system.JDBCUtil.getString(rs_tDBInput_1, 34, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 35) {
+								row1.ASSIGN_BY_REG = null;
+							} else {
+	                         		
+        	row1.ASSIGN_BY_REG = routines.system.JDBCUtil.getString(rs_tDBInput_1, 35, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 36) {
+								row1.ASSIGN_TO_TEAM_MGR = null;
+							} else {
+	                         		
+        	row1.ASSIGN_TO_TEAM_MGR = routines.system.JDBCUtil.getString(rs_tDBInput_1, 36, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 37) {
 								row1.ASSIGN_DATE_1 = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 38) {
-							row1.ASSIGN_DATE_2 = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(38) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(38);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.ASSIGN_DATE_2 = rs_tDBInput_1.getTimestamp(38);
-								} else {
-									row1.ASSIGN_DATE_2 = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(37) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(37);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.ASSIGN_DATE_1 = rs_tDBInput_1.getTimestamp(37);
+					} else {
+						row1.ASSIGN_DATE_1 = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.ASSIGN_DATE_1 =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 38) {
 								row1.ASSIGN_DATE_2 = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 39) {
-							row1.APPV_BY = null;
-						} else {
-
-							row1.APPV_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 39, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 40) {
-							row1.APPV_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(40) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(40);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.APPV_DATE = rs_tDBInput_1.getTimestamp(40);
-								} else {
-									row1.APPV_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(38) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(38);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.ASSIGN_DATE_2 = rs_tDBInput_1.getTimestamp(38);
+					} else {
+						row1.ASSIGN_DATE_2 = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.ASSIGN_DATE_2 =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 39) {
+								row1.APPV_BY = null;
+							} else {
+	                         		
+        	row1.APPV_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 39, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 40) {
 								row1.APPV_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 41) {
-							row1.STATUS = null;
-						} else {
-
-							row1.STATUS = routines.system.JDBCUtil.getString(rs_tDBInput_1, 41, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 42) {
-							row1.REASON_CODE = null;
-						} else {
-
-							row1.REASON_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 42, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 43) {
-							row1.REASON_NOTE = null;
-						} else {
-
-							row1.REASON_NOTE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 43, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 44) {
-							row1.BLACKLIST_FLAG = null;
-						} else {
-
-							row1.BLACKLIST_FLAG = routines.system.JDBCUtil.getString(rs_tDBInput_1, 44, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 45) {
-							row1.BLACKLIST_LEVEL = null;
-						} else {
-
-							row1.BLACKLIST_LEVEL = routines.system.JDBCUtil.getString(rs_tDBInput_1, 45, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 46) {
-							row1.REF_CR_NO = null;
-						} else {
-
-							row1.REF_CR_NO = routines.system.JDBCUtil.getString(rs_tDBInput_1, 46, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 47) {
-							row1.REF_CA_ID = null;
-						} else {
-
-							row1.REF_CA_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 47, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 48) {
-							row1.REF_PA_ID = null;
-						} else {
-
-							row1.REF_PA_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 48, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 49) {
-							row1.CREDIT_LIMIT = null;
-						} else {
-
-							row1.CREDIT_LIMIT = rs_tDBInput_1.getBigDecimal(49);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+										
+				if(rs_tDBInput_1.getString(40) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(40);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.APPV_DATE = rs_tDBInput_1.getTimestamp(40);
+					} else {
+						row1.APPV_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.APPV_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 41) {
+								row1.STATUS = null;
+							} else {
+	                         		
+        	row1.STATUS = routines.system.JDBCUtil.getString(rs_tDBInput_1, 41, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 42) {
+								row1.REASON_CODE = null;
+							} else {
+	                         		
+        	row1.REASON_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 42, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 43) {
+								row1.REASON_NOTE = null;
+							} else {
+	                         		
+        	row1.REASON_NOTE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 43, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 44) {
+								row1.BLACKLIST_FLAG = null;
+							} else {
+	                         		
+        	row1.BLACKLIST_FLAG = routines.system.JDBCUtil.getString(rs_tDBInput_1, 44, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 45) {
+								row1.BLACKLIST_LEVEL = null;
+							} else {
+	                         		
+        	row1.BLACKLIST_LEVEL = routines.system.JDBCUtil.getString(rs_tDBInput_1, 45, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 46) {
+								row1.REF_CR_NO = null;
+							} else {
+	                         		
+        	row1.REF_CR_NO = routines.system.JDBCUtil.getString(rs_tDBInput_1, 46, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 47) {
+								row1.REF_CA_ID = null;
+							} else {
+	                         		
+        	row1.REF_CA_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 47, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 48) {
+								row1.REF_PA_ID = null;
+							} else {
+	                         		
+        	row1.REF_PA_ID = routines.system.JDBCUtil.getString(rs_tDBInput_1, 48, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 49) {
 								row1.CREDIT_LIMIT = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 50) {
-							row1.CREDIT_AVAILABLE = null;
-						} else {
-
-							row1.CREDIT_AVAILABLE = rs_tDBInput_1.getBigDecimal(50);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CREDIT_LIMIT = rs_tDBInput_1.getBigDecimal(49);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CREDIT_LIMIT = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 50) {
 								row1.CREDIT_AVAILABLE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 51) {
-							row1.CREDIT_TERMS = null;
-						} else {
-
-							row1.CREDIT_TERMS = rs_tDBInput_1.getShort(51);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CREDIT_AVAILABLE = rs_tDBInput_1.getBigDecimal(50);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CREDIT_AVAILABLE = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 51) {
 								row1.CREDIT_TERMS = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 52) {
-							row1.CONTR_RUNNING = null;
-						} else {
-
-							row1.CONTR_RUNNING = rs_tDBInput_1.getInt(52);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+		                          
+            row1.CREDIT_TERMS = rs_tDBInput_1.getShort(51);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CREDIT_TERMS = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 52) {
 								row1.CONTR_RUNNING = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 53) {
-							row1.CREATE_BY = null;
-						} else {
-
-							row1.CREATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 53, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 54) {
-							row1.CREATE_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(54) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(54);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.CREATE_DATE = rs_tDBInput_1.getTimestamp(54);
-								} else {
-									row1.CREATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+		                          
+            row1.CONTR_RUNNING = rs_tDBInput_1.getInt(52);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.CONTR_RUNNING = null;
+            }
+		                    }
+							if(colQtyInRs_tDBInput_1 < 53) {
+								row1.CREATE_BY = null;
+							} else {
+	                         		
+        	row1.CREATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 53, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 54) {
 								row1.CREATE_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 55) {
-							row1.LAST_UPDATE_BY = null;
-						} else {
-
-							row1.LAST_UPDATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 55, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 56) {
-							row1.LAST_UPDATE_DATE = null;
-						} else {
-
-							if (rs_tDBInput_1.getString(56) != null) {
-								String dateString_tDBInput_1 = rs_tDBInput_1.getString(56);
-								if (!("0000-00-00").equals(dateString_tDBInput_1)
-										&& !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
-									row1.LAST_UPDATE_DATE = rs_tDBInput_1.getTimestamp(56);
-								} else {
-									row1.LAST_UPDATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
-								}
 							} else {
+										
+				if(rs_tDBInput_1.getString(54) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(54);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.CREATE_DATE = rs_tDBInput_1.getTimestamp(54);
+					} else {
+						row1.CREATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.CREATE_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 55) {
+								row1.LAST_UPDATE_BY = null;
+							} else {
+	                         		
+        	row1.LAST_UPDATE_BY = routines.system.JDBCUtil.getString(rs_tDBInput_1, 55, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 56) {
 								row1.LAST_UPDATE_DATE = null;
-							}
-						}
-						if (colQtyInRs_tDBInput_1 < 57) {
-							row1.REMARK = null;
-						} else {
-
-							row1.REMARK = routines.system.JDBCUtil.getString(rs_tDBInput_1, 57, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 58) {
-							row1.REF_SAA_CODE = null;
-						} else {
-
-							row1.REF_SAA_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 58, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 59) {
-							row1.VENDOR_CODE = null;
-						} else {
-
-							row1.VENDOR_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 59, false);
-						}
-						if (colQtyInRs_tDBInput_1 < 60) {
-							row1.USSD_SELLER_CODE_SEQ = null;
-						} else {
-
-							row1.USSD_SELLER_CODE_SEQ = rs_tDBInput_1.getInt(60);
-							if (rs_tDBInput_1.wasNull()) {
+							} else {
+										
+				if(rs_tDBInput_1.getString(56) != null) {
+					String dateString_tDBInput_1 = rs_tDBInput_1.getString(56);
+					if (!("0000-00-00").equals(dateString_tDBInput_1) && !("0000-00-00 00:00:00").equals(dateString_tDBInput_1)) {
+						row1.LAST_UPDATE_DATE = rs_tDBInput_1.getTimestamp(56);
+					} else {
+						row1.LAST_UPDATE_DATE = (java.util.Date) year0_tDBInput_1.clone();
+					}
+				} else {
+					row1.LAST_UPDATE_DATE =  null;
+				}
+		                    }
+							if(colQtyInRs_tDBInput_1 < 57) {
+								row1.REMARK = null;
+							} else {
+	                         		
+        	row1.REMARK = routines.system.JDBCUtil.getString(rs_tDBInput_1, 57, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 58) {
+								row1.REF_SAA_CODE = null;
+							} else {
+	                         		
+        	row1.REF_SAA_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 58, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 59) {
+								row1.VENDOR_CODE = null;
+							} else {
+	                         		
+        	row1.VENDOR_CODE = routines.system.JDBCUtil.getString(rs_tDBInput_1, 59, false);
+		                    }
+							if(colQtyInRs_tDBInput_1 < 60) {
 								row1.USSD_SELLER_CODE_SEQ = null;
-							}
-						}
-
-						/**
-						 * [tDBInput_1 begin ] stop
-						 */
-
-						/**
-						 * [tDBInput_1 main ] start
-						 */
-
-						currentComponent = "tDBInput_1";
-
-						tos_count_tDBInput_1++;
-
-						/**
-						 * [tDBInput_1 main ] stop
-						 */
-
-						/**
-						 * [tDBInput_1 process_data_begin ] start
-						 */
-
-						currentComponent = "tDBInput_1";
-
-						/**
-						 * [tDBInput_1 process_data_begin ] stop
-						 */
-
-						/**
-						 * [tDBOutput_1 main ] start
-						 */
-
-						currentComponent = "tDBOutput_1";
-
-						if (execStat) {
-							runStat.updateStatOnConnection(iterateId, 1, 1, "row1");
-						}
-
-						whetherReject_tDBOutput_1 = false;
-						pstmt_tDBOutput_1.setLong(1, row1.PARTNER_ID);
-
-						int checkCount_tDBOutput_1 = -1;
-						try (java.sql.ResultSet rs_tDBOutput_1 = pstmt_tDBOutput_1.executeQuery()) {
-							while (rs_tDBOutput_1.next()) {
-								checkCount_tDBOutput_1 = rs_tDBOutput_1.getInt(1);
-							}
-						}
-						if (checkCount_tDBOutput_1 > 0) {
-							if (row1.PARTNER_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(1,
-										new java.sql.Timestamp(row1.PARTNER_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(1, java.sql.Types.DATE);
-							}
-
-							if (row1.REF_APPL_ID == null) {
-								pstmtUpdate_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(2, row1.REF_APPL_ID);
-							}
-
-							if (row1.PARTNER_TYPE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(3, row1.PARTNER_TYPE);
-							}
-
-							if (row1.PREFIX_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(4, row1.PREFIX_CODE);
-							}
-
-							if (row1.PARTNER_NAME == null) {
-								pstmtUpdate_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(5, row1.PARTNER_NAME);
-							}
-
-							if (row1.SUFFIX_NAME == null) {
-								pstmtUpdate_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(6, row1.SUFFIX_NAME);
-							}
-
-							if (row1.PARTNER_FULL_NAME == null) {
-								pstmtUpdate_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(7, row1.PARTNER_FULL_NAME);
-							}
-
-							if (row1.PARTNER_ABBV == null) {
-								pstmtUpdate_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(8, row1.PARTNER_ABBV);
-							}
-
-							if (row1.ID_TYPE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(9, row1.ID_TYPE);
-							}
-
-							if (row1.ID_CARD == null) {
-								pstmtUpdate_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(10, row1.ID_CARD);
-							}
-
-							if (row1.ID_BRANCH == null) {
-								pstmtUpdate_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(11, row1.ID_BRANCH);
-							}
-
-							if (row1.BRANCH_NAME == null) {
-								pstmtUpdate_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(12, row1.BRANCH_NAME);
-							}
-
-							if (row1.DATE_OF_BIRTH != null) {
-								pstmtUpdate_tDBOutput_1.setObject(13,
-										new java.sql.Timestamp(row1.DATE_OF_BIRTH.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(13, java.sql.Types.DATE);
-							}
-
-							if (row1.ISSUED_BY == null) {
-								pstmtUpdate_tDBOutput_1.setNull(14, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(14, row1.ISSUED_BY);
-							}
-
-							if (row1.ISSUED_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(15,
-										new java.sql.Timestamp(row1.ISSUED_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(15, java.sql.Types.DATE);
-							}
-
-							if (row1.EXPIRED_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(16,
-										new java.sql.Timestamp(row1.EXPIRED_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(16, java.sql.Types.DATE);
-							}
-
-							if (row1.GENDER == null) {
-								pstmtUpdate_tDBOutput_1.setNull(17, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(17, row1.GENDER);
-							}
-
-							if (row1.NATION_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(18, row1.NATION_CODE);
-							}
-
-							if (row1.PRIORITY_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(19, row1.PRIORITY_CODE);
-							}
-
-							if (row1.VAT_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(20, row1.VAT_CODE);
-							}
-
-							pstmtUpdate_tDBOutput_1.setBigDecimal(21, row1.CAP_INCOME);
-
-							if (row1.SALARY_RANGE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(22, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(22, row1.SALARY_RANGE);
-							}
-
-							if (row1.TOTAL_EMP == null) {
-								pstmtUpdate_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(23, row1.TOTAL_EMP);
-							}
-
-							if (row1.ADDR_SEQ_BILL == null) {
-								pstmtUpdate_tDBOutput_1.setNull(24, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(24, row1.ADDR_SEQ_BILL);
-							}
-
-							if (row1.CONTACT_PERSON_SEQ == null) {
-								pstmtUpdate_tDBOutput_1.setNull(25, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(25, row1.CONTACT_PERSON_SEQ);
-							}
-
-							if (row1.CONTACT_CHANNEL_SEQ_MOBILE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(26, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(26, row1.CONTACT_CHANNEL_SEQ_MOBILE);
-							}
-
-							if (row1.CONTACT_CHANNEL_SEQ_EMAIL == null) {
-								pstmtUpdate_tDBOutput_1.setNull(27, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(27, row1.CONTACT_CHANNEL_SEQ_EMAIL);
-							}
-
-							if (row1.DOC_ATTCH_SEQ == null) {
-								pstmtUpdate_tDBOutput_1.setNull(28, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(28, row1.DOC_ATTCH_SEQ);
-							}
-
-							if (row1.REF_SERVICE_CATE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(29, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(29, row1.REF_SERVICE_CATE);
-							}
-
-							if (row1.REF_SAA_REGION == null) {
-								pstmtUpdate_tDBOutput_1.setNull(30, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(30, row1.REF_SAA_REGION);
-							}
-
-							if (row1.REF_SAA_PROVINCE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(31, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(31, row1.REF_SAA_PROVINCE);
-							}
-
-							if (row1.REF_SAA_SALES_TEAM == null) {
-								pstmtUpdate_tDBOutput_1.setNull(32, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(32, row1.REF_SAA_SALES_TEAM);
-							}
-
-							if (row1.REF_SAA_SALES_REP == null) {
-								pstmtUpdate_tDBOutput_1.setNull(33, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(33, row1.REF_SAA_SALES_REP);
-							}
-
-							if (row1.ASSIGN_BY_REG == null) {
-								pstmtUpdate_tDBOutput_1.setNull(34, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(34, row1.ASSIGN_BY_REG);
-							}
-
-							if (row1.ASSIGN_TO_TEAM_MGR == null) {
-								pstmtUpdate_tDBOutput_1.setNull(35, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(35, row1.ASSIGN_TO_TEAM_MGR);
-							}
-
-							if (row1.ASSIGN_DATE_1 != null) {
-								pstmtUpdate_tDBOutput_1.setObject(36,
-										new java.sql.Timestamp(row1.ASSIGN_DATE_1.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(36, java.sql.Types.DATE);
-							}
-
-							if (row1.ASSIGN_DATE_2 != null) {
-								pstmtUpdate_tDBOutput_1.setObject(37,
-										new java.sql.Timestamp(row1.ASSIGN_DATE_2.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(37, java.sql.Types.DATE);
-							}
-
-							if (row1.APPV_BY == null) {
-								pstmtUpdate_tDBOutput_1.setNull(38, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(38, row1.APPV_BY);
-							}
-
-							if (row1.APPV_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(39, new java.sql.Timestamp(row1.APPV_DATE.getTime()),
-										java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(39, java.sql.Types.DATE);
-							}
-
-							if (row1.STATUS == null) {
-								pstmtUpdate_tDBOutput_1.setNull(40, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(40, row1.STATUS);
-							}
-
-							if (row1.REASON_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(41, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(41, row1.REASON_CODE);
-							}
-
-							if (row1.REASON_NOTE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(42, java.sql.Types.CLOB);
-							} else {
-								pstmtUpdate_tDBOutput_1.setCharacterStream(42,
-										new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
-							}
-
-							if (row1.BLACKLIST_FLAG == null) {
-								pstmtUpdate_tDBOutput_1.setNull(43, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(43, row1.BLACKLIST_FLAG);
-							}
-
-							if (row1.BLACKLIST_LEVEL == null) {
-								pstmtUpdate_tDBOutput_1.setNull(44, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(44, row1.BLACKLIST_LEVEL);
-							}
-
-							if (row1.REF_CR_NO == null) {
-								pstmtUpdate_tDBOutput_1.setNull(45, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(45, row1.REF_CR_NO);
-							}
-
-							if (row1.REF_CA_ID == null) {
-								pstmtUpdate_tDBOutput_1.setNull(46, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(46, row1.REF_CA_ID);
-							}
-
-							if (row1.REF_PA_ID == null) {
-								pstmtUpdate_tDBOutput_1.setNull(47, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(47, row1.REF_PA_ID);
-							}
-
-							pstmtUpdate_tDBOutput_1.setBigDecimal(48, row1.CREDIT_LIMIT);
-
-							pstmtUpdate_tDBOutput_1.setBigDecimal(49, row1.CREDIT_AVAILABLE);
-
-							if (row1.CREDIT_TERMS == null) {
-								pstmtUpdate_tDBOutput_1.setNull(50, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setShort(50, row1.CREDIT_TERMS);
-							}
-
-							if (row1.CONTR_RUNNING == null) {
-								pstmtUpdate_tDBOutput_1.setNull(51, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(51, row1.CONTR_RUNNING);
-							}
-
-							if (row1.CREATE_BY == null) {
-								pstmtUpdate_tDBOutput_1.setNull(52, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(52, row1.CREATE_BY);
-							}
-
-							if (row1.CREATE_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(53,
-										new java.sql.Timestamp(row1.CREATE_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtUpdate_tDBOutput_1.setNull(53, java.sql.Types.DATE);
-							}
-
-							if (row1.LAST_UPDATE_BY == null) {
-								pstmtUpdate_tDBOutput_1.setNull(54, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(54, row1.LAST_UPDATE_BY);
-							}
-
-							if (row1.LAST_UPDATE_DATE != null) {
-								pstmtUpdate_tDBOutput_1.setObject(55,
-										new java.sql.Timestamp(row1.LAST_UPDATE_DATE.getTime()), java.sql.Types.DATE);
 							} else {
-								pstmtUpdate_tDBOutput_1.setNull(55, java.sql.Types.DATE);
-							}
+		                          
+            row1.USSD_SELLER_CODE_SEQ = rs_tDBInput_1.getInt(60);
+            if(rs_tDBInput_1.wasNull()){
+                    row1.USSD_SELLER_CODE_SEQ = null;
+            }
+		                    }
+					
 
-							if (row1.REMARK == null) {
-								pstmtUpdate_tDBOutput_1.setNull(56, java.sql.Types.CLOB);
-							} else {
-								pstmtUpdate_tDBOutput_1.setCharacterStream(56, new java.io.StringReader(row1.REMARK),
-										row1.REMARK.length());
-							}
-
-							if (row1.REF_SAA_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(57, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(57, row1.REF_SAA_CODE);
-							}
-
-							if (row1.VENDOR_CODE == null) {
-								pstmtUpdate_tDBOutput_1.setNull(58, java.sql.Types.VARCHAR);
-							} else {
-								pstmtUpdate_tDBOutput_1.setString(58, row1.VENDOR_CODE);
-							}
-
-							if (row1.USSD_SELLER_CODE_SEQ == null) {
-								pstmtUpdate_tDBOutput_1.setNull(59, java.sql.Types.INTEGER);
-							} else {
-								pstmtUpdate_tDBOutput_1.setInt(59, row1.USSD_SELLER_CODE_SEQ);
-							}
-
-							pstmtUpdate_tDBOutput_1.setLong(60 + count_tDBOutput_1, row1.PARTNER_ID);
-
-							try {
-								updatedCount_tDBOutput_1 = updatedCount_tDBOutput_1
-										+ pstmtUpdate_tDBOutput_1.executeUpdate();
-								nb_line_tDBOutput_1++;
-							} catch (java.lang.Exception e_tDBOutput_1) {
-								whetherReject_tDBOutput_1 = true;
-								nb_line_tDBOutput_1++;
-								System.err.print(e_tDBOutput_1.getMessage());
-							}
-						} else {
-							pstmtInsert_tDBOutput_1.setLong(1, row1.PARTNER_ID);
-
-							if (row1.PARTNER_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(2,
-										new java.sql.Timestamp(row1.PARTNER_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(2, java.sql.Types.DATE);
-							}
-
-							if (row1.REF_APPL_ID == null) {
-								pstmtInsert_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(3, row1.REF_APPL_ID);
-							}
-
-							if (row1.PARTNER_TYPE == null) {
-								pstmtInsert_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(4, row1.PARTNER_TYPE);
-							}
-
-							if (row1.PREFIX_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(5, row1.PREFIX_CODE);
-							}
-
-							if (row1.PARTNER_NAME == null) {
-								pstmtInsert_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(6, row1.PARTNER_NAME);
-							}
-
-							if (row1.SUFFIX_NAME == null) {
-								pstmtInsert_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(7, row1.SUFFIX_NAME);
-							}
-
-							if (row1.PARTNER_FULL_NAME == null) {
-								pstmtInsert_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(8, row1.PARTNER_FULL_NAME);
-							}
-
-							if (row1.PARTNER_ABBV == null) {
-								pstmtInsert_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(9, row1.PARTNER_ABBV);
-							}
-
-							if (row1.ID_TYPE == null) {
-								pstmtInsert_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(10, row1.ID_TYPE);
-							}
-
-							if (row1.ID_CARD == null) {
-								pstmtInsert_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(11, row1.ID_CARD);
-							}
-
-							if (row1.ID_BRANCH == null) {
-								pstmtInsert_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(12, row1.ID_BRANCH);
-							}
-
-							if (row1.BRANCH_NAME == null) {
-								pstmtInsert_tDBOutput_1.setNull(13, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(13, row1.BRANCH_NAME);
-							}
-
-							if (row1.DATE_OF_BIRTH != null) {
-								pstmtInsert_tDBOutput_1.setObject(14,
-										new java.sql.Timestamp(row1.DATE_OF_BIRTH.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(14, java.sql.Types.DATE);
-							}
-
-							if (row1.ISSUED_BY == null) {
-								pstmtInsert_tDBOutput_1.setNull(15, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(15, row1.ISSUED_BY);
-							}
-
-							if (row1.ISSUED_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(16,
-										new java.sql.Timestamp(row1.ISSUED_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(16, java.sql.Types.DATE);
-							}
-
-							if (row1.EXPIRED_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(17,
-										new java.sql.Timestamp(row1.EXPIRED_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(17, java.sql.Types.DATE);
-							}
-
-							if (row1.GENDER == null) {
-								pstmtInsert_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(18, row1.GENDER);
-							}
-
-							if (row1.NATION_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(19, row1.NATION_CODE);
-							}
-
-							if (row1.PRIORITY_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(20, row1.PRIORITY_CODE);
-							}
-
-							if (row1.VAT_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(21, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(21, row1.VAT_CODE);
-							}
-
-							pstmtInsert_tDBOutput_1.setBigDecimal(22, row1.CAP_INCOME);
-
-							if (row1.SALARY_RANGE == null) {
-								pstmtInsert_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(23, row1.SALARY_RANGE);
-							}
-
-							if (row1.TOTAL_EMP == null) {
-								pstmtInsert_tDBOutput_1.setNull(24, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(24, row1.TOTAL_EMP);
-							}
-
-							if (row1.ADDR_SEQ_BILL == null) {
-								pstmtInsert_tDBOutput_1.setNull(25, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(25, row1.ADDR_SEQ_BILL);
-							}
-
-							if (row1.CONTACT_PERSON_SEQ == null) {
-								pstmtInsert_tDBOutput_1.setNull(26, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(26, row1.CONTACT_PERSON_SEQ);
-							}
-
-							if (row1.CONTACT_CHANNEL_SEQ_MOBILE == null) {
-								pstmtInsert_tDBOutput_1.setNull(27, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(27, row1.CONTACT_CHANNEL_SEQ_MOBILE);
-							}
-
-							if (row1.CONTACT_CHANNEL_SEQ_EMAIL == null) {
-								pstmtInsert_tDBOutput_1.setNull(28, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(28, row1.CONTACT_CHANNEL_SEQ_EMAIL);
-							}
-
-							if (row1.DOC_ATTCH_SEQ == null) {
-								pstmtInsert_tDBOutput_1.setNull(29, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(29, row1.DOC_ATTCH_SEQ);
-							}
-
-							if (row1.REF_SERVICE_CATE == null) {
-								pstmtInsert_tDBOutput_1.setNull(30, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(30, row1.REF_SERVICE_CATE);
-							}
-
-							if (row1.REF_SAA_REGION == null) {
-								pstmtInsert_tDBOutput_1.setNull(31, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(31, row1.REF_SAA_REGION);
-							}
-
-							if (row1.REF_SAA_PROVINCE == null) {
-								pstmtInsert_tDBOutput_1.setNull(32, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(32, row1.REF_SAA_PROVINCE);
-							}
-
-							if (row1.REF_SAA_SALES_TEAM == null) {
-								pstmtInsert_tDBOutput_1.setNull(33, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(33, row1.REF_SAA_SALES_TEAM);
-							}
-
-							if (row1.REF_SAA_SALES_REP == null) {
-								pstmtInsert_tDBOutput_1.setNull(34, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(34, row1.REF_SAA_SALES_REP);
-							}
-
-							if (row1.ASSIGN_BY_REG == null) {
-								pstmtInsert_tDBOutput_1.setNull(35, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(35, row1.ASSIGN_BY_REG);
-							}
-
-							if (row1.ASSIGN_TO_TEAM_MGR == null) {
-								pstmtInsert_tDBOutput_1.setNull(36, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(36, row1.ASSIGN_TO_TEAM_MGR);
-							}
-
-							if (row1.ASSIGN_DATE_1 != null) {
-								pstmtInsert_tDBOutput_1.setObject(37,
-										new java.sql.Timestamp(row1.ASSIGN_DATE_1.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(37, java.sql.Types.DATE);
-							}
-
-							if (row1.ASSIGN_DATE_2 != null) {
-								pstmtInsert_tDBOutput_1.setObject(38,
-										new java.sql.Timestamp(row1.ASSIGN_DATE_2.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(38, java.sql.Types.DATE);
-							}
-
-							if (row1.APPV_BY == null) {
-								pstmtInsert_tDBOutput_1.setNull(39, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(39, row1.APPV_BY);
-							}
-
-							if (row1.APPV_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(40, new java.sql.Timestamp(row1.APPV_DATE.getTime()),
-										java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(40, java.sql.Types.DATE);
-							}
-
-							if (row1.STATUS == null) {
-								pstmtInsert_tDBOutput_1.setNull(41, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(41, row1.STATUS);
-							}
-
-							if (row1.REASON_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(42, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(42, row1.REASON_CODE);
-							}
-
-							if (row1.REASON_NOTE == null) {
-								pstmtInsert_tDBOutput_1.setNull(43, java.sql.Types.CLOB);
-							} else {
-								pstmtInsert_tDBOutput_1.setCharacterStream(43,
-										new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
-							}
-
-							if (row1.BLACKLIST_FLAG == null) {
-								pstmtInsert_tDBOutput_1.setNull(44, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(44, row1.BLACKLIST_FLAG);
-							}
-
-							if (row1.BLACKLIST_LEVEL == null) {
-								pstmtInsert_tDBOutput_1.setNull(45, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(45, row1.BLACKLIST_LEVEL);
-							}
-
-							if (row1.REF_CR_NO == null) {
-								pstmtInsert_tDBOutput_1.setNull(46, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(46, row1.REF_CR_NO);
-							}
-
-							if (row1.REF_CA_ID == null) {
-								pstmtInsert_tDBOutput_1.setNull(47, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(47, row1.REF_CA_ID);
-							}
-
-							if (row1.REF_PA_ID == null) {
-								pstmtInsert_tDBOutput_1.setNull(48, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(48, row1.REF_PA_ID);
-							}
-
-							pstmtInsert_tDBOutput_1.setBigDecimal(49, row1.CREDIT_LIMIT);
-
-							pstmtInsert_tDBOutput_1.setBigDecimal(50, row1.CREDIT_AVAILABLE);
+ 
 
-							if (row1.CREDIT_TERMS == null) {
-								pstmtInsert_tDBOutput_1.setNull(51, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setShort(51, row1.CREDIT_TERMS);
-							}
-
-							if (row1.CONTR_RUNNING == null) {
-								pstmtInsert_tDBOutput_1.setNull(52, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(52, row1.CONTR_RUNNING);
-							}
-
-							if (row1.CREATE_BY == null) {
-								pstmtInsert_tDBOutput_1.setNull(53, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(53, row1.CREATE_BY);
-							}
-
-							if (row1.CREATE_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(54,
-										new java.sql.Timestamp(row1.CREATE_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(54, java.sql.Types.DATE);
-							}
 
-							if (row1.LAST_UPDATE_BY == null) {
-								pstmtInsert_tDBOutput_1.setNull(55, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(55, row1.LAST_UPDATE_BY);
-							}
-
-							if (row1.LAST_UPDATE_DATE != null) {
-								pstmtInsert_tDBOutput_1.setObject(56,
-										new java.sql.Timestamp(row1.LAST_UPDATE_DATE.getTime()), java.sql.Types.DATE);
-							} else {
-								pstmtInsert_tDBOutput_1.setNull(56, java.sql.Types.DATE);
-							}
-
-							if (row1.REMARK == null) {
-								pstmtInsert_tDBOutput_1.setNull(57, java.sql.Types.CLOB);
-							} else {
-								pstmtInsert_tDBOutput_1.setCharacterStream(57, new java.io.StringReader(row1.REMARK),
-										row1.REMARK.length());
-							}
 
-							if (row1.REF_SAA_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(58, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(58, row1.REF_SAA_CODE);
-							}
+/**
+ * [tDBInput_1 begin ] stop
+ */
+	
+	/**
+	 * [tDBInput_1 main ] start
+	 */
 
-							if (row1.VENDOR_CODE == null) {
-								pstmtInsert_tDBOutput_1.setNull(59, java.sql.Types.VARCHAR);
-							} else {
-								pstmtInsert_tDBOutput_1.setString(59, row1.VENDOR_CODE);
-							}
+	
 
-							if (row1.USSD_SELLER_CODE_SEQ == null) {
-								pstmtInsert_tDBOutput_1.setNull(60, java.sql.Types.INTEGER);
-							} else {
-								pstmtInsert_tDBOutput_1.setInt(60, row1.USSD_SELLER_CODE_SEQ);
-							}
+	
+	
+	currentComponent="tDBInput_1";
 
-							try {
-								insertedCount_tDBOutput_1 = insertedCount_tDBOutput_1
-										+ pstmtInsert_tDBOutput_1.executeUpdate();
-								nb_line_tDBOutput_1++;
-							} catch (java.lang.Exception e_tDBOutput_1) {
-								whetherReject_tDBOutput_1 = true;
-								nb_line_tDBOutput_1++;
-								System.err.print(e_tDBOutput_1.getMessage());
-							}
-						}
-						commitCounter_tDBOutput_1++;
-						if (commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+	
 
-							conn_tDBOutput_1.commit();
-							commitCounter_tDBOutput_1 = 0;
-						}
+ 
 
-						tos_count_tDBOutput_1++;
 
-						/**
-						 * [tDBOutput_1 main ] stop
-						 */
+	tos_count_tDBInput_1++;
 
-						/**
-						 * [tDBOutput_1 process_data_begin ] start
-						 */
+/**
+ * [tDBInput_1 main ] stop
+ */
+	
+	/**
+	 * [tDBInput_1 process_data_begin ] start
+	 */
 
-						currentComponent = "tDBOutput_1";
+	
 
-						/**
-						 * [tDBOutput_1 process_data_begin ] stop
-						 */
+	
+	
+	currentComponent="tDBInput_1";
 
-						/**
-						 * [tDBOutput_1 process_data_end ] start
-						 */
+	
 
-						currentComponent = "tDBOutput_1";
+ 
 
-						/**
-						 * [tDBOutput_1 process_data_end ] stop
-						 */
 
-						/**
-						 * [tDBInput_1 process_data_end ] start
-						 */
 
-						currentComponent = "tDBInput_1";
+/**
+ * [tDBInput_1 process_data_begin ] stop
+ */
 
-						/**
-						 * [tDBInput_1 process_data_end ] stop
-						 */
+	
+	/**
+	 * [tDBOutput_1 main ] start
+	 */
 
-						/**
-						 * [tDBInput_1 end ] start
-						 */
+	
 
-						currentComponent = "tDBInput_1";
+	
+	
+	currentComponent="tDBOutput_1";
 
+	
+					if(execStat){
+						runStat.updateStatOnConnection(iterateId,1,1,"row1");
 					}
-				} finally {
-					if (rs_tDBInput_1 != null) {
-						rs_tDBInput_1.close();
-					}
-					if (stmt_tDBInput_1 != null) {
-						stmt_tDBInput_1.close();
-					}
-					if (conn_tDBInput_1 != null && !conn_tDBInput_1.isClosed()) {
+					
 
-						conn_tDBInput_1.close();
 
-						if ("com.mysql.cj.jdbc.Driver".equals((String) globalMap.get("driverClass_"))
-								&& routines.system.BundleUtils.inOSGi()) {
-							Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread")
-									.getMethod("checkedShutdown").invoke(null, (Object[]) null);
-						}
 
-					}
+        whetherReject_tDBOutput_1 = false;
+                    pstmt_tDBOutput_1.setLong(1, row1.PARTNER_ID);
 
-				}
+            int checkCount_tDBOutput_1 = -1;
+            try (java.sql.ResultSet rs_tDBOutput_1 = pstmt_tDBOutput_1.executeQuery()) {
+                while(rs_tDBOutput_1.next()) {
+                    checkCount_tDBOutput_1 = rs_tDBOutput_1.getInt(1);
+                }
+            }
+            if(checkCount_tDBOutput_1 > 0) {
+                        if(row1.PARTNER_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(1, new java.sql.Timestamp(row1.PARTNER_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(1, java.sql.Types.DATE);
+}
 
-				globalMap.put("tDBInput_1_NB_LINE", nb_line_tDBInput_1);
+                        if(row1.REF_APPL_ID == null) {
+pstmtUpdate_tDBOutput_1.setNull(2, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(2, row1.REF_APPL_ID);
+}
 
-				ok_Hash.put("tDBInput_1", true);
-				end_Hash.put("tDBInput_1", System.currentTimeMillis());
+                        if(row1.PARTNER_TYPE == null) {
+pstmtUpdate_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(3, row1.PARTNER_TYPE);
+}
 
-				/**
-				 * [tDBInput_1 end ] stop
-				 */
+                        if(row1.PREFIX_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(4, row1.PREFIX_CODE);
+}
 
-				/**
-				 * [tDBOutput_1 end ] start
-				 */
+                        if(row1.PARTNER_NAME == null) {
+pstmtUpdate_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(5, row1.PARTNER_NAME);
+}
 
-				currentComponent = "tDBOutput_1";
+                        if(row1.SUFFIX_NAME == null) {
+pstmtUpdate_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(6, row1.SUFFIX_NAME);
+}
 
-				if (pstmtUpdate_tDBOutput_1 != null) {
-					pstmtUpdate_tDBOutput_1.close();
-					resourceMap.remove("pstmtUpdate_tDBOutput_1");
-				}
-				if (pstmtInsert_tDBOutput_1 != null) {
-					pstmtInsert_tDBOutput_1.close();
-					resourceMap.remove("pstmtInsert_tDBOutput_1");
-				}
-				if (pstmt_tDBOutput_1 != null) {
-					pstmt_tDBOutput_1.close();
-					resourceMap.remove("pstmt_tDBOutput_1");
-				}
-				resourceMap.put("statementClosed_tDBOutput_1", true);
-				if (commitCounter_tDBOutput_1 > 0) {
+                        if(row1.PARTNER_FULL_NAME == null) {
+pstmtUpdate_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(7, row1.PARTNER_FULL_NAME);
+}
 
-					conn_tDBOutput_1.commit();
+                        if(row1.PARTNER_ABBV == null) {
+pstmtUpdate_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(8, row1.PARTNER_ABBV);
+}
 
-				}
+                        if(row1.ID_TYPE == null) {
+pstmtUpdate_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(9, row1.ID_TYPE);
+}
 
-				conn_tDBOutput_1.close();
+                        if(row1.ID_CARD == null) {
+pstmtUpdate_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(10, row1.ID_CARD);
+}
 
-				resourceMap.put("finish_tDBOutput_1", true);
+                        if(row1.ID_BRANCH == null) {
+pstmtUpdate_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(11, row1.ID_BRANCH);
+}
 
-				nb_line_deleted_tDBOutput_1 = nb_line_deleted_tDBOutput_1 + deletedCount_tDBOutput_1;
-				nb_line_update_tDBOutput_1 = nb_line_update_tDBOutput_1 + updatedCount_tDBOutput_1;
-				nb_line_inserted_tDBOutput_1 = nb_line_inserted_tDBOutput_1 + insertedCount_tDBOutput_1;
-				nb_line_rejected_tDBOutput_1 = nb_line_rejected_tDBOutput_1 + rejectedCount_tDBOutput_1;
+                        if(row1.BRANCH_NAME == null) {
+pstmtUpdate_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(12, row1.BRANCH_NAME);
+}
 
-				globalMap.put("tDBOutput_1_NB_LINE", nb_line_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_UPDATED", nb_line_update_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_INSERTED", nb_line_inserted_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_DELETED", nb_line_deleted_tDBOutput_1);
-				globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
+                        if(row1.DATE_OF_BIRTH != null) {
+pstmtUpdate_tDBOutput_1.setObject(13, new java.sql.Timestamp(row1.DATE_OF_BIRTH.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(13, java.sql.Types.DATE);
+}
 
-				if (execStat) {
-					runStat.updateStat(resourceMap, iterateId, 2, 0, "row1");
-				}
+                        if(row1.ISSUED_BY == null) {
+pstmtUpdate_tDBOutput_1.setNull(14, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(14, row1.ISSUED_BY);
+}
 
-				ok_Hash.put("tDBOutput_1", true);
-				end_Hash.put("tDBOutput_1", System.currentTimeMillis());
+                        if(row1.ISSUED_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(15, new java.sql.Timestamp(row1.ISSUED_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(15, java.sql.Types.DATE);
+}
 
-				/**
-				 * [tDBOutput_1 end ] stop
-				 */
+                        if(row1.EXPIRED_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(16, new java.sql.Timestamp(row1.EXPIRED_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(16, java.sql.Types.DATE);
+}
 
-			} // end the resume
+                        if(row1.GENDER == null) {
+pstmtUpdate_tDBOutput_1.setNull(17, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(17, row1.GENDER);
+}
 
-		} catch (java.lang.Exception e) {
+                        if(row1.NATION_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(18, row1.NATION_CODE);
+}
 
-			TalendException te = new TalendException(e, currentComponent, globalMap);
+                        if(row1.PRIORITY_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(19, row1.PRIORITY_CODE);
+}
 
-			throw te;
-		} catch (java.lang.Error error) {
+                        if(row1.VAT_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(20, row1.VAT_CODE);
+}
 
-			runStat.stopThreadStat();
+                        pstmtUpdate_tDBOutput_1.setBigDecimal(21, row1.CAP_INCOME);
 
-			throw error;
-		} finally {
+                        if(row1.SALARY_RANGE == null) {
+pstmtUpdate_tDBOutput_1.setNull(22, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(22, row1.SALARY_RANGE);
+}
 
-			try {
+                        if(row1.TOTAL_EMP == null) {
+pstmtUpdate_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(23, row1.TOTAL_EMP);
+}
 
-				/**
-				 * [tDBInput_1 finally ] start
-				 */
+                        if(row1.ADDR_SEQ_BILL == null) {
+pstmtUpdate_tDBOutput_1.setNull(24, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(24, row1.ADDR_SEQ_BILL);
+}
 
-				currentComponent = "tDBInput_1";
+                        if(row1.CONTACT_PERSON_SEQ == null) {
+pstmtUpdate_tDBOutput_1.setNull(25, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(25, row1.CONTACT_PERSON_SEQ);
+}
 
-				/**
-				 * [tDBInput_1 finally ] stop
-				 */
+                        if(row1.CONTACT_CHANNEL_SEQ_MOBILE == null) {
+pstmtUpdate_tDBOutput_1.setNull(26, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(26, row1.CONTACT_CHANNEL_SEQ_MOBILE);
+}
 
-				/**
-				 * [tDBOutput_1 finally ] start
-				 */
+                        if(row1.CONTACT_CHANNEL_SEQ_EMAIL == null) {
+pstmtUpdate_tDBOutput_1.setNull(27, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(27, row1.CONTACT_CHANNEL_SEQ_EMAIL);
+}
 
-				currentComponent = "tDBOutput_1";
+                        if(row1.DOC_ATTCH_SEQ == null) {
+pstmtUpdate_tDBOutput_1.setNull(28, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(28, row1.DOC_ATTCH_SEQ);
+}
 
-				try {
-					if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
-						java.sql.PreparedStatement pstmtUpdateToClose_tDBOutput_1 = null;
-						if ((pstmtUpdateToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmtUpdate_tDBOutput_1")) != null) {
-							pstmtUpdateToClose_tDBOutput_1.close();
-						}
-						java.sql.PreparedStatement pstmtInsertToClose_tDBOutput_1 = null;
-						if ((pstmtInsertToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmtInsert_tDBOutput_1")) != null) {
-							pstmtInsertToClose_tDBOutput_1.close();
-						}
-						java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
-						if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap
-								.remove("pstmt_tDBOutput_1")) != null) {
-							pstmtToClose_tDBOutput_1.close();
-						}
-					}
-				} finally {
-					if (resourceMap.get("finish_tDBOutput_1") == null) {
-						java.sql.Connection ctn_tDBOutput_1 = null;
-						if ((ctn_tDBOutput_1 = (java.sql.Connection) resourceMap.get("conn_tDBOutput_1")) != null) {
-							try {
-								ctn_tDBOutput_1.close();
-							} catch (java.sql.SQLException sqlEx_tDBOutput_1) {
-								String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :"
-										+ sqlEx_tDBOutput_1.getMessage();
-								System.err.println(errorMessage_tDBOutput_1);
-							}
-						}
-					}
-				}
+                        if(row1.REF_SERVICE_CATE == null) {
+pstmtUpdate_tDBOutput_1.setNull(29, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(29, row1.REF_SERVICE_CATE);
+}
 
-				/**
-				 * [tDBOutput_1 finally ] stop
-				 */
+                        if(row1.REF_SAA_REGION == null) {
+pstmtUpdate_tDBOutput_1.setNull(30, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(30, row1.REF_SAA_REGION);
+}
 
-			} catch (java.lang.Exception e) {
-				// ignore
-			} catch (java.lang.Error error) {
-				// ignore
+                        if(row1.REF_SAA_PROVINCE == null) {
+pstmtUpdate_tDBOutput_1.setNull(31, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(31, row1.REF_SAA_PROVINCE);
+}
+
+                        if(row1.REF_SAA_SALES_TEAM == null) {
+pstmtUpdate_tDBOutput_1.setNull(32, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(32, row1.REF_SAA_SALES_TEAM);
+}
+
+                        if(row1.REF_SAA_SALES_REP == null) {
+pstmtUpdate_tDBOutput_1.setNull(33, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(33, row1.REF_SAA_SALES_REP);
+}
+
+                        if(row1.ASSIGN_BY_REG == null) {
+pstmtUpdate_tDBOutput_1.setNull(34, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(34, row1.ASSIGN_BY_REG);
+}
+
+                        if(row1.ASSIGN_TO_TEAM_MGR == null) {
+pstmtUpdate_tDBOutput_1.setNull(35, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(35, row1.ASSIGN_TO_TEAM_MGR);
+}
+
+                        if(row1.ASSIGN_DATE_1 != null) {
+pstmtUpdate_tDBOutput_1.setObject(36, new java.sql.Timestamp(row1.ASSIGN_DATE_1.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(36, java.sql.Types.DATE);
+}
+
+                        if(row1.ASSIGN_DATE_2 != null) {
+pstmtUpdate_tDBOutput_1.setObject(37, new java.sql.Timestamp(row1.ASSIGN_DATE_2.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(37, java.sql.Types.DATE);
+}
+
+                        if(row1.APPV_BY == null) {
+pstmtUpdate_tDBOutput_1.setNull(38, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(38, row1.APPV_BY);
+}
+
+                        if(row1.APPV_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(39, new java.sql.Timestamp(row1.APPV_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(39, java.sql.Types.DATE);
+}
+
+                        if(row1.STATUS == null) {
+pstmtUpdate_tDBOutput_1.setNull(40, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(40, row1.STATUS);
+}
+
+                        if(row1.REASON_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(41, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(41, row1.REASON_CODE);
+}
+
+                        if(row1.REASON_NOTE == null) {
+pstmtUpdate_tDBOutput_1.setNull(42, java.sql.Types.CLOB);
+} else {pstmtUpdate_tDBOutput_1.setCharacterStream(42, new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
+}
+
+                        if(row1.BLACKLIST_FLAG == null) {
+pstmtUpdate_tDBOutput_1.setNull(43, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(43, row1.BLACKLIST_FLAG);
+}
+
+                        if(row1.BLACKLIST_LEVEL == null) {
+pstmtUpdate_tDBOutput_1.setNull(44, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(44, row1.BLACKLIST_LEVEL);
+}
+
+                        if(row1.REF_CR_NO == null) {
+pstmtUpdate_tDBOutput_1.setNull(45, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(45, row1.REF_CR_NO);
+}
+
+                        if(row1.REF_CA_ID == null) {
+pstmtUpdate_tDBOutput_1.setNull(46, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(46, row1.REF_CA_ID);
+}
+
+                        if(row1.REF_PA_ID == null) {
+pstmtUpdate_tDBOutput_1.setNull(47, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(47, row1.REF_PA_ID);
+}
+
+                        pstmtUpdate_tDBOutput_1.setBigDecimal(48, row1.CREDIT_LIMIT);
+
+                        pstmtUpdate_tDBOutput_1.setBigDecimal(49, row1.CREDIT_AVAILABLE);
+
+                        if(row1.CREDIT_TERMS == null) {
+pstmtUpdate_tDBOutput_1.setNull(50, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setShort(50, row1.CREDIT_TERMS);
+}
+
+                        if(row1.CONTR_RUNNING == null) {
+pstmtUpdate_tDBOutput_1.setNull(51, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(51, row1.CONTR_RUNNING);
+}
+
+                        if(row1.CREATE_BY == null) {
+pstmtUpdate_tDBOutput_1.setNull(52, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(52, row1.CREATE_BY);
+}
+
+                        if(row1.CREATE_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(53, new java.sql.Timestamp(row1.CREATE_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(53, java.sql.Types.DATE);
+}
+
+                        if(row1.LAST_UPDATE_BY == null) {
+pstmtUpdate_tDBOutput_1.setNull(54, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(54, row1.LAST_UPDATE_BY);
+}
+
+                        if(row1.LAST_UPDATE_DATE != null) {
+pstmtUpdate_tDBOutput_1.setObject(55, new java.sql.Timestamp(row1.LAST_UPDATE_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtUpdate_tDBOutput_1.setNull(55, java.sql.Types.DATE);
+}
+
+                        if(row1.REMARK == null) {
+pstmtUpdate_tDBOutput_1.setNull(56, java.sql.Types.CLOB);
+} else {pstmtUpdate_tDBOutput_1.setCharacterStream(56, new java.io.StringReader(row1.REMARK), row1.REMARK.length());
+}
+
+                        if(row1.REF_SAA_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(57, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(57, row1.REF_SAA_CODE);
+}
+
+                        if(row1.VENDOR_CODE == null) {
+pstmtUpdate_tDBOutput_1.setNull(58, java.sql.Types.VARCHAR);
+} else {pstmtUpdate_tDBOutput_1.setString(58, row1.VENDOR_CODE);
+}
+
+                        if(row1.USSD_SELLER_CODE_SEQ == null) {
+pstmtUpdate_tDBOutput_1.setNull(59, java.sql.Types.INTEGER);
+} else {pstmtUpdate_tDBOutput_1.setInt(59, row1.USSD_SELLER_CODE_SEQ);
+}
+
+                        pstmtUpdate_tDBOutput_1.setLong(60 + count_tDBOutput_1, row1.PARTNER_ID);
+
+                try {
+                    updatedCount_tDBOutput_1 = updatedCount_tDBOutput_1 + pstmtUpdate_tDBOutput_1.executeUpdate();
+                    nb_line_tDBOutput_1++;
+                } catch(java.lang.Exception e_tDBOutput_1) {
+                    whetherReject_tDBOutput_1 = true;
+                        nb_line_tDBOutput_1++;
+                            System.err.print(e_tDBOutput_1.getMessage());
+                }
+            } else {
+                        pstmtInsert_tDBOutput_1.setLong(1, row1.PARTNER_ID);
+
+                        if(row1.PARTNER_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(2, new java.sql.Timestamp(row1.PARTNER_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(2, java.sql.Types.DATE);
+}
+
+                        if(row1.REF_APPL_ID == null) {
+pstmtInsert_tDBOutput_1.setNull(3, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(3, row1.REF_APPL_ID);
+}
+
+                        if(row1.PARTNER_TYPE == null) {
+pstmtInsert_tDBOutput_1.setNull(4, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(4, row1.PARTNER_TYPE);
+}
+
+                        if(row1.PREFIX_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(5, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(5, row1.PREFIX_CODE);
+}
+
+                        if(row1.PARTNER_NAME == null) {
+pstmtInsert_tDBOutput_1.setNull(6, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(6, row1.PARTNER_NAME);
+}
+
+                        if(row1.SUFFIX_NAME == null) {
+pstmtInsert_tDBOutput_1.setNull(7, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(7, row1.SUFFIX_NAME);
+}
+
+                        if(row1.PARTNER_FULL_NAME == null) {
+pstmtInsert_tDBOutput_1.setNull(8, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(8, row1.PARTNER_FULL_NAME);
+}
+
+                        if(row1.PARTNER_ABBV == null) {
+pstmtInsert_tDBOutput_1.setNull(9, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(9, row1.PARTNER_ABBV);
+}
+
+                        if(row1.ID_TYPE == null) {
+pstmtInsert_tDBOutput_1.setNull(10, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(10, row1.ID_TYPE);
+}
+
+                        if(row1.ID_CARD == null) {
+pstmtInsert_tDBOutput_1.setNull(11, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(11, row1.ID_CARD);
+}
+
+                        if(row1.ID_BRANCH == null) {
+pstmtInsert_tDBOutput_1.setNull(12, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(12, row1.ID_BRANCH);
+}
+
+                        if(row1.BRANCH_NAME == null) {
+pstmtInsert_tDBOutput_1.setNull(13, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(13, row1.BRANCH_NAME);
+}
+
+                        if(row1.DATE_OF_BIRTH != null) {
+pstmtInsert_tDBOutput_1.setObject(14, new java.sql.Timestamp(row1.DATE_OF_BIRTH.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(14, java.sql.Types.DATE);
+}
+
+                        if(row1.ISSUED_BY == null) {
+pstmtInsert_tDBOutput_1.setNull(15, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(15, row1.ISSUED_BY);
+}
+
+                        if(row1.ISSUED_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(16, new java.sql.Timestamp(row1.ISSUED_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(16, java.sql.Types.DATE);
+}
+
+                        if(row1.EXPIRED_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(17, new java.sql.Timestamp(row1.EXPIRED_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(17, java.sql.Types.DATE);
+}
+
+                        if(row1.GENDER == null) {
+pstmtInsert_tDBOutput_1.setNull(18, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(18, row1.GENDER);
+}
+
+                        if(row1.NATION_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(19, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(19, row1.NATION_CODE);
+}
+
+                        if(row1.PRIORITY_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(20, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(20, row1.PRIORITY_CODE);
+}
+
+                        if(row1.VAT_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(21, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(21, row1.VAT_CODE);
+}
+
+                        pstmtInsert_tDBOutput_1.setBigDecimal(22, row1.CAP_INCOME);
+
+                        if(row1.SALARY_RANGE == null) {
+pstmtInsert_tDBOutput_1.setNull(23, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(23, row1.SALARY_RANGE);
+}
+
+                        if(row1.TOTAL_EMP == null) {
+pstmtInsert_tDBOutput_1.setNull(24, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(24, row1.TOTAL_EMP);
+}
+
+                        if(row1.ADDR_SEQ_BILL == null) {
+pstmtInsert_tDBOutput_1.setNull(25, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(25, row1.ADDR_SEQ_BILL);
+}
+
+                        if(row1.CONTACT_PERSON_SEQ == null) {
+pstmtInsert_tDBOutput_1.setNull(26, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(26, row1.CONTACT_PERSON_SEQ);
+}
+
+                        if(row1.CONTACT_CHANNEL_SEQ_MOBILE == null) {
+pstmtInsert_tDBOutput_1.setNull(27, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(27, row1.CONTACT_CHANNEL_SEQ_MOBILE);
+}
+
+                        if(row1.CONTACT_CHANNEL_SEQ_EMAIL == null) {
+pstmtInsert_tDBOutput_1.setNull(28, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(28, row1.CONTACT_CHANNEL_SEQ_EMAIL);
+}
+
+                        if(row1.DOC_ATTCH_SEQ == null) {
+pstmtInsert_tDBOutput_1.setNull(29, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(29, row1.DOC_ATTCH_SEQ);
+}
+
+                        if(row1.REF_SERVICE_CATE == null) {
+pstmtInsert_tDBOutput_1.setNull(30, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(30, row1.REF_SERVICE_CATE);
+}
+
+                        if(row1.REF_SAA_REGION == null) {
+pstmtInsert_tDBOutput_1.setNull(31, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(31, row1.REF_SAA_REGION);
+}
+
+                        if(row1.REF_SAA_PROVINCE == null) {
+pstmtInsert_tDBOutput_1.setNull(32, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(32, row1.REF_SAA_PROVINCE);
+}
+
+                        if(row1.REF_SAA_SALES_TEAM == null) {
+pstmtInsert_tDBOutput_1.setNull(33, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(33, row1.REF_SAA_SALES_TEAM);
+}
+
+                        if(row1.REF_SAA_SALES_REP == null) {
+pstmtInsert_tDBOutput_1.setNull(34, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(34, row1.REF_SAA_SALES_REP);
+}
+
+                        if(row1.ASSIGN_BY_REG == null) {
+pstmtInsert_tDBOutput_1.setNull(35, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(35, row1.ASSIGN_BY_REG);
+}
+
+                        if(row1.ASSIGN_TO_TEAM_MGR == null) {
+pstmtInsert_tDBOutput_1.setNull(36, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(36, row1.ASSIGN_TO_TEAM_MGR);
+}
+
+                        if(row1.ASSIGN_DATE_1 != null) {
+pstmtInsert_tDBOutput_1.setObject(37, new java.sql.Timestamp(row1.ASSIGN_DATE_1.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(37, java.sql.Types.DATE);
+}
+
+                        if(row1.ASSIGN_DATE_2 != null) {
+pstmtInsert_tDBOutput_1.setObject(38, new java.sql.Timestamp(row1.ASSIGN_DATE_2.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(38, java.sql.Types.DATE);
+}
+
+                        if(row1.APPV_BY == null) {
+pstmtInsert_tDBOutput_1.setNull(39, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(39, row1.APPV_BY);
+}
+
+                        if(row1.APPV_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(40, new java.sql.Timestamp(row1.APPV_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(40, java.sql.Types.DATE);
+}
+
+                        if(row1.STATUS == null) {
+pstmtInsert_tDBOutput_1.setNull(41, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(41, row1.STATUS);
+}
+
+                        if(row1.REASON_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(42, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(42, row1.REASON_CODE);
+}
+
+                        if(row1.REASON_NOTE == null) {
+pstmtInsert_tDBOutput_1.setNull(43, java.sql.Types.CLOB);
+} else {pstmtInsert_tDBOutput_1.setCharacterStream(43, new java.io.StringReader(row1.REASON_NOTE), row1.REASON_NOTE.length());
+}
+
+                        if(row1.BLACKLIST_FLAG == null) {
+pstmtInsert_tDBOutput_1.setNull(44, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(44, row1.BLACKLIST_FLAG);
+}
+
+                        if(row1.BLACKLIST_LEVEL == null) {
+pstmtInsert_tDBOutput_1.setNull(45, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(45, row1.BLACKLIST_LEVEL);
+}
+
+                        if(row1.REF_CR_NO == null) {
+pstmtInsert_tDBOutput_1.setNull(46, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(46, row1.REF_CR_NO);
+}
+
+                        if(row1.REF_CA_ID == null) {
+pstmtInsert_tDBOutput_1.setNull(47, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(47, row1.REF_CA_ID);
+}
+
+                        if(row1.REF_PA_ID == null) {
+pstmtInsert_tDBOutput_1.setNull(48, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(48, row1.REF_PA_ID);
+}
+
+                        pstmtInsert_tDBOutput_1.setBigDecimal(49, row1.CREDIT_LIMIT);
+
+                        pstmtInsert_tDBOutput_1.setBigDecimal(50, row1.CREDIT_AVAILABLE);
+
+                        if(row1.CREDIT_TERMS == null) {
+pstmtInsert_tDBOutput_1.setNull(51, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setShort(51, row1.CREDIT_TERMS);
+}
+
+                        if(row1.CONTR_RUNNING == null) {
+pstmtInsert_tDBOutput_1.setNull(52, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(52, row1.CONTR_RUNNING);
+}
+
+                        if(row1.CREATE_BY == null) {
+pstmtInsert_tDBOutput_1.setNull(53, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(53, row1.CREATE_BY);
+}
+
+                        if(row1.CREATE_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(54, new java.sql.Timestamp(row1.CREATE_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(54, java.sql.Types.DATE);
+}
+
+                        if(row1.LAST_UPDATE_BY == null) {
+pstmtInsert_tDBOutput_1.setNull(55, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(55, row1.LAST_UPDATE_BY);
+}
+
+                        if(row1.LAST_UPDATE_DATE != null) {
+pstmtInsert_tDBOutput_1.setObject(56, new java.sql.Timestamp(row1.LAST_UPDATE_DATE.getTime()),java.sql.Types.DATE);
+} else {
+pstmtInsert_tDBOutput_1.setNull(56, java.sql.Types.DATE);
+}
+
+                        if(row1.REMARK == null) {
+pstmtInsert_tDBOutput_1.setNull(57, java.sql.Types.CLOB);
+} else {pstmtInsert_tDBOutput_1.setCharacterStream(57, new java.io.StringReader(row1.REMARK), row1.REMARK.length());
+}
+
+                        if(row1.REF_SAA_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(58, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(58, row1.REF_SAA_CODE);
+}
+
+                        if(row1.VENDOR_CODE == null) {
+pstmtInsert_tDBOutput_1.setNull(59, java.sql.Types.VARCHAR);
+} else {pstmtInsert_tDBOutput_1.setString(59, row1.VENDOR_CODE);
+}
+
+                        if(row1.USSD_SELLER_CODE_SEQ == null) {
+pstmtInsert_tDBOutput_1.setNull(60, java.sql.Types.INTEGER);
+} else {pstmtInsert_tDBOutput_1.setInt(60, row1.USSD_SELLER_CODE_SEQ);
+}
+
+                try {
+                    insertedCount_tDBOutput_1 = insertedCount_tDBOutput_1 + pstmtInsert_tDBOutput_1.executeUpdate();
+                    nb_line_tDBOutput_1++;
+                } catch(java.lang.Exception e_tDBOutput_1) {
+                    whetherReject_tDBOutput_1 = true;
+                        nb_line_tDBOutput_1++;
+                            System.err.print(e_tDBOutput_1.getMessage());
+                }
+            }
+                commitCounter_tDBOutput_1++;
+                if(commitEvery_tDBOutput_1 <= commitCounter_tDBOutput_1) {
+
+                    conn_tDBOutput_1.commit();
+                    commitCounter_tDBOutput_1=0;
+                }
+
+ 
+
+
+	tos_count_tDBOutput_1++;
+
+/**
+ * [tDBOutput_1 main ] stop
+ */
+	
+	/**
+	 * [tDBOutput_1 process_data_begin ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBOutput_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tDBOutput_1 process_data_begin ] stop
+ */
+	
+	/**
+	 * [tDBOutput_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBOutput_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tDBOutput_1 process_data_end ] stop
+ */
+
+
+
+	
+	/**
+	 * [tDBInput_1 process_data_end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBInput_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tDBInput_1 process_data_end ] stop
+ */
+	
+	/**
+	 * [tDBInput_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBInput_1";
+
+	
+
+	}
+}finally{
+	if (rs_tDBInput_1 != null) {
+		rs_tDBInput_1.close();
+	}
+	if (stmt_tDBInput_1 != null) {
+		stmt_tDBInput_1.close();
+	}
+		if(conn_tDBInput_1 != null && !conn_tDBInput_1.isClosed()) {
+			
+			conn_tDBInput_1.close();
+			
+			if("com.mysql.cj.jdbc.Driver".equals((String)globalMap.get("driverClass_"))
+			    && routines.system.BundleUtils.inOSGi()) {
+			        Class.forName("com.mysql.cj.jdbc.AbandonedConnectionCleanupThread").
+			            getMethod("checkedShutdown").invoke(null, (Object[]) null);
 			}
-			resourceMap = null;
+			
 		}
+		
+}
+
+		   globalMap.put("tDBInput_1_NB_LINE",nb_line_tDBInput_1);
+		
+
+
+ 
+
+ok_Hash.put("tDBInput_1", true);
+end_Hash.put("tDBInput_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tDBInput_1 end ] stop
+ */
+
+	
+	/**
+	 * [tDBOutput_1 end ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBOutput_1";
+
+	
+	
+
+
+
+	
+        if(pstmtUpdate_tDBOutput_1 != null){
+            pstmtUpdate_tDBOutput_1.close();
+            resourceMap.remove("pstmtUpdate_tDBOutput_1");
+        }
+        if(pstmtInsert_tDBOutput_1 != null){
+            pstmtInsert_tDBOutput_1.close();
+            resourceMap.remove("pstmtInsert_tDBOutput_1");
+        }
+        if(pstmt_tDBOutput_1 != null) {
+            pstmt_tDBOutput_1.close();
+            resourceMap.remove("pstmt_tDBOutput_1");
+        }
+    resourceMap.put("statementClosed_tDBOutput_1", true);
+		if(commitCounter_tDBOutput_1 > 0) {
+			
+		    conn_tDBOutput_1.commit();
+			
+		}
+		
+		
+		conn_tDBOutput_1 .close();
+		
+		resourceMap.put("finish_tDBOutput_1", true);
+   	
+
+
+	
+	nb_line_deleted_tDBOutput_1=nb_line_deleted_tDBOutput_1+ deletedCount_tDBOutput_1;
+	nb_line_update_tDBOutput_1=nb_line_update_tDBOutput_1 + updatedCount_tDBOutput_1;
+	nb_line_inserted_tDBOutput_1=nb_line_inserted_tDBOutput_1 + insertedCount_tDBOutput_1;
+	nb_line_rejected_tDBOutput_1=nb_line_rejected_tDBOutput_1 + rejectedCount_tDBOutput_1;
+	
+        globalMap.put("tDBOutput_1_NB_LINE",nb_line_tDBOutput_1);
+        globalMap.put("tDBOutput_1_NB_LINE_UPDATED",nb_line_update_tDBOutput_1);
+        globalMap.put("tDBOutput_1_NB_LINE_INSERTED",nb_line_inserted_tDBOutput_1);
+        globalMap.put("tDBOutput_1_NB_LINE_DELETED",nb_line_deleted_tDBOutput_1);
+        globalMap.put("tDBOutput_1_NB_LINE_REJECTED", nb_line_rejected_tDBOutput_1);
+    
+	
+
+
+
+				if(execStat){
+			  		runStat.updateStat(resourceMap,iterateId,2,0,"row1");
+			  	}
+			  	
+ 
+
+ok_Hash.put("tDBOutput_1", true);
+end_Hash.put("tDBOutput_1", System.currentTimeMillis());
+
+
+
+
+/**
+ * [tDBOutput_1 end ] stop
+ */
+
+
+
+				}//end the resume
+
+				
+
+
+
+	
+			}catch(java.lang.Exception e){	
+				
+				TalendException te = new TalendException(e, currentComponent, globalMap);
+				
+				throw te;
+			}catch(java.lang.Error error){	
+				
+					runStat.stopThreadStat();
+				
+				throw error;
+			}finally{
+				
+				try{
+					
+	
+	/**
+	 * [tDBInput_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBInput_1";
+
+	
+
+ 
+
+
+
+/**
+ * [tDBInput_1 finally ] stop
+ */
+
+	
+	/**
+	 * [tDBOutput_1 finally ] start
+	 */
+
+	
+
+	
+	
+	currentComponent="tDBOutput_1";
+
+	
+
+
+
+    try {
+    if (resourceMap.get("statementClosed_tDBOutput_1") == null) {
+                java.sql.PreparedStatement pstmtUpdateToClose_tDBOutput_1 = null;
+                if ((pstmtUpdateToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmtUpdate_tDBOutput_1")) != null) {
+                    pstmtUpdateToClose_tDBOutput_1.close();
+                }
+                java.sql.PreparedStatement pstmtInsertToClose_tDBOutput_1 = null;
+                if ((pstmtInsertToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmtInsert_tDBOutput_1")) != null) {
+                    pstmtInsertToClose_tDBOutput_1.close();
+                }
+                java.sql.PreparedStatement pstmtToClose_tDBOutput_1 = null;
+                if ((pstmtToClose_tDBOutput_1 = (java.sql.PreparedStatement) resourceMap.remove("pstmt_tDBOutput_1")) != null) {
+                    pstmtToClose_tDBOutput_1.close();
+                }
+    }
+    } finally {
+        if(resourceMap.get("finish_tDBOutput_1") == null){
+            java.sql.Connection ctn_tDBOutput_1 = null;
+            if((ctn_tDBOutput_1 = (java.sql.Connection)resourceMap.get("conn_tDBOutput_1")) != null){
+                try {
+                    ctn_tDBOutput_1.close();
+                } catch (java.sql.SQLException sqlEx_tDBOutput_1) {
+                    String errorMessage_tDBOutput_1 = "failed to close the connection in tDBOutput_1 :" + sqlEx_tDBOutput_1.getMessage();
+                    System.err.println(errorMessage_tDBOutput_1);
+                }
+            }
+        }
+    }
+ 
+
+
+
+/**
+ * [tDBOutput_1 finally ] stop
+ */
+
+
+
+				}catch(java.lang.Exception e){	
+					//ignore
+				}catch(java.lang.Error error){
+					//ignore
+				}
+				resourceMap = null;
+			}
+		
 
 		globalMap.put("tDBInput_1_SUBPROCESS_STATE", 1);
 	}
+	
+    public String resuming_logs_dir_path = null;
+    public String resuming_checkpoint_path = null;
+    public String parent_part_launcher = null;
+    private String resumeEntryMethodName = null;
+    private boolean globalResumeTicket = false;
 
-	public String resuming_logs_dir_path = null;
-	public String resuming_checkpoint_path = null;
-	public String parent_part_launcher = null;
-	private String resumeEntryMethodName = null;
-	private boolean globalResumeTicket = false;
+    public boolean watch = false;
+    // portStats is null, it means don't execute the statistics
+    public Integer portStats = null;
+    public int portTraces = 4334;
+    public String clientHost;
+    public String defaultClientHost = "localhost";
+    public String contextStr = "Default";
+    public boolean isDefaultContext = true;
+    public String pid = "0";
+    public String rootPid = null;
+    public String fatherPid = null;
+    public String fatherNode = null;
+    public long startTime = 0;
+    public boolean isChildJob = false;
+    public String log4jLevel = "";
+    
+    private boolean enableLogStash;
 
-	public boolean watch = false;
-	// portStats is null, it means don't execute the statistics
-	public Integer portStats = null;
-	public int portTraces = 4334;
-	public String clientHost;
-	public String defaultClientHost = "localhost";
-	public String contextStr = "Default";
-	public boolean isDefaultContext = true;
-	public String pid = "0";
-	public String rootPid = null;
-	public String fatherPid = null;
-	public String fatherNode = null;
-	public long startTime = 0;
-	public boolean isChildJob = false;
-	public String log4jLevel = "";
+    private boolean execStat = true;
 
-	private boolean enableLogStash;
+    private ThreadLocal<java.util.Map<String, String>> threadLocal = new ThreadLocal<java.util.Map<String, String>>() {
+        protected java.util.Map<String, String> initialValue() {
+            java.util.Map<String,String> threadRunResultMap = new java.util.HashMap<String, String>();
+            threadRunResultMap.put("errorCode", null);
+            threadRunResultMap.put("status", "");
+            return threadRunResultMap;
+        };
+    };
 
-	private boolean execStat = true;
 
-	private ThreadLocal<java.util.Map<String, String>> threadLocal = new ThreadLocal<java.util.Map<String, String>>() {
-		protected java.util.Map<String, String> initialValue() {
-			java.util.Map<String, String> threadRunResultMap = new java.util.HashMap<String, String>();
-			threadRunResultMap.put("errorCode", null);
-			threadRunResultMap.put("status", "");
-			return threadRunResultMap;
-		};
-	};
+    private PropertiesWithType context_param = new PropertiesWithType();
+    public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
 
-	private PropertiesWithType context_param = new PropertiesWithType();
-	public java.util.Map<String, Object> parentContextMap = new java.util.HashMap<String, Object>();
+    public String status= "";
+    
 
-	public String status = "";
+    public static void main(String[] args){
+        final loadPartnerMast loadPartnerMastClass = new loadPartnerMast();
 
-	public static void main(String[] args) {
-		final loadPartnerMast loadPartnerMastClass = new loadPartnerMast();
+        int exitCode = loadPartnerMastClass.runJobInTOS(args);
 
-		int exitCode = loadPartnerMastClass.runJobInTOS(args);
+        System.exit(exitCode);
+    }
 
-		System.exit(exitCode);
-	}
 
-	public String[][] runJob(String[] args) {
+    public String[][] runJob(String[] args) {
 
-		int exitCode = runJobInTOS(args);
-		String[][] bufferValue = new String[][] { { Integer.toString(exitCode) } };
+        int exitCode = runJobInTOS(args);
+        String[][] bufferValue = new String[][] { { Integer.toString(exitCode) } };
 
-		return bufferValue;
-	}
+        return bufferValue;
+    }
 
-	public boolean hastBufferOutputComponent() {
+    public boolean hastBufferOutputComponent() {
 		boolean hastBufferOutput = false;
+    	
+        return hastBufferOutput;
+    }
 
-		return hastBufferOutput;
-	}
+    public int runJobInTOS(String[] args) {
+	   	// reset status
+	   	status = "";
+	   	
+        String lastStr = "";
+        for (String arg : args) {
+            if (arg.equalsIgnoreCase("--context_param")) {
+                lastStr = arg;
+            } else if (lastStr.equals("")) {
+                evalParam(arg);
+            } else {
+                evalParam(lastStr + " " + arg);
+                lastStr = "";
+            }
+        }
+        enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
 
-	public int runJobInTOS(String[] args) {
-		// reset status
-		status = "";
+    	
+    	
 
-		String lastStr = "";
-		for (String arg : args) {
-			if (arg.equalsIgnoreCase("--context_param")) {
-				lastStr = arg;
-			} else if (lastStr.equals("")) {
-				evalParam(arg);
-			} else {
-				evalParam(lastStr + " " + arg);
-				lastStr = "";
-			}
-		}
-		enableLogStash = "true".equalsIgnoreCase(System.getProperty("monitoring"));
+        if(clientHost == null) {
+            clientHost = defaultClientHost;
+        }
 
-		if (clientHost == null) {
-			clientHost = defaultClientHost;
-		}
+        if(pid == null || "0".equals(pid)) {
+            pid = TalendString.getAsciiRandomString(6);
+        }
 
-		if (pid == null || "0".equals(pid)) {
-			pid = TalendString.getAsciiRandomString(6);
-		}
+        if (rootPid==null) {
+            rootPid = pid;
+        }
+        if (fatherPid==null) {
+            fatherPid = pid;
+        }else{
+            isChildJob = true;
+        }
 
-		if (rootPid == null) {
-			rootPid = pid;
-		}
-		if (fatherPid == null) {
-			fatherPid = pid;
-		} else {
-			isChildJob = true;
-		}
+        if (portStats != null) {
+            // portStats = -1; //for testing
+            if (portStats < 0 || portStats > 65535) {
+                // issue:10869, the portStats is invalid, so this client socket can't open
+                System.err.println("The statistics socket port " + portStats + " is invalid.");
+                execStat = false;
+            }
+        } else {
+            execStat = false;
+        }
 
-		if (portStats != null) {
-			// portStats = -1; //for testing
-			if (portStats < 0 || portStats > 65535) {
-				// issue:10869, the portStats is invalid, so this client socket can't open
-				System.err.println("The statistics socket port " + portStats + " is invalid.");
-				execStat = false;
-			}
-		} else {
-			execStat = false;
-		}
+        try {
+            //call job/subjob with an existing context, like: --context=production. if without this parameter, there will use the default context instead.
+            java.io.InputStream inContext = loadPartnerMast.class.getClassLoader().getResourceAsStream("commission_report/loadpartnermast_0_1/contexts/" + contextStr + ".properties");
+            if (inContext == null) {
+                inContext = loadPartnerMast.class.getClassLoader().getResourceAsStream("config/contexts/" + contextStr + ".properties");
+            }
+            if (inContext != null) {
+                //defaultProps is in order to keep the original context value
+                if(context != null && context.isEmpty()) {
+	                defaultProps.load(inContext);
+	                context = new ContextProperties(defaultProps);
+                }
+                
+                inContext.close();
+            } else if (!isDefaultContext) {
+                //print info and job continue to run, for case: context_param is not empty.
+                System.err.println("Could not find the context " + contextStr);
+            }
 
-		try {
-			// call job/subjob with an existing context, like: --context=production. if
-			// without this parameter, there will use the default context instead.
-			java.io.InputStream inContext = loadPartnerMast.class.getClassLoader().getResourceAsStream(
-					"commission_report/loadpartnermast_0_1/contexts/" + contextStr + ".properties");
-			if (inContext == null) {
-				inContext = loadPartnerMast.class.getClassLoader()
-						.getResourceAsStream("config/contexts/" + contextStr + ".properties");
-			}
-			if (inContext != null) {
-				// defaultProps is in order to keep the original context value
-				if (context != null && context.isEmpty()) {
-					defaultProps.load(inContext);
-					context = new ContextProperties(defaultProps);
-				}
-
-				inContext.close();
-			} else if (!isDefaultContext) {
-				// print info and job continue to run, for case: context_param is not empty.
-				System.err.println("Could not find the context " + contextStr);
-			}
-
-			if (!context_param.isEmpty()) {
-				context.putAll(context_param);
-				// set types for params from parentJobs
-				for (Object key : context_param.keySet()) {
+            if(!context_param.isEmpty()) {
+                context.putAll(context_param);
+				//set types for params from parentJobs
+				for (Object key: context_param.keySet()){
 					String context_key = key.toString();
 					String context_type = context_param.getContextType(context_key);
 					context.setContextType(context_key, context_type);
 
 				}
-			}
-			class ContextProcessing {
-				private void processContext_0() {
-				}
+            }
+            class ContextProcessing {
+                private void processContext_0() {
+                } 
+                public void processAllContext() {
+                        processContext_0();
+                }
+            }
 
-				public void processAllContext() {
-					processContext_0();
-				}
-			}
+            new ContextProcessing().processAllContext();
+        } catch (java.io.IOException ie) {
+            System.err.println("Could not load context "+contextStr);
+            ie.printStackTrace();
+        }
 
-			new ContextProcessing().processAllContext();
-		} catch (java.io.IOException ie) {
-			System.err.println("Could not load context " + contextStr);
-			ie.printStackTrace();
-		}
+        // get context value from parent directly
+        if (parentContextMap != null && !parentContextMap.isEmpty()) {
+        }
 
-		// get context value from parent directly
-		if (parentContextMap != null && !parentContextMap.isEmpty()) {
-		}
-
-		// Resume: init the resumeUtil
-		resumeEntryMethodName = ResumeUtil.getResumeEntryMethodName(resuming_checkpoint_path);
-		resumeUtil = new ResumeUtil(resuming_logs_dir_path, isChildJob, rootPid);
-		resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
+        //Resume: init the resumeUtil
+        resumeEntryMethodName = ResumeUtil.getResumeEntryMethodName(resuming_checkpoint_path);
+        resumeUtil = new ResumeUtil(resuming_logs_dir_path, isChildJob, rootPid);
+        resumeUtil.initCommonInfo(pid, rootPid, fatherPid, projectName, jobName, contextStr, jobVersion);
 
 		List<String> parametersToEncrypt = new java.util.ArrayList<String>();
-		// Resume: jobStart
-		resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "",
-				"", "", "", "", resumeUtil.convertToJsonText(context, parametersToEncrypt));
+        //Resume: jobStart
+        resumeUtil.addLog("JOB_STARTED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "","","","",resumeUtil.convertToJsonText(context,parametersToEncrypt));
 
-		if (execStat) {
-			try {
-				runStat.openSocket(!isChildJob);
-				runStat.setAllPID(rootPid, fatherPid, pid, jobName);
-				runStat.startThreadStat(clientHost, portStats);
-				runStat.updateStatOnJob(RunStat.JOBSTART, fatherNode);
-			} catch (java.io.IOException ioException) {
-				ioException.printStackTrace();
-			}
-		}
+if(execStat) {
+    try {
+        runStat.openSocket(!isChildJob);
+        runStat.setAllPID(rootPid, fatherPid, pid, jobName);
+        runStat.startThreadStat(clientHost, portStats);
+        runStat.updateStatOnJob(RunStat.JOBSTART, fatherNode);
+    } catch (java.io.IOException ioException) {
+        ioException.printStackTrace();
+    }
+}
 
-		java.util.concurrent.ConcurrentHashMap<Object, Object> concurrentHashMap = new java.util.concurrent.ConcurrentHashMap<Object, Object>();
-		globalMap.put("concurrentHashMap", concurrentHashMap);
 
-		long startUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		long endUsedMemory = 0;
-		long end = 0;
 
-		startTime = System.currentTimeMillis();
+	
+	    java.util.concurrent.ConcurrentHashMap<Object, Object> concurrentHashMap = new java.util.concurrent.ConcurrentHashMap<Object, Object>();
+	    globalMap.put("concurrentHashMap", concurrentHashMap);
+	
 
-		this.globalResumeTicket = true;// to run tPreJob
+    long startUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+    long endUsedMemory = 0;
+    long end = 0;
 
-		this.globalResumeTicket = false;// to run others jobs
+    startTime = System.currentTimeMillis();
 
-		try {
-			errorCode = null;
-			tDBInput_1Process(globalMap);
-			if (!"failure".equals(status)) {
-				status = "end";
-			}
-		} catch (TalendException e_tDBInput_1) {
-			globalMap.put("tDBInput_1_SUBPROCESS_STATE", -1);
 
-			e_tDBInput_1.printStackTrace();
 
-		}
 
-		this.globalResumeTicket = true;// to run tPostJob
+this.globalResumeTicket = true;//to run tPreJob
 
-		end = System.currentTimeMillis();
 
-		if (watch) {
-			System.out.println((end - startTime) + " milliseconds");
-		}
 
-		endUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-		if (false) {
-			System.out.println(
-					(endUsedMemory - startUsedMemory) + " bytes memory increase when running : loadPartnerMast");
-		}
 
-		if (execStat) {
-			runStat.updateStatOnJob(RunStat.JOBEND, fatherNode);
-			runStat.stopThreadStat();
-		}
-		int returnCode = 0;
-		if (errorCode == null) {
-			returnCode = status != null && status.equals("failure") ? 1 : 0;
-		} else {
-			returnCode = errorCode.intValue();
-		}
-		resumeUtil.addLog("JOB_ENDED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "",
-				"" + returnCode, "", "", "");
+this.globalResumeTicket = false;//to run others jobs
 
-		return returnCode;
+try {
+errorCode = null;tDBInput_1Process(globalMap);
+if(!"failure".equals(status)) { status = "end"; }
+}catch (TalendException e_tDBInput_1) {
+globalMap.put("tDBInput_1_SUBPROCESS_STATE", -1);
 
-	}
+e_tDBInput_1.printStackTrace();
 
-	// only for OSGi env
-	public void destroy() {
+}
 
-	}
+this.globalResumeTicket = true;//to run tPostJob
 
-	private java.util.Map<String, Object> getSharedConnections4REST() {
-		java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
 
-		return connections;
-	}
 
-	private void evalParam(String arg) {
-		if (arg.startsWith("--resuming_logs_dir_path")) {
-			resuming_logs_dir_path = arg.substring(25);
-		} else if (arg.startsWith("--resuming_checkpoint_path")) {
-			resuming_checkpoint_path = arg.substring(27);
-		} else if (arg.startsWith("--parent_part_launcher")) {
-			parent_part_launcher = arg.substring(23);
-		} else if (arg.startsWith("--watch")) {
-			watch = true;
-		} else if (arg.startsWith("--stat_port=")) {
-			String portStatsStr = arg.substring(12);
-			if (portStatsStr != null && !portStatsStr.equals("null")) {
-				portStats = Integer.parseInt(portStatsStr);
-			}
-		} else if (arg.startsWith("--trace_port=")) {
-			portTraces = Integer.parseInt(arg.substring(13));
-		} else if (arg.startsWith("--client_host=")) {
-			clientHost = arg.substring(14);
-		} else if (arg.startsWith("--context=")) {
-			contextStr = arg.substring(10);
-			isDefaultContext = false;
-		} else if (arg.startsWith("--father_pid=")) {
-			fatherPid = arg.substring(13);
-		} else if (arg.startsWith("--root_pid=")) {
-			rootPid = arg.substring(11);
-		} else if (arg.startsWith("--father_node=")) {
-			fatherNode = arg.substring(14);
-		} else if (arg.startsWith("--pid=")) {
-			pid = arg.substring(6);
-		} else if (arg.startsWith("--context_type")) {
-			String keyValue = arg.substring(15);
+
+        end = System.currentTimeMillis();
+
+        if (watch) {
+            System.out.println((end-startTime)+" milliseconds");
+        }
+
+        endUsedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        if (false) {
+            System.out.println((endUsedMemory - startUsedMemory) + " bytes memory increase when running : loadPartnerMast");
+        }
+
+
+
+if (execStat) {
+    runStat.updateStatOnJob(RunStat.JOBEND, fatherNode);
+    runStat.stopThreadStat();
+}
+    int returnCode = 0;
+    if(errorCode == null) {
+         returnCode = status != null && status.equals("failure") ? 1 : 0;
+    } else {
+         returnCode = errorCode.intValue();
+    }
+    resumeUtil.addLog("JOB_ENDED", "JOB:" + jobName, parent_part_launcher, Thread.currentThread().getId() + "", "","" + returnCode,"","","");
+
+    return returnCode;
+
+  }
+
+    // only for OSGi env
+    public void destroy() {
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private java.util.Map<String, Object> getSharedConnections4REST() {
+        java.util.Map<String, Object> connections = new java.util.HashMap<String, Object>();
+
+
+
+
+
+
+
+        return connections;
+    }
+
+    private void evalParam(String arg) {
+        if (arg.startsWith("--resuming_logs_dir_path")) {
+            resuming_logs_dir_path = arg.substring(25);
+        } else if (arg.startsWith("--resuming_checkpoint_path")) {
+            resuming_checkpoint_path = arg.substring(27);
+        } else if (arg.startsWith("--parent_part_launcher")) {
+            parent_part_launcher = arg.substring(23);
+        } else if (arg.startsWith("--watch")) {
+            watch = true;
+        } else if (arg.startsWith("--stat_port=")) {
+            String portStatsStr = arg.substring(12);
+            if (portStatsStr != null && !portStatsStr.equals("null")) {
+                portStats = Integer.parseInt(portStatsStr);
+            }
+        } else if (arg.startsWith("--trace_port=")) {
+            portTraces = Integer.parseInt(arg.substring(13));
+        } else if (arg.startsWith("--client_host=")) {
+            clientHost = arg.substring(14);
+        } else if (arg.startsWith("--context=")) {
+            contextStr = arg.substring(10);
+            isDefaultContext = false;
+        } else if (arg.startsWith("--father_pid=")) {
+            fatherPid = arg.substring(13);
+        } else if (arg.startsWith("--root_pid=")) {
+            rootPid = arg.substring(11);
+        } else if (arg.startsWith("--father_node=")) {
+            fatherNode = arg.substring(14);
+        } else if (arg.startsWith("--pid=")) {
+            pid = arg.substring(6);
+        } else if (arg.startsWith("--context_type")) {
+            String keyValue = arg.substring(15);
 			int index = -1;
-			if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
-				if (fatherPid == null) {
-					context_param.setContextType(keyValue.substring(0, index),
-							replaceEscapeChars(keyValue.substring(index + 1)));
-				} else { // the subjob won't escape the especial chars
-					context_param.setContextType(keyValue.substring(0, index), keyValue.substring(index + 1));
-				}
+            if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
+                if (fatherPid==null) {
+                    context_param.setContextType(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
+                } else { // the subjob won't escape the especial chars
+                    context_param.setContextType(keyValue.substring(0, index), keyValue.substring(index + 1) );
+                }
 
-			}
+            }
 
 		} else if (arg.startsWith("--context_param")) {
-			String keyValue = arg.substring(16);
-			int index = -1;
-			if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
-				if (fatherPid == null) {
-					context_param.put(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
-				} else { // the subjob won't escape the especial chars
-					context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1));
-				}
-			}
-		} else if (arg.startsWith("--log4jLevel=")) {
-			log4jLevel = arg.substring(13);
-		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {// for trunjob call
-			final int equal = arg.indexOf('=');
+            String keyValue = arg.substring(16);
+            int index = -1;
+            if (keyValue != null && (index = keyValue.indexOf('=')) > -1) {
+                if (fatherPid==null) {
+                    context_param.put(keyValue.substring(0, index), replaceEscapeChars(keyValue.substring(index + 1)));
+                } else { // the subjob won't escape the especial chars
+                    context_param.put(keyValue.substring(0, index), keyValue.substring(index + 1) );
+                }
+            }
+        } else if (arg.startsWith("--log4jLevel=")) {
+            log4jLevel = arg.substring(13);
+		} else if (arg.startsWith("--monitoring") && arg.contains("=")) {//for trunjob call
+		    final int equal = arg.indexOf('=');
 			final String key = arg.substring("--".length(), equal);
 			System.setProperty(key, arg.substring(equal + 1));
 		}
-	}
+    }
+    
+    private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
 
-	private static final String NULL_VALUE_EXPRESSION_IN_COMMAND_STRING_FOR_CHILD_JOB_ONLY = "<TALEND_NULL>";
-
-	private final String[][] escapeChars = { { "\\\\", "\\" }, { "\\n", "\n" }, { "\\'", "\'" }, { "\\r", "\r" },
-			{ "\\f", "\f" }, { "\\b", "\b" }, { "\\t", "\t" } };
-
-	private String replaceEscapeChars(String keyValue) {
+    private final String[][] escapeChars = {
+        {"\\\\","\\"},{"\\n","\n"},{"\\'","\'"},{"\\r","\r"},
+        {"\\f","\f"},{"\\b","\b"},{"\\t","\t"}
+        };
+    private String replaceEscapeChars (String keyValue) {
 
 		if (keyValue == null || ("").equals(keyValue.trim())) {
 			return keyValue;
@@ -3336,17 +3425,15 @@ public class loadPartnerMast implements TalendJob {
 			int index = -1;
 			// judege if the left string includes escape chars
 			for (String[] strArray : escapeChars) {
-				index = keyValue.indexOf(strArray[0], currIndex);
-				if (index >= 0) {
+				index = keyValue.indexOf(strArray[0],currIndex);
+				if (index>=0) {
 
-					result.append(keyValue.substring(currIndex, index + strArray[0].length()).replace(strArray[0],
-							strArray[1]));
+					result.append(keyValue.substring(currIndex, index + strArray[0].length()).replace(strArray[0], strArray[1]));
 					currIndex = index + strArray[0].length();
 					break;
 				}
 			}
-			// if the left string doesn't include escape chars, append the left into the
-			// result
+			// if the left string doesn't include escape chars, append the left into the result
 			if (index < 0) {
 				result.append(keyValue.substring(currIndex));
 				currIndex = currIndex + keyValue.length();
@@ -3354,19 +3441,20 @@ public class loadPartnerMast implements TalendJob {
 		}
 
 		return result.toString();
-	}
+    }
 
-	public Integer getErrorCode() {
-		return errorCode;
-	}
+    public Integer getErrorCode() {
+        return errorCode;
+    }
 
-	public String getStatus() {
-		return status;
-	}
 
-	ResumeUtil resumeUtil = null;
+    public String getStatus() {
+        return status;
+    }
+
+    ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 113072 characters generated by Talend Open Studio for Data Integration on the
- * March 29, 2021 6:15:01 PM ICT
+ *     113072 characters generated by Talend Open Studio for Data Integration 
+ *     on the March 30, 2021 2:14:35 PM ICT
  ************************************************************************************************/

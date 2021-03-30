@@ -79,6 +79,11 @@
     </dependency>
     <dependency>
       <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadContractSaaSapcode</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
       <artifactId>loadCommissionFormulaDetails</artifactId>
       <version>0.1.0</version>
     </dependency>
@@ -89,12 +94,47 @@
     </dependency>
     <dependency>
       <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadPartnerServiceRelationship</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadContractSaaService</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadSaaOnOracle</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
       <artifactId>loadCommissionFormula</artifactId>
       <version>0.1.0</version>
     </dependency>
     <dependency>
       <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadPartnerMast</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadContractServiceFormula</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadContractMast</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
       <artifactId>loadCommissionReportMonth</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.example.commission_report.job</groupId>
+      <artifactId>loadPartnerSaleAreaAccount</artifactId>
       <version>0.1.0</version>
     </dependency>
   </dependencies>
