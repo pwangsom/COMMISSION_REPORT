@@ -1030,6 +1030,11 @@
         <initialValue xsi:type="relational:TdExpression" xmi:id="_bpO0WZBxEeufK6KJRdxkDw" language="COLUMN_DEF"/>
         <sqlDataType xmi:id="_bpO0WpBxEeufK6KJRdxkDw" name="VARCHAR" numericPrecisionRadix="10" javaDataType="12"/>
       </feature>
+      <feature xsi:type="relational:TdColumn" xmi:id="_Hflv-JH6EeungP-gHoqWYg" name="START_REPORT_MONTH_ID" comment="[กรณีที่ SAA เริ่มออกรายงานที่ Oracle ตั้งแต่เริ่มต้น ให้ฟิลด์นี้เป็นค่าว่าง] [กรณีที่ SAA เคยออกรายงานที่ MySQL แล้ว และย้ายไปออกรายงานที่ Oracle ให้ระบุเดือนที่เริ่มต้นออกรายงาน ให้ระบุเช่นเดียวกับกับ REPORT_MONTH_ID]" label="START_REPORT_MONTH_ID" length="10" sourceType="DATE" talendType="id_Date" pattern="&quot;dd-MM-yyyy&quot;">
+        <taggedValue xmi:id="_Hflv-ZH6EeungP-gHoqWYg" tag="Comment" value="[กรณีที่ SAA เริ่มออกรายงานที่ Oracle ตั้งแต่เริ่มต้น ให้ฟิลด์นี้เป็นค่าว่าง] [กรณีที่ SAA เคยออกรายงานที่ MySQL แล้ว และย้ายไปออกรายงานที่ Oracle ให้ระบุเดือนที่เริ่มต้นออกรายงาน ให้ระบุเช่นเดียวกับกับ REPORT_MONTH_ID]"/>
+        <initialValue xsi:type="relational:TdExpression" xmi:id="_Hflv-pH6EeungP-gHoqWYg" language="COLUMN_DEF"/>
+        <sqlDataType xmi:id="_Hflv-5H6EeungP-gHoqWYg" name="DATE" numericPrecisionRadix="10" javaDataType="91" nullable="columnNullable"/>
+      </feature>
     </ownedElement>
   </orgomg.cwm.resource.relational:Catalog>
 </xmi:XMI>

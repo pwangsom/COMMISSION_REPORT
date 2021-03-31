@@ -23,6 +23,7 @@
     <module>jobs/process/Commission/loadpartnersaleareaaccount_0.1</module>
     <module>jobs/process/Commission/loadsaaonoracle_0.1</module>
     <module>jobs/process/Commission/loadcontractmast_0.1</module>
+    <module>jobs/process/Commission/callstoredproc_0.1</module>
   </modules>
   <properties>
     <talend.project.name>COMMISSION_REPORT</talend.project.name>
