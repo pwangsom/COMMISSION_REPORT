@@ -10,6 +10,8 @@
   <url>http://www.talend.org/</url>
   <modules>
     <module>code/routines</module>
+    <module>jobs/process/Commission_Report/loadcommissionreport_0.1</module>
+    <module>jobs/process/Commission_Report/loadpartnerservicedetails_0.1</module>
   </modules>
   <properties>
     <talend.project.name>COMMISSION_REPORT</talend.project.name>
